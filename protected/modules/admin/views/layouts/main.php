@@ -19,7 +19,7 @@
     </head>
 
     <body>
-
+        
         <div class="container" id="page">
 
             <div id="header">
@@ -53,7 +53,6 @@
             <div id="footer">
                 Copyright &copy; <?php echo date('Y'); ?> by <?php echo Yii::app()->name; ?>.<br/>
                 All Rights Reserved.<br/>
-<?php echo Yii::powered(); ?>
             </div><!-- footer -->
 
         </div><!-- page -->
