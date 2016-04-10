@@ -159,12 +159,42 @@ class UserController extends Controller {
             Yii::app()->end();
         }
     }
-    
-    public function loginAction(){
-        
+
+    public function actionLogin() {
+        $model = new User;
+        if (isset($_POST['User'])) {
+            if($this->_innerLogin($_POST['User']['username'], $_POST['User']['password'])){
+                $this->redirect(Yii::app()->homeUrl);exit;
+            }
+        }
+        // display the login form
+        $this->render('login', array('model' => $model));
+    }
+
+    public function actionLogout() {
+        Yii::app()->user->logout();
+        $this->redirect(Yii::app()->homeUrl);
+    }
+
+    private function _innerLogin($username, $password) {
+         
+        $user = User::model()->find('username=?', array($username));
+        if ($user == null) {
+            return false;
+        }
+        if (md5($password) != $user->password) {
+            return false;
+        }
+        $this->_login($user);
+        return true;
     }
     
-    public function logoutAction(){
-        
+    private function _login($user) {
+        $identity = new UserIdentity($user->username,$user->password);
+        if (1) {
+            Yii::app()->user->login($identity, 86400 * 30);
+        } else {
+            Yii::app()->user->login($identity);
+        }
     }
 }
