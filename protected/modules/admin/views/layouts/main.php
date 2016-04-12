@@ -30,8 +30,9 @@
                 <?php
                 $this->widget('zii.widgets.CMenu', array(
                     'items' => array(
-                        array('label' => 'Home', 'url' => array('/site/index')),
+                        array('label' => 'Home', 'url' => array('/admin')),
                         array('label' => 'User', 'url' => array('/admin/user')),
+                        array('label' => 'LawyerLetter', 'url' => array('/admin/LawyerLetter')),
                         array('label' => 'Login', 'url' => array('/admin/user/login'), 'visible' => Yii::app()->user->isGuest),
                         array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/admin/user/logout'), 'visible' => !Yii::app()->user->isGuest)
                     ),

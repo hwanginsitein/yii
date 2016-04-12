@@ -191,8 +191,9 @@ class UserController extends Controller {
     
     private function _login($user) {
         $identity = new UserIdentity($user->username,$user->password);
+        $duration = 86400*30;
         if (1) {
-            Yii::app()->user->login($identity, 86400 * 30);
+            Yii::app()->user->login($identity, $duration);
         } else {
             Yii::app()->user->login($identity);
         }
