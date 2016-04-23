@@ -24,17 +24,17 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    1.8.0, 2014-03-02
  */
-
-PHPExcel_Autoloader::Register();
-//    As we always try to run the autoloader before anything else, we can use it to do a few
-//        simple checks and initialisations
-//PHPExcel_Shared_ZipStreamWrapper::register();
-// check mbstring.func_overload
-if (ini_get('mbstring.func_overload') & 2) {
-    throw new PHPExcel_Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
-}
-PHPExcel_Shared_String::buildCharacterSets();
-
+spl_autoload_unregister(array('YiiBase','autoload'));  
+PHPExcel_Autoloader::Register();  
+//  As we always try to run the autoloader before anything else, we can use it to do a few  
+//      simple checks and initialisations  
+PHPExcel_Shared_ZipStreamWrapper::register();  
+// check mbstring.func_overload  
+if (ini_get('mbstring.func_overload') & 2) {  
+    throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');  
+}  
+PHPExcel_Shared_String::buildCharacterSets();  
+spl_autoload_register(array('YiiBase','autoload'));  
 
 /**
  * PHPExcel_Autoloader
