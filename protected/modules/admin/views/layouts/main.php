@@ -16,6 +16,13 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+        <style>
+            <?php if(Yii::app()->controller->id == "uploadDocs"){ ?>
+                .span-19{width:1000px}
+                .container{width:100%}
+                .last{margin-left:100px}
+            <?php } ?>
+        </style>
     </head>
 
     <body>
@@ -33,6 +40,7 @@
                         array('label' => 'Home', 'url' => array('/admin')),
                         array('label' => 'User', 'url' => array('/admin/user')),
                         array('label' => 'LawyerLetter', 'url' => array('/admin/LawyerLetter')),
+                        array('label' => 'Uploads', 'url' => array('/admin/UploadDocs')),
                         array('label' => 'Login', 'url' => array('/admin/user/login'), 'visible' => Yii::app()->user->isGuest),
                         array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/admin/user/logout'), 'visible' => !Yii::app()->user->isGuest)
                     ),
