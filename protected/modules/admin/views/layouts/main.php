@@ -18,11 +18,20 @@
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         <style>
             <?php if(Yii::app()->controller->id == "uploadDocs"){ ?>
-                .span-19{width:1000px}
-                .container{width:100%}
+                .span-19{width:1000px;margin-top:60px;}
+                .container{width:99%}
                 .last{margin-left:100px}
             <?php } ?>
         </style>
+        <?php if(Yii::app()->controller->id == "uploadDocs"){ ?>
+            <script>
+                $(document).ready(function(){
+                    $('#content1').DataTable({
+                        
+                    });
+                });
+            </script>
+        <?php } ?>
     </head>
 
     <body>
