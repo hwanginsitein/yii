@@ -27,12 +27,13 @@ class UploadDocs extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('uploader, time, detail,type,upload_name', 'required'),
+			array('uploader,time,type,upload_name,starttime,endtime,area,comments', 'required'),
 			array('time', 'numerical', 'integerOnly'=>true),
 			array('uploader', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, uploader, time, detail,type,upload_name', 'safe', 'on'=>'search'),
+                        array('endtime', 'compare', 'compareAttribute'=>'starttime', 'operator'=>'>=', 'message'=>'起止时间不对')
 		);
 	}
 
@@ -54,9 +55,13 @@ class UploadDocs extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-                        'upload_name' => '文件简述',
+                        'upload_name' => '文件名字',
 			'uploader' => 'Uploader',
 			'detail' => '文件',
+			'starttime' => '欠费开始时间',
+			'endtime' => '欠费结束时间',
+			'area' => '欠费区域',
+			'comments' => '备注',
 		);
 	}
 

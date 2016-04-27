@@ -45,6 +45,30 @@ class UploadDocsController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
+    public function actionPreview($id) {
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css"); 
+        if($_POST){
+            $p = $_POST;
+            $model = $this->loadModel($id);
+            $detail = json_decode($model->detail,1);
+            $error = array();
+            foreach($p as $k=>$v){
+                if(!in_array($v,$detail[1])){
+                    $error[$k] = $v;
+                }
+            }
+            var_dump($error);
+        }
+        $this->render('preview', array(
+            'model' => $this->loadModel($id),
+            'error' => $error
+        ));
+    }
+    
+    public function actionConfirm($id){
+    }
 
     /**
      * Creates a new model.
@@ -52,12 +76,14 @@ class UploadDocsController extends Controller {
      */
     public function actionCreate() {
         //CUploadedFile::getInstance($model, 'icon'); saveAs
+        Yii::app()->clientScript->registerCoreScript('jquery');
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css"); 
         $model = new UploadDocs;
-
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
         if (isset($_POST['UploadDocs'])) {
-            //$model->attributes = $_POST['UploadDocs'];
+            //var_dump($_POST['UploadDocs']);exit;
+            $model->attributes = $_POST['UploadDocs'];
             $uploader = Yii::app()->user->name;
             $model->uploader = $uploader?$uploader:"admin";
             $model->time = time();
@@ -66,25 +92,27 @@ class UploadDocsController extends Controller {
             $detail = CUploadedFile::getInstance($model, 'detail');
             //$filePath = Yii::app()->basePath."/../uploads/files/".time().rand(0,999).".xls";
             //$detail->saveAs($filePath);getTempName()
-            $filePath = $detail->getTempName();
-            Yii::import('application.extensions.PHPExcel.Classes.PHPExcel', 1);
-            $PHPExcel = new PHPExcel;  
-            $ExcelReader = PHPExcel_IOFactory::createReader('Excel5');
-            $sheet = $ExcelReader->load($filePath)->getSheet(0);
-            $total_line = $sheet->getHighestRow();//12
-            $total_column = $sheet->getHighestColumn();//AA
-            $detail = [];
-            for ($row = 1; $row <= $total_line; $row++) {
-                for ($column = 'A'; $column <= $total_column; $column++){
-                    $detail[$row][$column] = trim($sheet->getCell($column.$row)->getValue());
+            if($detail){
+                $filePath = $detail->getTempName();
+                Yii::import('application.extensions.PHPExcel.Classes.PHPExcel', 1);
+                $PHPExcel = new PHPExcel;  
+                $ExcelReader = PHPExcel_IOFactory::createReader('Excel5');
+                $sheet = $ExcelReader->load($filePath)->getSheet(0);
+                $total_line = $sheet->getHighestRow();//12
+                $total_column = $sheet->getHighestColumn();//AA
+                $detail = array();
+                for ($row = 1; $row <= $total_line; $row++) {
+                    for ($column = 'A'; $column <= $total_column; $column++){
+                        $detail[$row][$column] = trim($sheet->getCell($column.$row)->getValue());
+                    }
                 }
+                $model->detail = json_encode($detail);
             }
-            $model->detail = json_encode($detail);
             if ($model->save()){
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('preview', 'id' => $model->id));
             }
         }
-
+        
         $this->render('create', array(
             'model' => $model,
         ));
@@ -96,6 +124,10 @@ class UploadDocsController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
+        Yii::app()->clientScript->registerCoreScript('jquery');
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css"); 
         $model = $this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed

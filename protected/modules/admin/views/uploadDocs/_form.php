@@ -26,6 +26,21 @@
 		<?php echo $form->error($model,'upload_name'); ?>
 	</div>
 	<div class="row">
+            <label for="UploadDocs_starttime_endtime" class="required">欠费起止时间 <span class="required">*</span></label>
+                <?php echo $form->textField($model,'starttime'); ?>至<?php echo $form->textField($model,'endtime'); ?>
+		<?php echo $form->error($model,'endtime'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'area'); ?>
+		<?php echo $form->textField($model,'area'); ?>
+		<?php echo $form->error($model,'area'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'comments'); ?>
+		<?php echo $form->textField($model,'comments'); ?>
+		<?php echo $form->error($model,'comments'); ?>
+	</div>
+	<div class="row">
 		<?php echo $form->labelEx($model,'detail'); ?>
 		<?php echo $form->fileField($model,'detail'); ?>
 		<?php echo $form->error($model,'detail'); ?>

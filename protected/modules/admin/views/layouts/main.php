@@ -23,15 +23,17 @@
                 .last{margin-left:100px}
             <?php } ?>
         </style>
-        <?php if(Yii::app()->controller->id == "uploadDocs"){ ?>
-            <script>
-                $(document).ready(function(){
-                    $('#content1').DataTable({
-                        
-                    });
+        <script>
+            $().ready(function(){
+                $('#UploadDocs_starttime').datepicker({
+                    showButtonPanel: true
                 });
-            </script>
-        <?php } ?>
+                $('#UploadDocs_endtime').datepicker({
+                    showButtonPanel: true
+                });
+                $('#content1').DataTable({});
+            });
+        </script>
     </head>
 
     <body>

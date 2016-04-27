@@ -42,8 +42,31 @@ $this->menu=array(
             }elseif($k==2){
                 echo "</tbody>";
             }
+            if($k>=2){break;}
         }
     }
     echo $footer;
 ?>
 </table>
+<div class="form">
+    <form action="" method="post">
+        <div class="row">
+            <label class="required">选择对应字段</label>
+        </div>
+        <div>
+            欠费用户姓名：<input type="text" name="name">
+        </div>
+        <div>
+            欠费用户身份证号码：<input type="text" name="ID">
+        </div>
+        <div>
+            欠费金额：<input type="text" name="money">
+        </div>
+        <div>
+            选择其他要显示的列：<input type="text" name="others">
+        </div>
+        <div>
+            <input type="submit" value="确认">
+        </div>
+    </form>
+</div>

@@ -17,8 +17,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 	),
-        'homeUrl'=>'http://localhost/yii/lawfirm/admin',
-        //'homeUrl'=>'gz_lawfirm.com',
+        'homeUrl'=>'gz_lawfirm.com',
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
 		'gii'=>array(
