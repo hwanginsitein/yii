@@ -54,16 +54,36 @@ $this->menu=array(
             <label class="required">选择对应字段</label>
         </div>
         <div>
-            欠费用户姓名：<input type="text" name="name">
+            欠费用户姓名：<input type="text" name="name" <?php if(array_key_exists('name',$error)){echo "class='error'";}?>>
+            <?php if($error){?>
+                <?php if(array_key_exists('name',$error)){?>
+                <div class="errorMessage"><?=$error['name']."不存在";?></div>
+                <?php }?>
+            <?php }?>
         </div>
         <div>
             欠费用户身份证号码：<input type="text" name="ID">
+            <?php if($error){?>
+                <?php if(array_key_exists('ID',$error)){?>
+                <div class="errorMessage"><?=$error['ID']."不存在";?></div>
+                <?php }?>
+            <?php }?>
         </div>
         <div>
             欠费金额：<input type="text" name="money">
+            <?php if($error){?>
+                <?php if(array_key_exists('money',$error)){?>
+                <div class="errorMessage"><?=$error['money']."不存在";?></div>
+                <?php }?>
+            <?php }?>
         </div>
         <div>
-            选择其他要显示的列：<input type="text" name="others">
+            选择其他要显示的列：<input type="text" name="others"> 用下划线"_"隔开
+            <?php if($error){?>
+                <?php if(array_key_exists('others',$error)){?>
+                <div class="errorMessage"><?=$error['others']."错误";?></div>
+                <?php }?>
+            <?php }?>
         </div>
         <div>
             <input type="submit" value="确认">
