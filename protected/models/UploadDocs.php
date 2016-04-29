@@ -32,7 +32,7 @@ class UploadDocs extends CActiveRecord
 			array('uploader', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, uploader, time, detail,type,upload_name', 'safe', 'on'=>'search'),
+			array('id, uploader, time, detail,type,upload_name,showDetail', 'safe', 'on'=>'search'),
                         array('endtime', 'compare', 'compareAttribute'=>'starttime', 'operator'=>'>=', 'message'=>'起止时间不对')
 		);
 	}

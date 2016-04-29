@@ -18,7 +18,7 @@ $this->menu=array(
 <h1>View UploadDocs #<?php echo $model->id; ?></h1>
 <table id="content1" class="display" cellspacing="0">
 <?php
-    $detail = json_decode($model->detail);
+    $detail = json_decode($model->showDetail);
     $footer = "";
     if($detail){
         foreach($detail as $k=>$v){

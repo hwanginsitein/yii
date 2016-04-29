@@ -32,7 +32,10 @@
 	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'area'); ?>
-		<?php echo $form->textField($model,'area'); ?>
+		<?php echo $form->dropDownList($model,'area',array(
+                    "新干县"=>"新干县","安福县"=>"安福县","峡江县"=>"峡江县","永丰县"=>"永丰县","吉水县"=>"吉水县","吉州区"=>"吉州区","青原区"=>"青原区",
+                    "吉安县"=>"吉安县","永新县"=>"永新县","泰和县"=>"泰和县","井冈山市"=>"井冈山市","遂川县"=>"遂川县","万安县"=>"万安县"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'area'); ?>
 	</div>
 	<div class="row">

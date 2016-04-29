@@ -46,21 +46,49 @@ class UploadDocsController extends Controller {
         ));
     }
     public function actionPreview($id) {
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
-        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css"); 
+        $error = array();
         if($_POST){
             $p = $_POST;
+            $p['others'] = explode('_',$p['others']);
             $model = $this->loadModel($id);
             $detail = json_decode($model->detail,1);
             $error = array();
+            $columns = array();
             foreach($p as $k=>$v){
+                if($k == 'others'){continue;}
                 if(!in_array($v,$detail[1])){
                     $error[$k] = $v;
+                }else{
+                    $columns[] = $v;
                 }
             }
-            var_dump($error);
+            foreach($p['others'] as $v1){
+                if(!in_array($v1,$detail[1])){
+                    $error['others'] = true;
+                }else{
+                    $columns[] = $v1;
+                }
+            }
+            $results = array();
+            if($error == array()){
+                $row1 = array_intersect($detail[1],$columns);
+                $results[1] = $row1;
+                $rowCounts = count($detail);
+                for($i=2;$i<=$rowCounts;$i++){
+                    $results[$i] = array_intersect_key($detail[$i],$row1);
+                }
+                $model->showDetail = json_encode($results);
+                if($model->save()){
+                    $this->redirect(array('view', 'id' => $model->id));
+                }else{
+                    var_dump($model->errors);
+                }
+                exit;
+            }
         }
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css"); 
         $this->render('preview', array(
             'model' => $this->loadModel($id),
             'error' => $error

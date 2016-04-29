@@ -81,7 +81,7 @@ $this->menu=array(
             选择其他要显示的列：<input type="text" name="others"> 用下划线"_"隔开
             <?php if($error){?>
                 <?php if(array_key_exists('others',$error)){?>
-                <div class="errorMessage"><?=$error['others']."错误";?></div>
+                <div class="errorMessage">其他列填写错误</div>
                 <?php }?>
             <?php }?>
         </div>
