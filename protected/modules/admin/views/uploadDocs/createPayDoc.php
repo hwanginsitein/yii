@@ -12,6 +12,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create UploadDocs</h1>
+<h1>缴费文档</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('paydoc_form', array('model'=>$model)); ?>

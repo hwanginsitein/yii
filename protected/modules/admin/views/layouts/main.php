@@ -23,17 +23,6 @@
                 .last{margin-left:100px}
             <?php } ?>
         </style>
-        <script>
-            $().ready(function(){
-                $('#UploadDocs_starttime').datepicker({
-                    showButtonPanel: true
-                });
-                $('#UploadDocs_endtime').datepicker({
-                    showButtonPanel: true
-                });
-                $('#content1').DataTable({});
-            });
-        </script>
     </head>
 
     <body>

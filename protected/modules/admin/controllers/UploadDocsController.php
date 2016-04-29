@@ -37,50 +37,78 @@ class UploadDocsController extends Controller {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
-        //Yii::app()->clientScript->registerScriptFile("//code.jquery.com/jquery-1.12.0.min.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
-        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css"); 
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
         $this->render('view', array(
             'model' => $this->loadModel($id),
         ));
     }
+    
+    public function actionCreatePayDoc(){
+        if ($_FILES) {
+            $model = new UploadDocs;
+            $pay = CUploadedFile::getInstance($model, 'pay');
+            if ($pay) {
+                $filePath = $pay->getTempName();
+                Yii::import('application.extensions.PHPExcel.Classes.PHPExcel', 1);
+                $ExcelReader = $this->getExcelReader($filePath);
+                $sheet = $ExcelReader->load($filePath)->getSheet(0);
+                $total_line = $sheet->getHighestRow(); //12
+                $total_column = $sheet->getHighestColumn(); //AA
+                $pay = array();
+                for ($row = 1; $row <= $total_line; $row++) {
+                    for ($column = 'A'; $column <= $total_column; $column++) {
+                        $pay[$row][$column] = trim($sheet->getCell($column . $row)->getValue());
+                    }
+                }
+                var_dump($pay);
+            }
+            exit;
+        }
+        $this->render('createPayDoc', array(
+            'model' => $model,
+        ));
+    }
+
     public function actionPreview($id) {
         $error = array();
-        if($_POST){
+        if ($_POST) {
             $p = $_POST;
-            $p['others'] = explode('_',$p['others']);
+            $p['others'] = explode('_', $p['others']);
             $model = $this->loadModel($id);
-            $detail = json_decode($model->detail,1);
+            $detail = json_decode($model->detail, 1);
             $error = array();
             $columns = array();
-            foreach($p as $k=>$v){
-                if($k == 'others'){continue;}
-                if(!in_array($v,$detail[1])){
+            foreach ($p as $k => $v) {
+                if ($k == 'others') {
+                    continue;
+                }
+                if (!in_array($v, $detail[1])) {
                     $error[$k] = $v;
-                }else{
+                } else {
                     $columns[] = $v;
                 }
             }
-            foreach($p['others'] as $v1){
-                if(!in_array($v1,$detail[1])){
+            foreach ($p['others'] as $v1) {
+                if (!in_array($v1, $detail[1])) {
                     $error['others'] = true;
-                }else{
+                } else {
                     $columns[] = $v1;
                 }
             }
             $results = array();
-            if($error == array()){
-                $row1 = array_intersect($detail[1],$columns);
+            if ($error == array()) {
+                $row1 = array_intersect($detail[1], $columns);
                 $results[1] = $row1;
                 $rowCounts = count($detail);
-                for($i=2;$i<=$rowCounts;$i++){
-                    $results[$i] = array_intersect_key($detail[$i],$row1);
+                for ($i = 2; $i <= $rowCounts; $i++) {
+                    $results[$i] = array_intersect_key($detail[$i], $row1);
                 }
                 $model->showDetail = json_encode($results);
-                if($model->save()){
+                if ($model->save()) {
                     $this->redirect(array('view', 'id' => $model->id));
-                }else{
+                } else {
                     var_dump($model->errors);
                 }
                 exit;
@@ -88,14 +116,23 @@ class UploadDocsController extends Controller {
         }
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
-        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css"); 
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
         $this->render('preview', array(
             'model' => $this->loadModel($id),
             'error' => $error
         ));
     }
-    
-    public function actionConfirm($id){
+
+    private function getExcelReader($filePath){
+        $ExcelReader = PHPExcel_IOFactory::createReader('Excel5');
+        if(!$ExcelReader->canRead($filePath)){
+            $ExcelReader = PHPExcel_IOFactory::createReader('Excel2007');
+            if(!$ExcelReader->canRead($filePath)){ 
+                echo '文档格式有误'; 
+                exit;
+            } 
+        }
+        return $ExcelReader;
     }
 
     /**
@@ -107,40 +144,39 @@ class UploadDocsController extends Controller {
         Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
-        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css"); 
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
         $model = new UploadDocs;
         if (isset($_POST['UploadDocs'])) {
             //var_dump($_POST['UploadDocs']);exit;
             $model->attributes = $_POST['UploadDocs'];
             $uploader = Yii::app()->user->name;
-            $model->uploader = $uploader?$uploader:"admin";
+            $model->uploader = $uploader ? $uploader : "admin";
             $model->time = time();
             $model->type = "fare";
             $model->upload_name = $_POST['UploadDocs']['upload_name'];
             $detail = CUploadedFile::getInstance($model, 'detail');
             //$filePath = Yii::app()->basePath."/../uploads/files/".time().rand(0,999).".xls";
             //$detail->saveAs($filePath);getTempName()
-            if($detail){
+            if ($detail) {
                 $filePath = $detail->getTempName();
                 Yii::import('application.extensions.PHPExcel.Classes.PHPExcel', 1);
-                $PHPExcel = new PHPExcel;  
-                $ExcelReader = PHPExcel_IOFactory::createReader('Excel5');
+                $ExcelReader = $this->getExcelReader($filePath);
                 $sheet = $ExcelReader->load($filePath)->getSheet(0);
-                $total_line = $sheet->getHighestRow();//12
-                $total_column = $sheet->getHighestColumn();//AA
+                $total_line = $sheet->getHighestRow(); //12
+                $total_column = $sheet->getHighestColumn(); //AA
                 $detail = array();
                 for ($row = 1; $row <= $total_line; $row++) {
-                    for ($column = 'A'; $column <= $total_column; $column++){
-                        $detail[$row][$column] = trim($sheet->getCell($column.$row)->getValue());
+                    for ($column = 'A'; $column <= $total_column; $column++) {
+                        $detail[$row][$column] = trim($sheet->getCell($column . $row)->getValue());
                     }
                 }
                 $model->detail = json_encode($detail);
             }
-            if ($model->save()){
+            if ($model->save()) {
                 $this->redirect(array('preview', 'id' => $model->id));
             }
         }
-        
+
         $this->render('create', array(
             'model' => $model,
         ));
@@ -155,7 +191,7 @@ class UploadDocsController extends Controller {
         Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
-        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css"); 
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
         $model = $this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
@@ -189,9 +225,13 @@ class UploadDocsController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('UploadDocs');
-        $this->render('index', array(
-            'dataProvider' => $dataProvider,
+        $model = new UploadDocs('search');
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_GET['UploadDocs']))
+            $model->attributes = $_GET['UploadDocs'];
+
+        $this->render('admin', array(
+            'model' => $model,
         ));
     }
 

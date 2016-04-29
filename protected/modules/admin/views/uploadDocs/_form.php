@@ -56,3 +56,13 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<script>
+    $(document).ready(function(){
+        $('#UploadDocs_starttime').datepicker({
+            showButtonPanel: true
+        });
+        $('#UploadDocs_endtime').datepicker({
+            showButtonPanel: true
+        });
+    });
+</script>
