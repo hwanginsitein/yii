@@ -57,12 +57,19 @@ class UploadDocsController extends Controller {
                 $total_line = $sheet->getHighestRow(); //12
                 $total_column = $sheet->getHighestColumn(); //AA
                 $pay = array();
-                for ($row = 1; $row <= $total_line; $row++) {
+                for ($row = 2; $row <= $total_line; $row++) {
                     for ($column = 'A'; $column <= $total_column; $column++) {
+                        
                         $pay[$row][$column] = trim($sheet->getCell($column . $row)->getValue());
+                        
                     }
                 }
-                var_dump($pay);
+                //var_dump($pay);exit;
+                $payNOKey = array_search("缴费编号", $pay[1]);
+                $IDKey = array_search("身份证", $pay[1]);
+                for($i=2;$i<=$total_line;$i++){
+                    
+                }
             }
             exit;
         }
