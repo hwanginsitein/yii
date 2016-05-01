@@ -40,6 +40,7 @@ class UploadDocsController extends Controller {
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
+        $detail = json_decode($this->loadModel($id)->showDetail,1);
         $this->render('view', array(
             'model' => $this->loadModel($id),
         ));
@@ -57,27 +58,68 @@ class UploadDocsController extends Controller {
                 $total_line = $sheet->getHighestRow(); //12
                 $total_column = $sheet->getHighestColumn(); //AA
                 $pay = array();
-                for ($row = 2; $row <= $total_line; $row++) {
+                for ($row = 1; $row <= $total_line; $row++) {
                     for ($column = 'A'; $column <= $total_column; $column++) {
-                        
                         $pay[$row][$column] = trim($sheet->getCell($column . $row)->getValue());
-                        
                     }
                 }
                 //var_dump($pay);exit;
                 $payNOKey = array_search("缴费编号", $pay[1]);
                 $IDKey = array_search("身份证", $pay[1]);
+                $paid_money_id = array_search("追缴金额", $pay[1]);
+                $rows = array();
+                $pay_nums_money = array();
                 for($i=2;$i<=$total_line;$i++){
-                    
+                    $payNO = $pay[$i][$payNOKey];
+                    $ID = $pay[$i][$IDKey];
+                    $paid_money = $pay[$i][$paid_money_id];
+                    $sql = "select * from gz_upload_docs where showDetail like '%\"$payNO\"%' and showDetail like '%\"$ID\"%'";
+                    $detail = $model->findBySql($sql);
+                    //搜索原欠费文档里面的人的缴费的记录
+                    $repay = new Repay;
+                    $pay_totalmoney = "";
+                    if($detail){
+                        $pay_nums_money['id'][] = $detail->id;
+                        $pay_nums_money['paid_money'][] = $paid_money;
+                        $rows[] = $detail;//搜索出来之后
+                        $repay->paid_ID = $ID;
+                        $repay->payId = $payNO;
+                        $repay->paid_money = $paid_money;
+                        $repay->docsId = $detail->id;
+                        $pay_totalmoney += $paid_money;
+                        if($repay->save()){
+                        }else{
+                            var_dump($repay->errors);exit;
+                        }
+                    }
                 }
             }
+            $doc_id_money = array();
+            foreach($pay_nums_money['id'] as $k=>$upload_doc_id){
+                $doc_id_money[$upload_doc_id]["money"] += $pay_nums_money['paid_money'][$k];
+                $doc_id_money[$upload_doc_id]["nums"] += 1;
+            }
+            foreach($doc_id_money as $id=>$totalmoney){
+                $upload_doc = $this->loadModel($id);
+                $upload_doc->pay_nums = $doc_id_money[$id]['nums'];
+                $upload_doc->pay_totalmoney = $doc_id_money[$id]['money'];
+                $showDetail = $upload_doc->showDetail;
+                $total_debt_nums = count(json_decode($showDetail,1))-1;
+                $upload_doc->progress = $this->topercent(round(($upload_doc->pay_nums/$total_debt_nums),2));
+                if(!$upload_doc->save()){
+                    var_dump($upload_doc->errors);
+                }
+            }
+            $this->redirect("/admin/repay/admin");
             exit;
         }
         $this->render('createPayDoc', array(
             'model' => $model,
         ));
     }
-
+    private function topercent($n){
+        return ($n*100).'%';
+    }
     public function actionPreview($id) {
         $error = array();
         if ($_POST) {
