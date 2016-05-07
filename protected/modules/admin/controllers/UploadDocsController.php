@@ -41,6 +41,7 @@ class UploadDocsController extends Controller {
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
         $detail = json_decode($this->loadModel($id)->showDetail,1);
+        
         $this->render('view', array(
             'model' => $this->loadModel($id),
         ));
@@ -271,7 +272,6 @@ class UploadDocsController extends Controller {
                     $debts->account_number = $row[$key_account_number];
                     $debts->debt_money = $row[$key_debt_money];
                     $debts->overdue_time = $row[$key_overdue_time];
-                    $debts->all = json_encode($row);
                     $debts->docsId = $docsId;
                     $debts->status = 0;
                     $debts->ifpay = 0;
@@ -321,7 +321,7 @@ class UploadDocsController extends Controller {
      */
     public function actionDelete($id) {
         $this->loadModel($id)->delete();
-
+        Debts::model()->deleteAll('docsId=?',array($id));
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if (!isset($_GET['ajax']))
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));

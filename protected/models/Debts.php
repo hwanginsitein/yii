@@ -36,7 +36,7 @@ class Debts extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('debt_number, docsId, clientele, debtor, ID_number, telephone, debt_money, overdue_time, all, ifpay, status', 'required'),
+			array('debt_number, docsId, clientele, debtor, ID_number, telephone, debt_money, overdue_time, ifpay, status', 'required'),
 			array('docsId, ifpay, status', 'numerical', 'integerOnly'=>true),
 			array('debt_number', 'length', 'max'=>40),
 			array('clientele, debtor', 'length', 'max'=>255),
@@ -45,7 +45,7 @@ class Debts extends CActiveRecord
 			array('account_number', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, debt_number, docsId, clientele, debtor, ID_number, telephone, account_number, debt_money, overdue_time, all, ifpay, status', 'safe', 'on'=>'search'),
+			array('id, debt_number, docsId, clientele, debtor, ID_number, telephone, account_number, debt_money, overdue_time, ifpay, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,7 +76,6 @@ class Debts extends CActiveRecord
 			'account_number' => '账号编号',
 			'debt_money' => '欠费金额',
 			'overdue_time' => '停机时间',
-			'all' => '全部',
 			'ifpay' => '是否缴费完整',
 			'status' => '状态',
 		);
@@ -110,7 +109,6 @@ class Debts extends CActiveRecord
 		$criteria->compare('account_number',$this->account_number,true);
 		$criteria->compare('debt_money',$this->debt_money,true);
 		$criteria->compare('overdue_time',$this->overdue_time,true);
-		$criteria->compare('all',$this->all,true);
 		$criteria->compare('ifpay',$this->ifpay);
 		$criteria->compare('status',$this->status);
 
