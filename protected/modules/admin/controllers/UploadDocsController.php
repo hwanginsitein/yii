@@ -184,6 +184,17 @@ class UploadDocsController extends Controller {
         return $ExcelReader;
     }
 
+    public function actionCheckUploadName(){
+        if($_POST){
+            //'gameid=? and displayInLocal=1', array($_GET['id'])
+            if(UploadDocs::model()->find("upload_name=?",array($_POST['upload_name']))){
+                echo 1;
+            }else{
+                echo 0;
+            }
+        }
+    }
+
     /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -193,6 +204,7 @@ class UploadDocsController extends Controller {
         Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
         $model = new UploadDocs;
         if (isset($_POST['UploadDocs'])) {
@@ -202,8 +214,10 @@ class UploadDocsController extends Controller {
             $model->uploader = $uploader ? $uploader : "admin";
             $model->time = time();
             $model->type = "fare";
-            $model->upload_name = $_POST['UploadDocs']['upload_name'];
             $detail = CUploadedFile::getInstance($model, 'detail');
+            $fileNameArr = pathinfo($detail->getName());
+            $fileName = $fileNameArr['filename'];
+            $model->upload_name = $fileName;
             //$filePath = Yii::app()->basePath."/../uploads/files/".time().rand(0,999).".xls";
             //$detail->saveAs($filePath);getTempName()
             if ($detail) {
@@ -222,6 +236,49 @@ class UploadDocsController extends Controller {
                 $model->detail = json_encode($detail);
             }
             if ($model->save()) {
+                $docsId = Yii::app()->db->getLastInsertID();
+                foreach($detail as $k=>$row){
+                    /*
+                        'debt_number' => '催缴序号',
+                        'docsId' => '文档id',
+                        'clientele' => '委托人',
+                        'debtor' => '欠债人',
+                        'ID_number' => '身份证号码',
+                        'telephone' => '电话号码',
+                        'account_number' => '账号编号',
+                        'debt_money' => '欠费金额',
+                        'overdue_time' => '停机时间',
+                        'ifpay' => '是否缴费完整',
+                        'status' => '状态',
+                    */
+                    $debts = new Debts;
+                    if($k==1){
+                        $key_debt_number = array_search("缴费编号", $row);
+                        $key_clientele = array_search("委托人", $row);
+                        $key_debtor = array_search("欠债人", $row);
+                        $key_ID_number = array_search("身份证号码", $row);
+                        $key_telephone = array_search("电话号码", $row);
+                        $key_account_number = array_search("账号编号", $row);
+                        $key_debt_money = array_search("欠费金额", $row);
+                        $key_overdue_time = array_search("停机时间", $row);
+                        continue;
+                    }
+                    $debts->debt_number = $row[$key_debt_number];
+                    $debts->clientele = $row[$key_clientele];
+                    $debts->debtor = $row[$key_debtor];
+                    $debts->ID_number = $row[$key_ID_number];
+                    $debts->telephone = $row[$key_telephone];
+                    $debts->account_number = $row[$key_account_number];
+                    $debts->debt_money = $row[$key_debt_money];
+                    $debts->overdue_time = $row[$key_overdue_time];
+                    $debts->all = json_encode($row);
+                    $debts->docsId = $docsId;
+                    $debts->status = 0;
+                    $debts->ifpay = 0;
+                    if(!$debts->save()){
+                        var_dump($debts->errors);
+                    }
+                }
                 $this->redirect(array('preview', 'id' => $model->id));
             }
         }

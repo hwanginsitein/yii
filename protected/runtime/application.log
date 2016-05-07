@@ -3047,3 +3047,408 @@ Stack trace:
 REQUEST_URI=/admin/uploadDocs/create
 in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (197)
 in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 15:36:34 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 15:39:38 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 15:40:05 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 15:40:47 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 15:41:40 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 15:42:22 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 15:43:00 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 17:30:31 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 17:52:04 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 18:00:18 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 18:42:49 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 18:43:53 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 18:45:32 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:48:04 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:48:32 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:48:41 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:48:48 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:49:19 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:49:19 [error] [exception.CException] exception 'CException' with message 'Property "CUploadedFile.getName" is not defined.' in E:\phpstudy\WWW\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(207): CComponent->__get('getName')
+#1 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionCreate()
+#2 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#11 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#12 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/admin/uploadDocs/create
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 20:49:30 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:53:25 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:53:25 [error] [exception.CException] exception 'CException' with message 'Property "UploadDocs.uploader_name" is not defined.' in E:\phpstudy\WWW\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('uploader_name', '00')
+#1 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(209): CActiveRecord->__set('uploader_name', '00')
+#2 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionCreate()
+#3 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#12 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#13 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/admin/uploadDocs/create
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 20:54:02 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:54:03 [error] [php] json_decode() expects parameter 1 to be string, array given (E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php:262)
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): UploadDocsController->runAction()
+#2 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): UploadDocsController->filterAccessControl()
+#5 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 E:\phpstudy\WWW\yii\framework\web\CController.php(265): UploadDocsController->runActionWithFilters()
+#8 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): UploadDocsController->run()
+#9 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CWebApplication->run()
+REQUEST_URI=/admin/uploadDocs/create
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (262)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 20:54:24 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (200)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:02:51 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (201)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:20:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploadDocs/checkUploadName".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('uploadDocs/chec...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploadDocs/checkUploadName
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 21:20:04 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:20:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploadDocs/checkUploadNameAction".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('uploadDocs/chec...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploadDocs/checkUploadNameAction
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 21:20:43 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:21:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "checkUploadName".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('checkUploadName')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 21:21:19 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:21:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "checkUploadName".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('checkUploadName')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName
+---
+2016/05/07 21:22:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "checkUploadName".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('checkUploadName')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName
+---
+2016/05/07 21:22:47 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1.
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (191)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:22:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1' in E:\phpstudy\WWW\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(191): CActiveRecord->find('upload_name=?', Array)
+#4 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionCheckUploadName()
+#5 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName')
+#14 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#15 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 21:22:48 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:23:29 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1.
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (191)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:23:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1' in E:\phpstudy\WWW\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(191): CActiveRecord->find('upload_name=?', Array)
+#4 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionCheckUploadName()
+#5 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName')
+#14 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#15 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 21:23:29 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:23:47 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:23:53 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1.
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (191)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:23:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1' in E:\phpstudy\WWW\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(191): CActiveRecord->find('upload_name=?', Array)
+#4 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionCheckUploadName()
+#5 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName')
+#14 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#15 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 21:24:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "checkUploadName1".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('checkUploadName...')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName...')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName1
+---
+2016/05/07 21:24:42 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:24:46 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1.
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (191)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:24:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1' in E:\phpstudy\WWW\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(191): CActiveRecord->find('upload_name=?', Array)
+#4 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionCheckUploadName()
+#5 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName')
+#14 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#15 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 21:25:16 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:25:20 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1.
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (191)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:25:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1' in E:\phpstudy\WWW\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(191): CActiveRecord->find('upload_name=?', Array)
+#4 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionCheckUploadName()
+#5 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName')
+#14 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#15 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 21:26:31 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1.
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (190)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:26:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_upload_docs` `t` WHERE upload_name=? LIMIT 1' in E:\phpstudy\WWW\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(190): CActiveRecord->find('upload_name=?', Array)
+#4 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionCheckUploadName()
+#5 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('checkUploadName')
+#14 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#15 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/admin/uploadDocs/checkUploadName
+HTTP_REFERER=http://gz_lawfirm.com/admin/uploadDocs/create
+---
+2016/05/07 21:29:09 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (212)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:30:11 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (212)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:31:31 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (212)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:42:56 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (212)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 21:54:54 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (212)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 22:15:46 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (212)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 22:17:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php:368
+Stack trace:
+#0 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(170): UploadDocsController->loadModel('15')
+#1 [internal function]: UploadDocsController->actionPreview('15')
+#2 E:\phpstudy\WWW\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(UploadDocsController), Array)
+#3 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(UploadDocsController), Object(ReflectionMethod), Array)
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('preview')
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/uploadDoc...')
+#14 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/admin/uploadDocs/preview/id/15
+---

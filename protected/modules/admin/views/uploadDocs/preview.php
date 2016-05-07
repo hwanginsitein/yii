@@ -52,6 +52,18 @@ $this->menu=array(
     <form action="" method="post">
         <div class="row">
             <label class="required">选择对应字段</label>
+            (
+            <?php
+            foreach($detail as $k=>$v){
+                if($k==1){
+                    foreach($v as $k1=>$v1){
+                        echo $v1," ";
+                    }
+                    break;
+                }
+            }
+            ?>
+            )
         </div>
         <div>
             欠费用户姓名：<input type="text" name="name" <?php if(array_key_exists('name',$error)){echo "class='error'";}?>>

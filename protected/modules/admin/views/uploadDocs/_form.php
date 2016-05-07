@@ -19,12 +19,6 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'upload_name'); ?>
-		<?php echo $form->textField($model,'upload_name'); ?>
-		<?php echo $form->error($model,'upload_name'); ?>
-	</div>
 	<div class="row">
             <label for="UploadDocs_starttime_endtime" class="required">欠费起止时间 <span class="required">*</span></label>
                 <?php echo $form->textField($model,'starttime'); ?>至<?php echo $form->textField($model,'endtime'); ?>
@@ -43,7 +37,7 @@
 		<?php echo $form->textField($model,'comments'); ?>
 		<?php echo $form->error($model,'comments'); ?>
 	</div>
-	<div class="row">
+        <div class="row" id="upload_detail">
 		<?php echo $form->labelEx($model,'detail'); ?>
 		<?php echo $form->fileField($model,'detail'); ?>
 		<?php echo $form->error($model,'detail'); ?>
@@ -58,11 +52,43 @@
 </div><!-- form -->
 <script>
     $(document).ready(function(){
+        function getFileName_ext(o){
+            var pos=o.lastIndexOf("\\");
+            return o.substring(pos+1);  
+        }
+        function getFileName(o){
+            o = getFileName_ext(o);
+            var pos=o.lastIndexOf(".");
+            return o.substring(0,pos);  
+        }
         $('#UploadDocs_starttime').datepicker({
             showButtonPanel: true
         });
         $('#UploadDocs_endtime').datepicker({
             showButtonPanel: true
         });
+        $("#UploadDocs_detail").on('change',function(){
+            var upload_name = getFileName($(this).val());
+            $.ajax({
+		type: 'POST',
+		url: "/admin/uploadDocs/checkUploadName",
+		data: {upload_name:upload_name},
+                //async:false,
+		success: function(data){
+                    if(data==1){
+                        layer.confirm('已经上传过同名的文件，是否上传？', {
+                            btn: ['确定','取消'] //按钮
+                        }, function(){
+                            layer.closeAll('dialog');
+                        }, function(){
+                            document.getElementById('UploadDocs_detail').value="";
+                        });
+                    }
+		},
+                error:function(response){
+                    console.log(response.responseText);
+                }
+            });
+        })
     });
 </script>
