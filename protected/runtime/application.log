@@ -2980,3 +2980,70 @@ Stack trace:
 REQUEST_URI=/admin/uploadDocs/createPayDoc
 in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (108)
 in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/02 08:41:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/
+---
+2016/05/02 20:44:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/
+---
+2016/05/03 19:07:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/
+---
+2016/05/07 10:36:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/
+---
+2016/05/07 15:33:02 [error] [php] include(Controller.php): failed to open stream: No such file or directory (E:\phpstudy\WWW\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(3): spl_autoload_call()
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(354): require()
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(338): CWebApplication->createController()
+#3 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(276): CWebApplication->createController()
+#4 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CWebApplication->run()
+REQUEST_URI=/admin/uploadDocs/create
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (3)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/07 15:33:12 [error] [php] include(UploadDocs.php): failed to open stream: No such file or directory (E:\phpstudy\WWW\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(197): spl_autoload_call()
+#1 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionCreate()
+#2 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): UploadDocsController->runAction()
+#4 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): UploadDocsController->filterAccessControl()
+#7 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 E:\phpstudy\WWW\yii\framework\web\CController.php(265): UploadDocsController->runActionWithFilters()
+#10 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): UploadDocsController->run()
+#11 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CWebApplication->run()
+REQUEST_URI=/admin/uploadDocs/create
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (197)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
