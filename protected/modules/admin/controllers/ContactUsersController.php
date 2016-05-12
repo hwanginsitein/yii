@@ -51,6 +51,12 @@ class ContactUsersController extends Controller
 	 */
 	public function actionCreate()
 	{
+            Yii::app()->clientScript->registerCoreScript('jquery');
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
+            Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.config.js");
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.all.min.js");
 		$model=new ContactUsers;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -75,6 +81,12 @@ class ContactUsersController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+            Yii::app()->clientScript->registerCoreScript('jquery');
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
+            Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.config.js");
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.all.min.js");
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed

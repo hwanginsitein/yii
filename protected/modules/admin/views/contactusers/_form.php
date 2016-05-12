@@ -45,7 +45,9 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'phone1_status'); ?>
-		<?php echo $form->textField($model,'phone1_status'); ?>
+		<?php echo $form->dropDownList($model,'phone1_status',array(
+                    "1"=>"能联系上欠费用户","2"=>"机主不是欠费用户","3"=>"无法联系"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'phone1_status'); ?>
 	</div>
 
@@ -57,7 +59,9 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'phone2_status'); ?>
-		<?php echo $form->textField($model,'phone2_status'); ?>
+		<?php echo $form->dropDownList($model,'phone2_status',array(
+                    "1"=>"能联系上欠费用户","2"=>"机主不是欠费用户","3"=>"无法联系"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'phone2_status'); ?>
 	</div>
 
@@ -69,7 +73,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'region'); ?>
-		<?php echo $form->textField($model,'region',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->dropDownList($model,'region',array(
+                    "新干县"=>"新干县","安福县"=>"安福县","峡江县"=>"峡江县","永丰县"=>"永丰县","吉水县"=>"吉水县","吉州区"=>"吉州区","青原区"=>"青原区",
+                    "吉安县"=>"吉安县","永新县"=>"永新县","泰和县"=>"泰和县","井冈山市"=>"井冈山市","遂川县"=>"遂川县","万安县"=>"万安县"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'region'); ?>
 	</div>
 
@@ -87,13 +94,15 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->dropDownList($model,'status',array("0"=>"待审核","1"=>"通过"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sendLetter'); ?>
-		<?php echo $form->textField($model,'sendLetter'); ?>
+		<?php echo $form->dropDownList($model,'sendLetter',array("0"=>"否","1"=>"是"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'sendLetter'); ?>
 	</div>
 
@@ -105,13 +114,17 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'receiveLetter'); ?>
-		<?php echo $form->textField($model,'receiveLetter'); ?>
+		<?php echo $form->dropDownList($model,'receiveLetter',array(
+                    "0"=>"否","1"=>"是"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'receiveLetter'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ifrepay'); ?>
-		<?php echo $form->textField($model,'ifrepay'); ?>
+		<?php echo $form->dropDownList($model,'ifrepay',array(
+                    "0"=>"否","1"=>"是"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'ifrepay'); ?>
 	</div>
 
@@ -129,7 +142,8 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'attitude'); ?>
-		<?php echo $form->textField($model,'attitude'); ?>
+		<?php echo $form->dropDownList($model,'attitude',array("0"=>"不愿意缴费","1"=>"愿意缴费"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'attitude'); ?>
 	</div>
 
@@ -141,7 +155,8 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ifvalid'); ?>
-		<?php echo $form->textField($model,'ifvalid'); ?>
+		<?php echo $form->dropDownList($model,'ifvalid',array("0"=>"不成立","1"=>"成立"),
+                    array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'ifvalid'); ?>
 	</div>
 
@@ -153,7 +168,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'proceed'); ?>
-		<?php echo $form->textArea($model,'proceed',array('rows'=>6, 'cols'=>50)); ?>
+                <script id="editor1" type="text/plain" style="width:700px;height:400px;" name="ContactUsers[proceed]"></script>
 		<?php echo $form->error($model,'proceed'); ?>
 	</div>
 
@@ -164,3 +179,26 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<script>
+    $(document).ready(function(){
+        $('#ContactUsers_repay_date').datepicker({
+            showButtonPanel: true
+        });
+        $('#ContactUsers_sent_date').datepicker({
+            showButtonPanel: true
+        });
+        var ue = UE.getEditor('editor1');
+        <?php
+            if($model->proceed){
+                $model->proceed = str_replace(array("\r\n","\n"),"\\n",$model->proceed);
+                $model->proceed = str_replace("\"","'",$model->proceed);
+        ?>
+            var content = "<?=$model->proceed?>";
+            ue.ready(function() {
+                ue.setContent(content);
+            });
+        <?php 
+            }
+        ?>
+    })
+</script>

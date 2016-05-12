@@ -3679,3 +3679,153 @@ Stack trace:
 REQUEST_URI=/favicon.ico
 HTTP_REFERER=http://gz_lawfirm.com/gii
 ---
+2016/05/12 22:47:15 [error] [exception.CException] exception 'CException' with message 'Property "ContactUsers.area" is not defined.' in E:\phpstudy\WWW\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('area')
+#1 E:\phpstudy\WWW\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('area')
+#2 E:\phpstudy\WWW\yii\framework\web\helpers\CHtml.php(1982): CHtml::resolveValue(Object(ContactUsers), 'area')
+#3 E:\phpstudy\WWW\yii\framework\web\widgets\CActiveForm.php(914): CHtml::activeDropDownList(Object(ContactUsers), 'area', Array, Array)
+#4 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\_form.php(75): CActiveForm->dropDownList(Object(ContactUsers), 'area', Array, Array)
+#5 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#6 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#7 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#8 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\create.php(17): CController->renderPartial('_form', Array)
+#9 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#10 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#13 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\ContactUsersController.php(68): CController->render('create', Array)
+#14 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): ContactUsersController->actionCreate()
+#15 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#17 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#18 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#19 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#20 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#21 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#22 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#24 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactus...')
+#25 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#26 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/admin/contactusers/create
+---
+2016/05/12 23:01:38 [error] [exception.CException] exception 'CException' with message 'Property "ContactUsers.content" is not defined.' in E:\phpstudy\WWW\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('content')
+#1 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\_form.php(197): CActiveRecord->__get('content')
+#2 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#3 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#5 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\create.php(17): CController->renderPartial('_form', Array)
+#6 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#7 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#9 E:\phpstudy\WWW\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#10 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\ContactUsersController.php(74): CController->render('create', Array)
+#11 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): ContactUsersController->actionCreate()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#21 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactus...')
+#22 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/admin/contactusers/create
+---
+2016/05/12 23:01:54 [error] [exception.CException] exception 'CException' with message 'Property "ContactUsers.content" is not defined.' in E:\phpstudy\WWW\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('content')
+#1 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\_form.php(197): CActiveRecord->__get('content')
+#2 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#3 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#5 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\create.php(17): CController->renderPartial('_form', Array)
+#6 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#7 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#9 E:\phpstudy\WWW\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#10 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\ContactUsersController.php(74): CController->render('create', Array)
+#11 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): ContactUsersController->actionCreate()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#21 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactus...')
+#22 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/admin/contactusers/create
+---
+2016/05/12 23:03:50 [error] [exception.CException] exception 'CException' with message 'Property "ContactUsers.content" is not defined.' in E:\phpstudy\WWW\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('content')
+#1 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\_form.php(198): CActiveRecord->__get('content')
+#2 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#3 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#5 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\create.php(17): CController->renderPartial('_form', Array)
+#6 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#7 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#9 E:\phpstudy\WWW\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#10 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\ContactUsersController.php(74): CController->render('create', Array)
+#11 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): ContactUsersController->actionCreate()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#21 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactus...')
+#22 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/admin/contactusers/create
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers/create
+---
+2016/05/12 23:04:27 [error] [exception.CException] exception 'CException' with message 'Property "ContactUsers.content" is not defined.' in E:\phpstudy\WWW\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('content')
+#1 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\_form.php(198): CActiveRecord->__get('content')
+#2 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#3 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#5 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\contactusers\create.php(17): CController->renderPartial('_form', Array)
+#6 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#7 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#9 E:\phpstudy\WWW\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#10 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\ContactUsersController.php(74): CController->render('create', Array)
+#11 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): ContactUsersController->actionCreate()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#21 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactus...')
+#22 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/admin/contactusers/create
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers/create
+---
