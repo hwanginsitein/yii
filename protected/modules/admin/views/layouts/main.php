@@ -37,12 +37,13 @@
                 <?php
                 $this->widget('zii.widgets.CMenu', array(
                     'items' => array(
-                        array('label' => 'Home', 'url' => array('/admin')),
-                        array('label' => 'User', 'url' => array('/admin/user')),
-                        array('label' => 'LawyerLetter', 'url' => array('/admin/LawyerLetter')),
+                        array('label' => '起始页', 'url' => array('/admin')),
+                        array('label' => '用户', 'url' => array('/admin/user')),
+                        array('label' => '律师函', 'url' => array('/admin/LawyerLetter')),
                         array('label' => '欠款文档', 'url' => array('/admin/UploadDocs')),
                         array('label' => '欠款数据', 'url' => array('/admin/debts')),
                         array('label' => '缴费管理', 'url' => array('/admin/repay')),
+                        array('label' => '电话录入信息', 'url' => array('/admin/contactusers')),
                         array('label' => 'Login', 'url' => array('/admin/user/login'), 'visible' => Yii::app()->user->isGuest),
                         array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/admin/user/logout'), 'visible' => !Yii::app()->user->isGuest)
                     ),

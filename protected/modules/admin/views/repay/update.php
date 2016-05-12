@@ -9,10 +9,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Repay', 'url'=>array('index')),
-	array('label'=>'Create Repay', 'url'=>array('create')),
-	array('label'=>'View Repay', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Repay', 'url'=>array('admin')),
+	array('label'=>'缴费列表', 'url'=>array('index')),
+	array('label'=>'添加', 'url'=>array('create')),
+	array('label'=>'查看', 'url'=>array('view', 'id'=>$model->id))
 );
 ?>
 

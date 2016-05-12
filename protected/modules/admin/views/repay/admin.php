@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Repay', 'url'=>array('index')),
-	array('label'=>'Create Repay', 'url'=>array('create')),
+	array('label'=>'缴费列表', 'url'=>array('index')),
+	array('label'=>'添加缴费', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,14 +26,13 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Repays</h1>
+<h1>缴费管理</h1>
 
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+请用 (<, <=, >, >=, <> or =) 对字段进行数据搜索.
 </p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('高级管理','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,

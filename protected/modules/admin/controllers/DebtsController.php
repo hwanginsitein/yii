@@ -116,9 +116,13 @@ class DebtsController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('Debts');
-        $this->render('index', array(
-            'dataProvider' => $dataProvider,
+        $model = new Debts('search');
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_GET['Debts']))
+            $model->attributes = $_GET['Debts'];
+
+        $this->render('admin', array(
+            'model' => $model,
         ));
     }
 

@@ -8,11 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Repay', 'url'=>array('index')),
-	array('label'=>'Create Repay', 'url'=>array('create')),
-	array('label'=>'Update Repay', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Repay', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Repay', 'url'=>array('admin')),
+	array('label'=>'缴费列表', 'url'=>array('index')),
+	array('label'=>'添加', 'url'=>array('create')),
+	array('label'=>'更新', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'删除', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'))
 );
 ?>
 
