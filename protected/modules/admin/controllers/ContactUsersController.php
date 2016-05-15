@@ -37,6 +37,7 @@ class ContactUsersController extends Controller {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
         $this->render('view', array(
             'model' => $this->loadModel($id),
         ));
@@ -53,6 +54,7 @@ class ContactUsersController extends Controller {
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.config.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.all.min.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
         $model = new ContactUsers;
 
         // Uncomment the following line if AJAX validation is needed
@@ -81,6 +83,7 @@ class ContactUsersController extends Controller {
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.config.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.all.min.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
         $model = $this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
@@ -114,6 +117,7 @@ class ContactUsersController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
         $model = new ContactUsers('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['ContactUsers']))
@@ -163,4 +167,20 @@ class ContactUsersController extends Controller {
         }
     }
 
+    function actionGetdebtor(){
+        if($_POST){
+            $p = $_POST;
+            $search = $p['search'];
+            //$search = '谢冰';
+            $debts = Debts::model()->findAll('debtor=? or ID_number=? or telephone=?',array($search,$search,$search));
+            if(count($debts)>1){
+                $this->renderPartial("debts",array("debts"=>$debts));exit;
+            }elseif(count($debts)==0){
+                echo 0;exit;
+            }
+            $model = new ContactUsers;
+            $model->name = $debts->debtor;
+            $this->renderPartial("_form_create",array('model'=>$model));
+        }
+    }
 }

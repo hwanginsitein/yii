@@ -5,20 +5,15 @@
 ?>
 
 <div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'contact-users-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
-)); ?>
-
+<?php 
+$form=$this->beginWidget('CActiveForm', array(
+    'id'=>'contact-users-form',
+    'enableAjaxValidation'=>false,
+));
+?>
+    
 	<p class="note"><span class="required">*</span> 表示必填。</p>
-
 	<?php echo $form->errorSummary($model); ?>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name',array('size'=>12,'maxlength'=>12,'readOnly'=>'readOnly')); ?>
@@ -177,12 +172,6 @@
 
 </div><!-- form -->
 <script>
-    $(document).ready(function(){
-        $("button").click(function(){
-            var search = $("#debtor").val();
-            if(!search){return false;}
-            
-        });
         $('#ContactUsers_repay_date').datepicker({
             showButtonPanel: true
         });
@@ -190,17 +179,7 @@
             showButtonPanel: true
         });
         var ue = UE.getEditor('editor1');
-        <?php
-            if($model->proceed){
-                $model->proceed = str_replace(array("\r\n","\n"),"\\n",$model->proceed);
-                $model->proceed = str_replace("\"","'",$model->proceed);
-        ?>
-            var content = "<?=$model->proceed?>";
-            ue.ready(function() {
-                ue.setContent(content);
-            });
-        <?php 
-            }
-        ?>
-    })
+        ue.ready(function() {
+            ue.setContent();
+        });
 </script>
