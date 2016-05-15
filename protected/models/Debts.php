@@ -36,7 +36,7 @@ class Debts extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('debt_number, docsId, clientele, debtor, ID_number, telephone, debt_money, overdue_time, ifpay, status', 'required'),
+			array('debt_number, docsId, clientele, debtor, ID_number, telephone,region, debt_money, overdue_time, ifpay, status', 'required'),
 			array('docsId, ifpay, status', 'numerical', 'integerOnly'=>true),
 			array('debt_number', 'length', 'max'=>40),
 			array('clientele, debtor', 'length', 'max'=>255),
@@ -73,6 +73,7 @@ class Debts extends CActiveRecord
 			'debtor' => '欠债人',
 			'ID_number' => '欠债人身份证号码',
 			'telephone' => '电话号码',
+			'region' => '县区',
 			'account_number' => '账号编号',
 			'debt_money' => '欠费金额',
 			'overdue_time' => '停机时间',

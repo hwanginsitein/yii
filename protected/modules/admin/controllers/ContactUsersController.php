@@ -52,6 +52,7 @@ class ContactUsersController extends Controller {
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/my.css");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.config.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.all.min.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
@@ -81,6 +82,7 @@ class ContactUsersController extends Controller {
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/my.css");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.config.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.all.min.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
@@ -168,10 +170,9 @@ class ContactUsersController extends Controller {
     }
 
     function actionGetdebtor(){
-        if($_POST){
+        //if($_POST){
             $p = $_POST;
             $search = $p['search'];
-            //$search = '谢冰';
             $debts = Debts::model()->findAll('debtor=? or ID_number=? or telephone=?',array($search,$search,$search));
             if(count($debts)>1){
                 $this->renderPartial("debts",array("debts"=>$debts));exit;
@@ -179,8 +180,14 @@ class ContactUsersController extends Controller {
                 echo 0;exit;
             }
             $model = new ContactUsers;
-            $model->name = $debts->debtor;
+            $model->name = $debts[0]->debtor;
+            $model->ID_number = $debts[0]->ID_number;
+            //$model->name = $debts[0]->telephone;
+            $model->debt_money = $debts[0]->debt_money;
+            $model->account_number = $debts[0]->account_number;
+            $model->region = $debts[0]->region;
+            $model->address = $debts[0]->address;
             $this->renderPartial("_form_create",array('model'=>$model));
-        }
+        //}
     }
 }

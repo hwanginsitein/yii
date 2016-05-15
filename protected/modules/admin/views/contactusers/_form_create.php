@@ -14,6 +14,7 @@ $form=$this->beginWidget('CActiveForm', array(
     
 	<p class="note"><span class="required">*</span> 表示必填。</p>
 	<?php echo $form->errorSummary($model); ?>
+<div class="span1">
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name',array('size'=>12,'maxlength'=>12,'readOnly'=>'readOnly')); ?>
@@ -74,22 +75,28 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'address'); ?>
-		<?php echo $form->textField($model,'address',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'address',array('size'=>30,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'address'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'account_number'); ?>
-		<?php echo $form->textField($model,'account_number',array('size'=>15,'maxlength'=>15)); ?>
+		<?php echo $form->textField($model,'account_number',array('size'=>15,'maxlength'=>15,'readOnly'=>'readOnly')); ?>
 		<?php echo $form->error($model,'account_number'); ?>
 	</div>
-
+	<div class="row">
+		<?php echo $form->labelEx($model,'overdue_time'); ?>
+		<?php echo $form->textField($model,'overdue_time'); ?>
+		<?php echo $form->error($model,'overdue_time'); ?>
+	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->dropDownList($model,'status',array("0"=>"待审核","1"=>"通过"),
                     array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
+</div>
+<div class="span1">
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sendLetter'); ?>
@@ -141,7 +148,7 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'objection_reason'); ?>
-		<?php echo $form->textField($model,'objection_reason',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'objection_reason',array('size'=>30,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'objection_reason'); ?>
 	</div>
 
@@ -154,13 +161,15 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'otherComments'); ?>
-		<?php echo $form->textField($model,'otherComments',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'otherComments',array('size'=>30,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'otherComments'); ?>
 	</div>
-
+</div>
+        <div class="clear"></div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'proceed'); ?>
-                <script id="editor1" type="text/plain" style="width:700px;height:400px;" name="ContactUsers[proceed]"></script>
+                <?php $editorId = "editor".time();?>
+                <script id="editor<?=$editorId?>" type="text/plain" style="width:700px;height:400px;" name="ContactUsers[proceed]"></script>
 		<?php echo $form->error($model,'proceed'); ?>
 	</div>
 
@@ -172,14 +181,13 @@ $form=$this->beginWidget('CActiveForm', array(
 
 </div><!-- form -->
 <script>
-        $('#ContactUsers_repay_date').datepicker({
-            showButtonPanel: true
-        });
-        $('#ContactUsers_sent_date').datepicker({
-            showButtonPanel: true
-        });
-        var ue = UE.getEditor('editor1');
-        ue.ready(function() {
-            ue.setContent();
-        });
+    $('#ContactUsers_repay_date').datepicker({
+        showButtonPanel: true
+    });
+    $('#ContactUsers_sent_date').datepicker({
+        showButtonPanel: true
+    });
+    var ue = UE.getEditor('editor<?=$editorId?>');
+    ue.ready(function() {
+    });
 </script>

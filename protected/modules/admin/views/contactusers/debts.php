@@ -11,14 +11,13 @@
         <td><?=$debt->debtor?></td>
         <td><?=$debt->ID_number?></td>
         <td><?=$debt->telephone?></td>
-        <td><a class="view" role="<?=$debt->ID_number?>">查看</a></td>
+        <td><a class="view" role="<?=$debt->ID_number?>" href="javascript:void(0)">查看</a></td>
     </tr>
     </tbody>
 <?php } ?>
 </table>
 <script>
     $('.view').click(function(){
-        $("#new").html("");
         var idNumber = $(this).attr('role');
         $.ajax({
             type: "POST",

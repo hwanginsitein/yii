@@ -47,7 +47,7 @@ class ContactUsers extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, debt_money, status, sendLetter, receiveLetter, ifrepay', 'required'),
+			array('name, debt_money, status, sendLetter,overdue_time, receiveLetter, ifrepay', 'required'),
 			array('phone1_status, phone2_status, status, sendLetter, receiveLetter, ifrepay, repay_money, attitude, ifvalid', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>12),
 			array('ID_number', 'length', 'max'=>18),
@@ -57,7 +57,7 @@ class ContactUsers extends CActiveRecord
 			array('sent_date, repay_date, proceed', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, debt_money, ID_number, phone1, phone1_status, phone2, phone2_status, phone3, region, address, account_number, status, sendLetter, sent_date, receiveLetter, ifrepay, repay_date, repay_money, attitude, objection_reason, ifvalid, otherComments, proceed', 'safe', 'on'=>'search'),
+			array('id, name, debt_money, ID_number, phone1, phone1_status, phone2, phone2_status, phone3, region, address, account_number,overdue_time, status, sendLetter, sent_date, receiveLetter, ifrepay, repay_date, repay_money, attitude, objection_reason, ifvalid, otherComments, proceed', 'safe', 'on'=>'search'),
 		);
 	}
 

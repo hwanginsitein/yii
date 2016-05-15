@@ -30,6 +30,7 @@ $this->menu=array(
                     if(d==0){
                         layer.msg('无数据');return;
                     }
+                    $("#new").html("");
                     $("#new").html(d);
                 }
             })

@@ -17,11 +17,11 @@
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         <style>
-            <?php if(Yii::app()->controller->id == "uploadDocs"){ ?>
+            <?php //if(Yii::app()->controller->id == "uploadDocs"){ ?>
                 .span-19{width:1000px;margin-top:60px;}
                 .container{width:99%}
                 .last{margin-left:100px}
-            <?php } ?>
+            <?php //} ?>
         </style>
     </head>
 
