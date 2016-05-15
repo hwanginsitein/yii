@@ -187,6 +187,8 @@ class ContactUsersController extends Controller {
             $model->account_number = $debts[0]->account_number;
             $model->region = $debts[0]->region;
             $model->address = $debts[0]->address;
+            $model->overdue_time = $debts[0]->overdue_time;
+            $model->status = $debts[0]->status;
             $this->renderPartial("_form_create",array('model'=>$model));
         //}
     }

@@ -102,6 +102,7 @@ class ContactUsers extends CActiveRecord
 			'ifvalid' => '异议是否成立',
 			'otherComments' => '其他记录',
 			'proceed' => '催缴进程',
+                        'overdue_time' => '停机时间'
 		);
 	}
 

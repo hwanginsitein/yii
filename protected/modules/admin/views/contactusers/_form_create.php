@@ -9,6 +9,7 @@
 $form=$this->beginWidget('CActiveForm', array(
     'id'=>'contact-users-form',
     'enableAjaxValidation'=>false,
+    'action'=>'/admin/contactusers/create'
 ));
 ?>
     
@@ -35,7 +36,7 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'phone1'); ?>
-		<?php echo $form->textField($model,'phone1',array('size'=>30,'maxlength'=>30,'readOnly'=>'readOnly')); ?>
+		<?php echo $form->textField($model,'phone1',array('size'=>30,'maxlength'=>30)); ?>
 		<?php echo $form->error($model,'phone1'); ?>
 	</div>
 
@@ -49,7 +50,7 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'phone2'); ?>
-		<?php echo $form->textField($model,'phone2',array('size'=>30,'maxlength'=>30,'readOnly'=>'readOnly')); ?>
+		<?php echo $form->textField($model,'phone2',array('size'=>30,'maxlength'=>30)); ?>
 		<?php echo $form->error($model,'phone2'); ?>
 	</div>
 
@@ -69,13 +70,13 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'region'); ?>
-                <?php echo $form->textField($model,'region'); ?>
+                <?php echo $form->textField($model,'region',array('readOnly'=>'readOnly')); ?>
 		<?php echo $form->error($model,'region'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'address'); ?>
-		<?php echo $form->textField($model,'address',array('size'=>30,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'address',array('size'=>30,'maxlength'=>255,'readOnly'=>'readOnly')); ?>
 		<?php echo $form->error($model,'address'); ?>
 	</div>
 
@@ -86,7 +87,7 @@ $form=$this->beginWidget('CActiveForm', array(
 	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'overdue_time'); ?>
-		<?php echo $form->textField($model,'overdue_time'); ?>
+		<?php echo $form->textField($model,'overdue_time',array('readOnly'=>'readOnly')); ?>
 		<?php echo $form->error($model,'overdue_time'); ?>
 	</div>
 	<div class="row">
