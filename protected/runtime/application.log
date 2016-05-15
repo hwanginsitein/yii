@@ -4086,3 +4086,9 @@ Stack trace:
 REQUEST_URI=/admin/contactusers/getdebtor
 HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers/create
 ---
+2016/05/15 21:51:36 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/05/15 21:55:47 [warning] [application] Failed to set unsafe attribute "detail" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (213)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)

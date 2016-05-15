@@ -262,6 +262,7 @@ class UploadDocsController extends Controller {
                         $key_account_number = array_search("账号编号", $row);
                         $key_debt_money = array_search("欠费金额", $row);
                         $key_overdue_time = array_search("停机时间", $row);
+                        $key_address = array_search("地址", $row);
                         continue;
                     }
                     $debts->debt_number = $row[$key_debt_number];
@@ -272,7 +273,9 @@ class UploadDocsController extends Controller {
                     $debts->account_number = $row[$key_account_number];
                     $debts->debt_money = $row[$key_debt_money];
                     $debts->overdue_time = $row[$key_overdue_time];
+                    $debts->address = $row[$key_address];
                     $debts->docsId = $docsId;
+                    $debts->region = $_POST['UploadDocs']['area'];
                     $debts->status = 0;
                     $debts->ifpay = 0;
                     if(!$debts->save()){

@@ -63,8 +63,12 @@ class ContactUsersController extends Controller {
 
         if (isset($_POST['ContactUsers'])) {
             $model->attributes = $_POST['ContactUsers'];
-            if ($model->save())
+            if ($model->save()){
                 $this->redirect(array('view', 'id' => $model->id));
+            }else{
+                var_dump($model->errors);
+                exit;
+            }
         }
 
         $this->render('create', array(
@@ -178,6 +182,10 @@ class ContactUsersController extends Controller {
                 $this->renderPartial("debts",array("debts"=>$debts));exit;
             }elseif(count($debts)==0){
                 echo 0;exit;
+            }
+            $contactUsers = ContactUsers::model()->find('ID_number=?',array($debts[0]->ID_number));
+            if($contactUsers){
+                echo $contactUsers->id;exit;
             }
             $model = new ContactUsers;
             $model->name = $debts[0]->debtor;

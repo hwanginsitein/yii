@@ -29,6 +29,10 @@ $this->menu=array(
                 success:function(d){
                     if(d==0){
                         layer.msg('无数据');return;
+                    }else if(d>=1){
+                        var id = d;
+                        window.location.href="/admin/contactusers/update/id/"+id;
+                        return false;
                     }
                     $("#new").html("");
                     $("#new").html(d);
