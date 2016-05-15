@@ -13,5 +13,6 @@ $this->menu=array(
 ?>
 
 <h1>添加联系用户</h1>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<input type="text" id="debtor" placeholder="请输入自己的姓名或者手机号，身份证号码进行搜索" size="40">
+<button>搜索</button>
+<?php $this->renderPartial('_form_create', array('model'=>$model)); ?>
