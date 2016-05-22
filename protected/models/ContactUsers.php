@@ -54,10 +54,10 @@ class ContactUsers extends CActiveRecord
 			array('phone1, phone2, phone3', 'length', 'max'=>30),
 			array('region, address, objection_reason, otherComments', 'length', 'max'=>255),
 			array('account_number', 'length', 'max'=>15),
-			array('sent_date, repay_date, proceed', 'safe'),
+			array('sent_date, repay_date, proceed,otherObjection,objection_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, debt_money, ID_number, phone1, phone1_status, phone2, phone2_status, phone3, region, address, account_number,overdue_time, status, sendLetter, sent_date, receiveLetter, ifrepay, repay_date, repay_money, attitude, objection_reason, ifvalid, otherComments, proceed', 'safe', 'on'=>'search'),
+			array('id, name, debt_money, ID_number, phone1, phone1_status, phone2, phone2_status, phone3, region, address, account_number,overdue_time, status, sendLetter, sent_date, receiveLetter, ifrepay, repay_date, repay_money, attitude, objection_reason, ifvalid, otherComments, proceed,otherObjection,objection_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -101,6 +101,7 @@ class ContactUsers extends CActiveRecord
 			'objection_reason' => '异议理由',
 			'ifvalid' => '异议是否成立',
 			'objection_date' => '异议时间',
+			'otherObjection' => '其他异议理由',
 			'otherComments' => '其他记录',
 			'proceed' => '催缴进程',
                         'overdue_time' => '停机时间'

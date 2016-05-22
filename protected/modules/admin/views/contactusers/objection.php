@@ -9,16 +9,25 @@
     </div>
 </div>
 <script>
-    $("#allObjectionusers").click(function(){
-        $.ajax({
-            type: "POST",
-            url: "/admin/contactusers/getObjections",
-            success:function(data){
-                $("#objections").html(data);
-            }
-        })
-    });
-    $("#validObjectionusers").click(function(){
-        
-    });
+    $(document).ready(function(){
+        $("#allObjectionusers").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "/admin/contactusers/getObjections",
+                success:function(data){
+                    $("#objections").html(data);
+                }
+            })
+        });
+        $("#validObjectionusers").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "/admin/contactusers/getObjections",
+                data:{ifvalid:1},
+                success:function(data){
+                    $("#objections").html(data);
+                }
+            })
+        });
+    })
 </script>

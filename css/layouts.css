@@ -6,3 +6,19 @@ ul{
     margin-right: 10px;
     margin-top: 10px;
 }
+#objection_content{
+    margin-top: -50px;
+}
+#objection_content div span{
+    margin-right: 20px;
+}
+.contact{
+    width:100px;
+}
+.span1{
+    float:left;
+    margin-right: 50px;
+}
+.clear{
+    clear: both;
+}

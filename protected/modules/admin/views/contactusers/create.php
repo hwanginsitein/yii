@@ -3,8 +3,8 @@
 /* @var $model联系用户 */
 
 $this->breadcrumbs=array(
-	'Contact Users'=>array('index'),
-	'Create',
+	'录入信息'=>array('index'),
+	'搜索',
 );
 
 $this->menu=array(

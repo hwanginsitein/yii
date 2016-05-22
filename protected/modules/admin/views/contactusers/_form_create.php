@@ -9,7 +9,7 @@
 $form=$this->beginWidget('CActiveForm', array(
     'id'=>'contact-users-form',
     'enableAjaxValidation'=>false,
-    'action'=>'/admin/contactusers/create'
+    'action'=>'/admin/contactusers/update/id/'.$model->id
 ));
 ?>
     

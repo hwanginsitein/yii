@@ -43,12 +43,28 @@ class ContactUsersController extends Controller {
         ));
     }
     public function actionObjection(){
-        
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/bootstrap/css/bootstrap.min.css");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/bootstrap/css/bootstrap-theme.min.css");
         $this->render("objection");
+    }
+    public function actionGetObjections(){
+        if(count($_POST)){
+            $ifvalid = $_POST['ifvalid'];
+            $contactusers = ContactUsers::model()->findAll("ifvalid=?",array($ifvalid));
+            foreach($contactusers as $contactuser){
+                $contacts[$contactuser->objection_date][] = $contactuser;
+            }
+            $this->renderPartial("get_objections",array('contacts'=>$contacts));exit;
+        }
+        $contactusers = ContactUsers::model()->findAll("objection_reason is not null order by objection_date desc");
+        $contacts = array();
+        foreach($contactusers as $contactuser){
+            $contacts[$contactuser->objection_date][] = $contactuser;
+        }
+        $this->renderPartial("get_objections",array('contacts'=>$contacts));
     }
 
     public function actionSearch() {
-        Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
@@ -83,7 +99,6 @@ class ContactUsersController extends Controller {
      */
     public function actionUpdate($id) {
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/my.css");
-        Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
@@ -95,7 +110,7 @@ class ContactUsersController extends Controller {
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
-
+        
         if (isset($_POST['ContactUsers'])) {
             $model->attributes = $_POST['ContactUsers'];
             if ($model->save())
@@ -188,5 +203,23 @@ class ContactUsersController extends Controller {
             $model = $ContactUsers[0];
             $this->renderPartial("_form_create",array('model'=>$model));
         //}
+    }
+    function actionGetContactUser(){
+        //if($_POST){
+            $p = $_POST;
+            $search = $p['search'];
+            //$search = "谢芳清";
+            $ContactUsers = ContactUsers::model()->findAll('name=? or ID_number=? or phone1=?',array($search,$search,$search));
+            if(count($ContactUsers)>1){
+                $this->renderPartial("debts",array("ContactUsers"=>$ContactUsers));exit;
+            }elseif(count($ContactUsers)==0){
+                echo 0;exit;
+            }
+            $model = $ContactUsers[0];
+            $this->renderPartial("objection_user",array('model'=>$model));
+        //}
+    }
+    function actionRepaystatistics(){
+        
     }
 }
