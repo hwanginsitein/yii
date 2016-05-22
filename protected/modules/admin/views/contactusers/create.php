@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'管理联系用户', 'url'=>array('admin')),
+	array('label'=>'管理联系用户', 'url'=>array('admin')),
 );
 ?>
 

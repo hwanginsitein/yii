@@ -6,12 +6,12 @@
         <th>手机号</th>
         <th></th>
     </tr>
-<?php foreach($debts as $debt){ ?>
+<?php foreach($ContactUsers as $ContactUser){ ?>
     <tr>
-        <td><?=$debt->debtor?></td>
-        <td><?=$debt->ID_number?></td>
-        <td><?=$debt->telephone?></td>
-        <td><a class="view" role="<?=$debt->ID_number?>" href="javascript:void(0)">查看</a></td>
+        <td><?=$ContactUser->name?></td>
+        <td><?=$ContactUser->ID_number?></td>
+        <td><?=$ContactUser->phone1?></td>
+        <td><a class="view" role="<?=$ContactUser->ID_number?>" href="javascript:void(0)">查看</a></td>
     </tr>
     </tbody>
 <?php } ?>

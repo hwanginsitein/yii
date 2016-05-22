@@ -40,7 +40,7 @@
                         array('label' => '起始页', 'url' => array('/admin')),
                         array('label' => '用户', 'url' => array('/admin/user')),
                         array('label' => '律师函', 'url' => array('/admin/LawyerLetter')),
-                        array('label' => '欠款文档', 'url' => array('/admin/UploadDocs')),
+                        array('label' => '文档管理', 'url' => array('/admin/UploadDocs')),
                         array('label' => '欠款数据', 'url' => array('/admin/debts')),
                         array('label' => '缴费管理', 'url' => array('/admin/repay')),
                         array('label' => '电话录入信息', 'url' => array('/admin/contactusers')),

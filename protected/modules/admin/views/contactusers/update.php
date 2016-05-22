@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update联系用户 <?php echo $model->id; ?></h1>
+<h1>修改联系用户 <?php echo $model->name; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

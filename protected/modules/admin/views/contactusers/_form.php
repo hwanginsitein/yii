@@ -18,7 +18,7 @@
 	<p class="note"><span class="required">*</span> 表示必填。</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
+<div class="span1">
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name',array('size'=>12,'maxlength'=>12)); ?>
@@ -82,7 +82,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'address'); ?>
-		<?php echo $form->textField($model,'address',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'address',array('size'=>30,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'address'); ?>
 	</div>
 
@@ -99,6 +99,8 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
+</div>
+<div class="span1">
 	<div class="row">
 		<?php echo $form->labelEx($model,'sendLetter'); ?>
 		<?php echo $form->dropDownList($model,'sendLetter',array("0"=>"否","1"=>"是"),
@@ -149,23 +151,24 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'objection_reason'); ?>
-		<?php echo $form->textField($model,'objection_reason',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'objection_reason',array('size'=>30,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'objection_reason'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ifvalid'); ?>
-		<?php echo $form->dropDownList($model,'ifvalid',array("0"=>"不成立","1"=>"成立"),
+		<?php echo $form->dropDownList($model,'ifvalid',array("0"=>"不成立","1"=>"成立",'2'=>'待核实'),
                     array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'ifvalid'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'otherComments'); ?>
-		<?php echo $form->textField($model,'otherComments',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'otherComments',array('size'=>30,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'otherComments'); ?>
 	</div>
-
+</div>
+        <div class="clear"></div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'proceed'); ?>
                 <script id="editor1" type="text/plain" style="width:700px;height:400px;" name="ContactUsers[proceed]"></script>

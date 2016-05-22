@@ -82,6 +82,7 @@ class ContactUsersController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/my.css");
         Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
@@ -177,26 +178,14 @@ class ContactUsersController extends Controller {
         //if($_POST){
             $p = $_POST;
             $search = $p['search'];
-            $debts = Debts::model()->findAll('debtor=? or ID_number=? or telephone=?',array($search,$search,$search));
-            if(count($debts)>1){
-                $this->renderPartial("debts",array("debts"=>$debts));exit;
-            }elseif(count($debts)==0){
+            //$search = "谢芳清";
+            $ContactUsers = ContactUsers::model()->findAll('name=? or ID_number=? or phone1=?',array($search,$search,$search));
+            if(count($ContactUsers)>1){
+                $this->renderPartial("debts",array("ContactUsers"=>$ContactUsers));exit;
+            }elseif(count($ContactUsers)==0){
                 echo 0;exit;
             }
-            $contactUsers = ContactUsers::model()->find('ID_number=?',array($debts[0]->ID_number));
-            if($contactUsers){
-                echo $contactUsers->id;exit;
-            }
-            $model = new ContactUsers;
-            $model->name = $debts[0]->debtor;
-            $model->ID_number = $debts[0]->ID_number;
-            //$model->name = $debts[0]->telephone;
-            $model->debt_money = $debts[0]->debt_money;
-            $model->account_number = $debts[0]->account_number;
-            $model->region = $debts[0]->region;
-            $model->address = $debts[0]->address;
-            $model->overdue_time = $debts[0]->overdue_time;
-            $model->status = $debts[0]->status;
+            $model = $ContactUsers[0];
             $this->renderPartial("_form_create",array('model'=>$model));
         //}
     }

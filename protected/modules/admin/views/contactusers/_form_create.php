@@ -155,7 +155,7 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ifvalid'); ?>
-		<?php echo $form->dropDownList($model,'ifvalid',array("0"=>"不成立","1"=>"成立"),
+		<?php echo $form->dropDownList($model,'ifvalid',array("0"=>"不成立","1"=>"成立",'2'=>'待核实'),
                     array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'ifvalid'); ?>
 	</div>

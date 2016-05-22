@@ -74,25 +74,25 @@ class UploadDocsController extends Controller {
                     $payNO = $pay[$i][$payNOKey];
                     $ID = $pay[$i][$IDKey];
                     $paid_money = $pay[$i][$paid_money_id];
-                    $sql = "select * from gz_upload_docs where showDetail like '%\"$payNO\"%' and showDetail like '%\"$ID\"%'";
-                    $detail = $model->findBySql($sql);
+                    //$sql = "select * from gz_upload_docs where showDetail like '%\"$payNO\"%' and showDetail like '%\"$ID\"%'";
+                    //$detail = $model->findBySql($sql);
                     //搜索原欠费文档里面的人的缴费的记录
                     $repay = new Repay;
                     $pay_totalmoney = "";
-                    if($detail){
-                        $pay_nums_money['id'][] = $detail->id;
-                        $pay_nums_money['paid_money'][] = $paid_money;
-                        $rows[] = $detail;//搜索出来之后
-                        $repay->paid_ID = $ID;
-                        $repay->payId = $payNO;
-                        $repay->paid_money = $paid_money;
-                        $repay->docsId = $detail->id;
-                        $pay_totalmoney += $paid_money;
-                        if($repay->save()){
-                        }else{
-                            var_dump($repay->errors);exit;
-                        }
+                    //if($detail){
+                    $pay_nums_money['id'][] = $detail->id;
+                    $pay_nums_money['paid_money'][] = $paid_money;
+                    $rows[] = $detail;//搜索出来之后
+                    $repay->paid_ID = $ID;
+                    $repay->payId = $payNO;
+                    $repay->paid_money = $paid_money;
+                    $repay->docsId = $detail->id;
+                    $pay_totalmoney += $paid_money;
+                    if($repay->save()){
+                    }else{
+                        var_dump($repay->errors);exit;
                     }
+                    //}
                 }
             }
             $doc_id_money = array();
@@ -278,6 +278,22 @@ class UploadDocsController extends Controller {
                     $debts->region = $_POST['UploadDocs']['area'];
                     $debts->status = 0;
                     $debts->ifpay = 0;
+                    $contact_users = new ContactUsers;
+                    
+                    $contact_users->name = $row[$key_debtor];
+                    $contact_users->debt_money = $row[$key_debt_money];
+                    $contact_users->ID_number = $row[$key_ID_number];
+                    $contact_users->phone1 = $row[$key_telephone];
+                    $contact_users->region = $_POST['UploadDocs']['area'];
+                    $contact_users->account_number = $row[$key_account_number];
+                    $contact_users->overdue_time = $row[$key_overdue_time];
+                    $contact_users->address = $row[$key_address];
+                    $contact_users->status = 0;
+                    
+                    if(!$contact_users->save()){
+                        var_dump($contact_users->errors);
+                    }
+                    
                     if(!$debts->save()){
                         var_dump($debts->errors);
                     }
