@@ -68,12 +68,18 @@ class UploadDocsController extends Controller {
                 $payNOKey = array_search("缴费编号", $pay[1]);
                 $IDKey = array_search("身份证", $pay[1]);
                 $paid_money_id = array_search("追缴金额", $pay[1]);
+                $paid_date_key = array_search("缴费日期", $pay[1]);
                 $rows = array();
                 $pay_nums_money = array();
                 for($i=2;$i<=$total_line;$i++){
                     $payNO = $pay[$i][$payNOKey];
                     $ID = $pay[$i][$IDKey];
                     $paid_money = $pay[$i][$paid_money_id];
+                    if($paid_date_key == "-1"){
+                        $paid_date = date("Y-m-d");
+                    }else{
+                        $paid_date = $pay[$i][$paid_date_key];
+                    }
                     //$sql = "select * from gz_upload_docs where showDetail like '%\"$payNO\"%' and showDetail like '%\"$ID\"%'";
                     //$detail = $model->findBySql($sql);
                     //搜索原欠费文档里面的人的缴费的记录
@@ -85,6 +91,7 @@ class UploadDocsController extends Controller {
                     $rows[] = $detail;//搜索出来之后
                     $repay->paid_ID = $ID;
                     $repay->payId = $payNO;
+                    $repay->pay_date = $paid_date;
                     $repay->paid_money = $paid_money;
                     $repay->docsId = $detail->id;
                     $pay_totalmoney += $paid_money;

@@ -220,6 +220,36 @@ class ContactUsersController extends Controller {
         //}
     }
     function actionRepaystatistics(){
-        
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
+        Yii::import('application.components.functions',1);
+        $region = "新干县";//
+        $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
+        $repays = Repay::model()->findAllBySql($sql,array($region));
+        $repayCount = count($repays);
+        $debtsCount = Debts::model()->count("region=?",array($region));
+        $this->render('repaystatistics',array('repayCount'=>$repayCount,'debtsCount'=>$debtsCount));
+    }
+    function actionGetAllRepays(){
+        if($_POST){
+            $startdate = $_POST['startdate'];
+            $enddate = $_POST['enddate'];
+            $region = "新干县";//
+            $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
+            if($startdate){
+                $where = " AND pay_date>".$startdate;
+                $sql.= $where;
+            }
+            if($enddate){
+                $where = " AND pay_date>".$enddate;
+                $sql.= $where;
+            }
+            $repays = Repay::model()->findAllBySql($sql,array($region));
+            
+        }
     }
 }
