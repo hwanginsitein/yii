@@ -4546,3 +4546,83 @@ Stack trace:
 REQUEST_URI=/favicon.ico
 HTTP_REFERER=http://gz_lawfirm.com/admin
 ---
+2016/05/22 15:21:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers/update/id/16
+---
+2016/05/22 15:21:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers/update/id/16
+---
+2016/05/22 15:21:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers/update/id/16
+---
+2016/05/22 15:21:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers/update/id/16
+---
+2016/05/22 16:08:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "objection".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('objection')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('objection')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactus...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/contactusers/objection
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers
+---
+2016/05/22 16:08:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "repaystatistics".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('repaystatistics')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('repaystatistics')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactus...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/contactusers/repaystatistics
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers
+---
+2016/05/22 16:08:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "progress".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('progress')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('progress')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactus...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/contactusers/progress
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers
+---
+2016/05/22 16:11:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "objection".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('objection')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('objection')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactus...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/contactusers/objection
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers
+---

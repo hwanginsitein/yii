@@ -100,6 +100,7 @@ class ContactUsers extends CActiveRecord
 			'attitude' => '用户态度',
 			'objection_reason' => '异议理由',
 			'ifvalid' => '异议是否成立',
+			'objection_date' => '异议时间',
 			'otherComments' => '其他记录',
 			'proceed' => '催缴进程',
                         'overdue_time' => '停机时间'

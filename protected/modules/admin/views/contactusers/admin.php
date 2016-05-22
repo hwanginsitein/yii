@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'添加联系用户', 'url'=>array('create')),
+	array('label'=>'搜索联系用户', 'url'=>array('search')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

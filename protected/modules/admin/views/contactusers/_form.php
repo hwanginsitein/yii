@@ -190,13 +190,13 @@
 <script>
     $(document).ready(function(){
         $('#ContactUsers_repay_date').datepicker({
-            showButtonPanel: true;
+            showButtonPanel: true
         });
         $('#ContactUsers_sent_date').datepicker({
-            showButtonPanel: true;
+            showButtonPanel: true
         });
         $('#ContactUsers_objection_date').datepicker({
-            showButtonPanel: true;
+            showButtonPanel: true
         });
         var ue = UE.getEditor('editor1');
         <?php

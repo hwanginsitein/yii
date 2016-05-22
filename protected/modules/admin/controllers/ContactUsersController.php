@@ -42,12 +42,12 @@ class ContactUsersController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
+    public function actionObjection(){
+        
+        $this->render("objection");
+    }
 
-    /**
-     * Creates a new model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     */
-    public function actionCreate() {
+    public function actionSearch() {
         Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");

@@ -159,6 +159,11 @@ $form=$this->beginWidget('CActiveForm', array(
                     array('prompt' => '请选择')); ?>
 		<?php echo $form->error($model,'ifvalid'); ?>
 	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'objection_date'); ?>
+		<?php echo $form->textField($model,'objection_date',array('size'=>30,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'objection_date'); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'otherComments'); ?>
@@ -186,6 +191,9 @@ $form=$this->beginWidget('CActiveForm', array(
         showButtonPanel: true
     });
     $('#ContactUsers_sent_date').datepicker({
+        showButtonPanel: true
+    });
+    $('#ContactUsers_objection_date').datepicker({
         showButtonPanel: true
     });
     var ue = UE.getEditor('editor<?=$editorId?>');

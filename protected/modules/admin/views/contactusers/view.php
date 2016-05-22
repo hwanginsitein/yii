@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'添加联系用户', 'url'=>array('create')),
+	array('label'=>'搜索联系用户', 'url'=>array('search')),
 	array('label'=>'修改联系用户', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'删除联系用户', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'管理联系用户', 'url'=>array('admin')),

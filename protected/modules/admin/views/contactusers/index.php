@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'添加联系用户', 'url'=>array('create')),
+	array('label'=>'搜索联系用户', 'url'=>array('search')),
 	array('label'=>'管理联系用户', 'url'=>array('admin')),
 );
 ?>
