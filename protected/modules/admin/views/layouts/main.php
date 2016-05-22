@@ -14,6 +14,7 @@
 
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layouts.css">
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         <style>
@@ -21,6 +22,7 @@
                 .span-19{width:1000px;margin-top:60px;}
                 .container{width:99%}
                 .last{margin-left:100px}
+                #ui-datepicker-div {z-index:2500 !important;}
             <?php //} ?>
         </style>
     </head>
@@ -57,7 +59,21 @@
                 ));
                 ?><!-- breadcrumbs -->
 <?php endif ?>
-
+<?php
+    $controller = Yii::app()->getController()->id;
+    if($controller == "contactusers"){
+?>
+    <div>
+        <ul class="menu1">
+            <li><a href="/admin/contactusers/objection">异议处理</a></li>
+            <li><a href="/admin/contactusers/repaystatistics">缴费统计</a></li>
+            <li><a href="/admin/contactusers/progress">查看进展</a></li>
+        </ul>
+    </div>
+<?php        
+    }
+?>             
+<div style="clear:both"></div>
 <?php echo $content; ?>
 
             <div class="clear"></div>
