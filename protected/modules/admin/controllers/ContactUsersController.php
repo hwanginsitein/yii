@@ -241,15 +241,16 @@ class ContactUsersController extends Controller {
             $region = "新干县";//
             $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
             if($startdate){
-                $where = " AND pay_date>".$startdate;
+                $where = " AND pay_date>'{$startdate}'";
                 $sql.= $where;
             }
             if($enddate){
-                $where = " AND pay_date>".$enddate;
+                $where = " AND pay_date>'{$enddate}'";
                 $sql.= $where;
             }
-            $repays = Repay::model()->findAllBySql($sql,array($region));
-            
+            $result = yii::app()->db->createCommand($sql);
+            $repays = $result->queryAll(true,array($region));
+            $this->renderPartial('getallrepays',array('repays'=>$repays));
         }
     }
 }
