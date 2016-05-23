@@ -31,6 +31,15 @@ ul{
     border:1px solid black;
     font-size: 20px;
 }
+.repay1{
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    width: 500px;
+    height: 160px;
+    border:1px solid black;
+    font-size: 20px;
+}
 .square1{
     width: 100px;
     height: 100px;

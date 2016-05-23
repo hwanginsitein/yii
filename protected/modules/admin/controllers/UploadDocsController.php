@@ -222,12 +222,12 @@ class UploadDocsController extends Controller {
             $model->time = time();
             $model->type = "fare";
             $detail = CUploadedFile::getInstance($model, 'detail');
-            $fileNameArr = pathinfo($detail->getName());
-            $fileName = $fileNameArr['filename'];
-            $model->upload_name = $fileName;
-            //$filePath = Yii::app()->basePath."/../uploads/files/".time().rand(0,999).".xls";
-            //$detail->saveAs($filePath);getTempName()
-            if ($detail) {
+            if($detail){
+                $fileNameArr = pathinfo($detail->getName());
+                $fileName = $fileNameArr['filename'];
+                $model->upload_name = $fileName;
+                //$filePath = Yii::app()->basePath."/../uploads/files/".time().rand(0,999).".xls";
+                //$detail->saveAs($filePath);getTempName()
                 $filePath = $detail->getTempName();
                 Yii::import('application.extensions.PHPExcel.Classes.PHPExcel', 1);
                 $ExcelReader = $this->getExcelReader($filePath);

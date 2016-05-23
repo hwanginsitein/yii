@@ -193,6 +193,7 @@ class ContactUsersController extends Controller {
         //if($_POST){
             $p = $_POST;
             $search = $p['search'];
+            //$search = "刘伏田";
             //$search = "谢芳清";
             $ContactUsers = ContactUsers::model()->findAll('name=? or ID_number=? or phone1=?',array($search,$search,$search));
             if(count($ContactUsers)>1){
@@ -238,6 +239,9 @@ class ContactUsersController extends Controller {
         if($_POST){
             $startdate = $_POST['startdate'];
             $enddate = $_POST['enddate'];
+            if($_POST["region"]){
+                $region = $_POST['region'];
+            }
             $region = "新干县";//
             $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
             if($startdate){
@@ -245,12 +249,31 @@ class ContactUsersController extends Controller {
                 $sql.= $where;
             }
             if($enddate){
-                $where = " AND pay_date>'{$enddate}'";
+                $where = " AND pay_date<'{$enddate}'";
                 $sql.= $where;
             }
             $result = yii::app()->db->createCommand($sql);
             $repays = $result->queryAll(true,array($region));
             $this->renderPartial('getallrepays',array('repays'=>$repays));
         }
+    }
+    function actionProgress(){
+        Yii::import('application.components.functions',1);
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
+        $uploadDocs = UploadDocs::model()->findAll();
+        $this->render("progress",array("uploadDocs"=>$uploadDocs));
+    }
+    function actionGetAllRepayCount(){
+        $region = $_POST['region'];//
+        $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
+        $repays = Repay::model()->findAllBySql($sql,array($region));
+        $repayCount = count($repays);
+        $debtsCount = Debts::model()->count("region=?",array($region));
+        echo json_encode(array($repayCount,$debtsCount));exit;
     }
 }

@@ -5,7 +5,7 @@
     </div>
     <div class='span2'>
         <div class="word1">未缴费人员</div>
-        <div class='square1'><?=$debtsCount?>位</div>
+        <div class='square1'><?=$debtsCount-$repayCount?>位</div>
     </div>
     <div class='span2'>
         <div class="word1">完成比例</div>
