@@ -217,10 +217,11 @@ class UploadDocsController extends Controller {
         if (isset($_POST['UploadDocs'])) {
             //var_dump($_POST['UploadDocs']);exit;
             $model->attributes = $_POST['UploadDocs'];
+            if(count($_POST['UploadDocs']['label'])){
+                $model->label = implode(',',$_POST['UploadDocs']['label']);
+            }
             $uploader = Yii::app()->user->name;
             $model->uploader = $uploader ? $uploader : "admin";
-            $model->time = time();
-            $model->type = "fare";
             $detail = CUploadedFile::getInstance($model, 'detail');
             if($detail){
                 $fileNameArr = pathinfo($detail->getName());
@@ -295,6 +296,7 @@ class UploadDocsController extends Controller {
                     $contact_users->overdue_time = $row[$key_overdue_time];
                     $contact_users->address = $row[$key_address];
                     $contact_users->status = 0;
+                    $contact_users->docsId = $docsId;
                     
                     if(!$contact_users->save()){
                         var_dump($contact_users->errors);
@@ -403,5 +405,49 @@ class UploadDocsController extends Controller {
             Yii::app()->end();
         }
     }
-
+    public function actionExport(){
+        if($_POST){
+            $p = $_POST;
+            //docsId=? or docsId=?
+            $docStr = "";
+            $params = array($p['ifrepay'],$p['ifsend'],$p['ifcontact'],$p['ifcontact']);
+            foreach($p['docsId'] as $docId){
+                $docStr.= "docsId=? or ";
+                $params[] = $docId;
+            }
+            $docStr = substr($docStr,0,-3);
+            $conditions = "ifrepay=? and sendLetter=? and (phone1_status=? or phone2_status=?) and (".$docStr.") order by docsId";
+            $contacts = ContactUsers::model()->findAll($conditions,$params);
+            $content = "";
+            /*
+name debt_money ID_number phone1
+phone1_status phone2 phone2_status phone3 region address account_number overdue_time status sendLetter sent_date receiveLetter
+ifrepay repay_date repay_money attitude objection_reason ifvalid otherObjection objection_date otherComments proceed docsId
+             */
+            $contactModel = new ContactUsers;
+            $labels = $contactModel->attributeLabels();
+            unset($labels['id']);
+            $titles = implode("\t",$labels);
+            foreach($contacts as $contact){
+                $docsId = $contact->docsId;
+                $uploadDoc = UploadDocs::model()->findByPk($docsId);
+                $docName = $uploadDoc->upload_name;
+                $content.= $titles."\n";
+                foreach($labels as $k=>$label){
+                    if($k){
+                        
+                    }
+                    $content.= $contact->$k."\t";
+                }
+                $content.= "\n";
+            }
+            Yii::app()->request->sendFile("1.sql",$content);exit;
+        }
+        Yii::import('application.components.functions',1);
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
+        $uploadDocs = UploadDocs::model()->findAll();
+        $this->render('export',array('uploadDocs'=>$uploadDocs));
+    }
 }
