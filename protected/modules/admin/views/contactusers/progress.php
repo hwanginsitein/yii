@@ -91,7 +91,7 @@
     function changeTwoDecimal(x){
         var f_x = parseFloat(x);
         if (isNaN(f_x)){
-            alert('function:changeTwoDecimal->parameter error');
+            //alert('function:changeTwoDecimal->parameter error');
             return false;
         }
         f_x = Math.round(f_x *100)/100;
@@ -133,11 +133,13 @@
         getRepays('<?=date("Y-m-d",strtotime("-3 months"))?>','');
     });
     function getRepays(startdate,enddate,region){
+        var region = $("#area").find("option:selected").val();
         $.ajax({
             type: "POST",
             url: "/admin/contactusers/getallrepays",
-            data:{startdate:startdate,enddate:enddate},
+            data:{startdate:startdate,enddate:enddate,region:region},
             success:function(data){
+                console.log(data);
                 $("#repays").html(data);
                 $('#repaystable').DataTable(language);
             }

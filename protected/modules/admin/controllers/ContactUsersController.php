@@ -241,8 +241,9 @@ class ContactUsersController extends Controller {
             $enddate = $_POST['enddate'];
             if($_POST["region"]){
                 $region = $_POST['region'];
+            }else{
+                $region = "新干县";//
             }
-            $region = "新干县";//
             $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
             if($startdate){
                 $where = " AND pay_date>'{$startdate}'";

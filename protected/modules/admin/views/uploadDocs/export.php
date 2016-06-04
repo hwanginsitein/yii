@@ -62,26 +62,6 @@
     })
     //$("form").submit(function(){return false});
     $("button").click(function(){
-        return false;
-        var self = $("form");
-        //console.log(self.serialize());return false;
-        $.ajax({
-            type: 'POST',
-            url: self.attr("action"),
-            data: self.serialize(),
-            success: function(data) {
-                console.log(data);
-                var obj = JSON.parse(data);
-                if (obj.status == 1) {
-                    
-                }else{
-                    
-                }
-            },
-            error: function(data1){
-                console.log(data1);
-            }
-        });
     })
     var language = {"language": {
         "sInfo": "显示 _START_ 至 _END_ 共 _TOTAL_ 条",

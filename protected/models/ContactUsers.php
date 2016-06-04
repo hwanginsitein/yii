@@ -47,7 +47,7 @@ class ContactUsers extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, debt_money, status,overdue_time', 'required'),
+			array('name, debt_money, status,overdue_time,docsId', 'required'),
 			array('phone1_status, phone2_status, status, sendLetter, receiveLetter, ifrepay, repay_money, attitude, ifvalid', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>12),
 			array('ID_number', 'length', 'max'=>18),

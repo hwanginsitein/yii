@@ -8,6 +8,11 @@ class UploadDocsController extends Controller {
      */
     public $layout = 'column2';
 
+	public function beforeAction($action){
+		//权限
+		return parent::beforeAction($action);
+		exit;
+	}
     /**
      * @return array action filters
      */
@@ -428,20 +433,48 @@ ifrepay repay_date repay_money attitude objection_reason ifvalid otherObjection 
             $labels = $contactModel->attributeLabels();
             unset($labels['id']);
             $titles = implode("\t",$labels);
-            foreach($contacts as $contact){
+            $preDocId = NULL;
+            foreach($contacts as $i => $contact){
                 $docsId = $contact->docsId;
-                $uploadDoc = UploadDocs::model()->findByPk($docsId);
-                $docName = $uploadDoc->upload_name;
-                $content.= $titles."\n";
+                if($docsId != $preDocId){
+                    $uploadDoc = UploadDocs::model()->findByPk($docsId);
+                    $docName = $uploadDoc->upload_name;
+                    $content.= (string)$docName."\n";
+                    $content.= $titles."\n";
+                }
                 foreach($labels as $k=>$label){
-                    if($k){
-                        
+                    if($k == "phone1_status"){
+                        $arr = array("1"=>"能联系上欠费用户","2"=>"机主不是欠费用户","3"=>"无法联系");
+                        $content.= $arr[$contact->$k]."\t";
+                    }elseif($k == "phone2_status"){
+                        $arr = array("1"=>"能联系上欠费用户","2"=>"机主不是欠费用户","3"=>"无法联系");
+                        $content.= $arr[$contact->$k]."\t";
+                    }elseif($k == "sendLetter"){
+                        $arr = array("0"=>"否","1"=>"是");
+                        $content.= $arr[$contact->$k]."\t";
+                    }elseif($k == "receiveLetter"){
+                        $arr = array("0"=>"否","1"=>"是");
+                        $content.= $arr[$contact->$k]."\t";
+                    }elseif($k == "status"){
+                        $arr = array("0"=>"待审核","1"=>"通过");
+                        $content.= $arr[$contact->$k]."\t";
+                    }elseif($k == "ifrepay"){
+                        $arr = array("0"=>"否","1"=>"是");
+                        $content.= $arr[$contact->$k]."\t";
+                    }elseif($k == "attitude"){
+                        $arr = array("0"=>"不愿意缴费","1"=>"愿意缴费");
+                        $content.= $arr[$contact->$k]."\t";
+                    }elseif($k == "ifvalid"){
+                        $arr = array("0"=>"不成立","1"=>"成立","2"=>"待核实");
+                        $content.= $arr[$contact->$k]."\t";
+                    }else{
+                        $content.= (string)$contact->$k."\t";
                     }
-                    $content.= $contact->$k."\t";
                 }
                 $content.= "\n";
+                $preDocId = $docsId;;
             }
-            Yii::app()->request->sendFile("1.sql",$content);exit;
+            Yii::app()->request->sendFile("1.xls",$content);exit;
         }
         Yii::import('application.components.functions',1);
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");

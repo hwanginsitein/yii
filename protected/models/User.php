@@ -28,13 +28,13 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, permission,email,phone', 'required'),
-                        array('username','unique','message'=>'用户名已占用'),
+			array('username, password', 'required','message'=>'{attribute}不能为空'),
+			array('role', 'required','message'=>'请选择用户身份'),
+			//array('repassword', 'compare', 'compareAttribute'=>'password', 'message'=>'请再输入确认密码'),
+			array('username','unique','message'=>'用户名已占用'),
 			array('approvement,phone', 'numerical', 'integerOnly'=>true),
-                        array('email','email','message'=>'邮箱格式错误'),
-                        array('username', 'length', 'max'=>21, 'min'=>6, 'tooLong'=>'用户名请输入长度为6-21位字符', 'tooShort'=>'用户名请输入长度为6-21位字符'),
-                        array('password', 'length', 'max'=>16, 'min'=>6, 'tooLong'=>'密码请输入长度为6-22位字符', 'tooShort'=>'密码请输入长度为6-22位字符'),
-			array('permission', 'length', 'max'=>255),
+			array('username', 'length', 'max'=>21, 'min'=>6, 'tooLong'=>'用户名请输入长度为6-21位字符', 'tooShort'=>'用户名请输入长度为6-21位字符'),
+			array('role', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('username, approvement, email ,phone', 'safe', 'on'=>'search'),
@@ -64,10 +64,14 @@ class User extends CActiveRecord
 			'approvement' => '是否通过审核',
 			'phone' => '手机号',
 			'email' => '电子邮箱',
-			'permission' => '权限',
+			'role' => '身份',
 		);
 	}
-
+	static function getRole($id){
+		$roleArr = array("1"=>'律师',"2"=>'电信工作人员',"3"=>'欠款用户');	
+		return $roleArr[$id];
+	}
+	
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

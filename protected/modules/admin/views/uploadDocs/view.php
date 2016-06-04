@@ -14,38 +14,33 @@ $this->menu = array(
     array('label' => '管理缴费数据', 'url' => array('admin')),
 );
 ?>
-
-<h1>View UploadDocs #<?php echo $model->id; ?></h1>
+<?php 
+$debts = Debts::model()->findAll("docsId=?",array($model->id));
+?>
+<h1>查看<?=$model->area?> <?=$model->comments?> 用户数据</h1>
 <table id="content1" class="display" cellspacing="0">
-    <?php
-    $detail = json_decode($model->showDetail);
-    $footer = "";
-    if ($detail) {
-        foreach ($detail as $k => $v) {
-            if ($k == 1) {
-                echo "<thead>";
-            } elseif ($k == 2) {
-                echo "<tbody>";
-            }
-            echo "<tr>";
-            foreach ($v as $k1 => $v1) {
-                if ($k == 1) {
-                    echo "<th>" . $v1 . "</th>";
-                    $footer.= "<th>" . $v1 . "</th>";
-                } else {
-                    echo "<td>" . $v1 . "</td>";
-                }
-            }
-            echo "</tr>";
-            if ($k == 1) {
-                echo "</thead>";
-            } elseif ($k == 2) {
-                echo "</tbody>";
-            }
-        }
-    }
-    echo $footer;
-    ?>
+	<thead>
+		<th>欠款用户</th>
+		<th>身份证号码</th>
+		<th>欠款金额</th>
+		<th>停机时间</th>
+		<th>催缴编号</th>
+		<th>账户编号</th>
+		<th>欠费号码</th>
+	</thead>
+	<tbody>
+	<?php foreach($debts as $debt){?>
+		<tr>
+			<td><?=$debt->debtor?></td>
+			<td><?=$debt->ID_number?></td>
+			<td><?=$debt->debt_money?></td>
+			<td><?=$debt->overdue_time?></td>
+			<td><?=$debt->debt_number?></td>
+			<td><?=$debt->account_number?></td>
+			<td><?=$debt->telephone?></td>
+		</tr>
+	<?php }?>
+	</tbody>
 </table>
 <script>
     $('#content1').DataTable({});

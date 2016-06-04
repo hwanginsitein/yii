@@ -20,6 +20,29 @@
 
 	<?php echo $form->errorSummary($model); ?>
 	<div class="row">
+		<?php echo $form->labelEx($model,'time'); ?>
+		<?php echo $form->textField($model,'time'); ?>
+		<?php echo $form->error($model,'time'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'clientele'); ?>
+		<?php echo $form->textField($model,'clientele'); ?>
+		<?php echo $form->error($model,'clientele'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'type'); ?>
+		<?php echo $form->dropDownList($model,'type',array("话费"=>"话费",'宽带费'=>"宽带费"),
+                    array('prompt' => '请选择')); ?>
+		<?php echo $form->error($model,'type'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'label'); ?>
+		<?php echo $form->dropDownList($model,'label',array(
+                    "地址详细"=>"地址详细","地址不详细"=>"地址不详细","已寄送律师函"=>"已寄送律师函"),array("multiple"=>"multiple",'size'=>3)
+                    ); ?>
+		<?php echo $form->error($model,'label'); ?>
+	</div>
+	<div class="row">
             <label for="UploadDocs_starttime_endtime" class="required">欠费起止时间 <span class="required">*</span></label>
                 <?php echo $form->textField($model,'starttime'); ?>至<?php echo $form->textField($model,'endtime'); ?>
 		<?php echo $form->error($model,'endtime'); ?>
@@ -61,6 +84,9 @@
             var pos=o.lastIndexOf(".");
             return o.substring(0,pos);  
         }
+        $('#UploadDocs_time').datepicker({
+            showButtonPanel: true
+        });
         $('#UploadDocs_starttime').datepicker({
             showButtonPanel: true
         });

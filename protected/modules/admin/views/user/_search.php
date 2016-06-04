@@ -12,23 +12,12 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'username'); ?>
 		<?php echo $form->textField($model,'username',array('size'=>21,'maxlength'=>21)); ?>
 	</div>
-
 	<div class="row">
-		<?php echo $form->label($model,'approvement'); ?>
-		<?php echo $form->textField($model,'approvement'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'permission'); ?>
-		<?php echo $form->textField($model,'permission',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->label($model,'phone'); ?>
+		<?php echo $form->textField($model,'phone'); ?>
 	</div>
 
 	<div class="row buttons">

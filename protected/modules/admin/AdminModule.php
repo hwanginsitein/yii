@@ -16,7 +16,8 @@ class AdminModule extends CWebModule
 
 	public function beforeControllerAction($controller, $action)
 	{
-            Yii::app()->clientScript->registerCoreScript('jquery');
+		Yii::app()->clientScript->registerCoreScript('jquery');
+		//var_dump($controller->getId());var_dump($action->getId());exit;
 		if(parent::beforeControllerAction($controller, $action))
 		{
 			// this method is called before any module controller action is performed

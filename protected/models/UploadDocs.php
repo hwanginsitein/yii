@@ -26,11 +26,12 @@ class UploadDocs extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('uploader,time,type,upload_name,starttime,endtime,area,comments', 'required'),
-            array('time', 'numerical', 'integerOnly' => true),
+            //array('time', 'numerical', 'integerOnly' => true),
             array('uploader', 'length', 'max' => 255),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, uploader, time, detail,type,upload_name,showDetail,label,information', 'safe', 'on' => 'search'),
+            array('label,information,clientele', 'safe'),
+            array('id,uploader,time,detail,type,upload_name,showDetail,label,information,clientele,', 'safe', 'on' => 'search'),
             array('endtime', 'compare', 'compareAttribute' => 'starttime', 'operator' => '>=', 'message' => '起止时间不对')
         );
     }
@@ -51,10 +52,13 @@ class UploadDocs extends CActiveRecord {
     public function attributeLabels() {
         return array(
             'id' => 'ID',
-            'upload_name' => '文件名字',
-            'uploader' => 'Uploader',
+            'upload_name' => '文件',
+            'uploader' => '上传人',
             'detail' => '文件',
+            'time' => '日期',
+            'clientele' => '委托人',
             'type' => '欠费类型',
+            'label' => '标签',
             'starttime' => '欠费开始时间',
             'endtime' => '欠费结束时间',
             'area' => '欠费区域',
