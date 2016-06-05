@@ -21,19 +21,19 @@
 <div class="span1">
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>12,'maxlength'=>12)); ?>
+		<?php echo $form->textField($model,'name',array('size'=>12,'maxlength'=>12,'disabled'=>'disabled')); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'debt_money'); ?>
-		<?php echo $form->textField($model,'debt_money'); ?>
+		<?php echo $form->textField($model,'debt_money',array('disabled'=>'disabled')); ?>
 		<?php echo $form->error($model,'debt_money'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ID_number'); ?>
-		<?php echo $form->textField($model,'ID_number',array('size'=>18,'maxlength'=>18)); ?>
+		<?php echo $form->textField($model,'ID_number',array('size'=>18,'maxlength'=>18,'disabled'=>'disabled')); ?>
 		<?php echo $form->error($model,'ID_number'); ?>
 	</div>
 
@@ -66,12 +66,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'phone3'); ?>
-		<?php echo $form->textField($model,'phone3',array('size'=>30,'maxlength'=>30)); ?>
-		<?php echo $form->error($model,'phone3'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'region'); ?>
 		<?php echo $form->dropDownList($model,'region',array(
                     "新干县"=>"新干县","安福县"=>"安福县","峡江县"=>"峡江县","永丰县"=>"永丰县","吉水县"=>"吉水县","吉州区"=>"吉州区","青原区"=>"青原区",
@@ -88,17 +82,9 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'account_number'); ?>
-		<?php echo $form->textField($model,'account_number',array('size'=>15,'maxlength'=>15)); ?>
+		<?php echo $form->textField($model,'account_number',array('size'=>15,'maxlength'=>15,'disabled'=>'disabled')); ?>
 		<?php echo $form->error($model,'account_number'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->dropDownList($model,'status',array("0"=>"待审核","1"=>"通过"),
-                    array('prompt' => '请选择')); ?>
-		<?php echo $form->error($model,'status'); ?>
-	</div>
-
 </div>
 <div class="span1">
 	<div class="row">
@@ -172,8 +158,41 @@
 		<?php echo $form->textField($model,'otherComments',array('size'=>30,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'otherComments'); ?>
 	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'status'); ?>
+		<?php echo $form->dropDownList($model,'status',array("0"=>"待审核","1"=>"通过"),
+                    array('prompt' => '请选择')); ?>
+		<?php echo $form->error($model,'status'); ?>
+	</div>
 </div>
-        <div class="clear"></div>
+<div class="span2">
+	<table border="0">
+		<tr>
+			<td>
+				<div>电话联系用户</div>
+				<div>
+					<span class="notcontact">无法接通</span>
+					<span class="contact">可以接通</span>
+				</div>
+			</td>
+			<td>
+				<div class="row blue">
+					<label for="ContactUsers_phone1">第一联系电话</label>
+					<input size="30" maxlength="30" name="ContactUsers[phone1]" id="ContactUsers_phone1" type="text" 
+					value="<?=$model->phone1?>">
+				</div>
+				<div class="row blue">
+					<label for="ContactUsers_phone2">第二联系电话</label>
+					<input size="30" maxlength="30" name="ContactUsers[phone2]" id="ContactUsers_phone2" type="text" 
+					value="<?=$model->phone2?>">
+				</div>
+			</td>
+		</tr>
+		<tr></tr>
+		<tr></tr>
+	</table>
+</div>
+    <div class="clear"></div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'proceed'); ?>
                 <script id="editor1" type="text/plain" style="width:700px;height:400px;" name="ContactUsers[proceed]"></script>

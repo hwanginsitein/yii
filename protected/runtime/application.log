@@ -7328,3 +7328,42 @@ Stack trace:
 REQUEST_URI=/admin/UploadDocs
 in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (3)
 in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/05 21:02:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "gz_lawfirm.com".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('gz_lawfirm.com')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('gz_lawfirm.com')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/user/gz_l...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/user/gz_lawfirm.com
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactusers/update/id/38
+---
+2016/06/05 21:06:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "gz_lawfirm.com".' in E:\phpstudy\WWW\yii\framework\web\CController.php:483
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(270): CController->missingAction('gz_lawfirm.com')
+#1 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('gz_lawfirm.com')
+#2 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/user/gz_l...')
+#3 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/user/gz_lawfirm.com
+HTTP_REFERER=http://gz_lawfirm.com/admin/UploadDocs/export
+---
+2016/06/05 21:10:59 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_user` `t` WHERE username=? LIMIT 1.
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\AdminModule.php (22)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/05 21:10:59 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT * FROM `gz_user` `t` WHERE username=? LIMIT 1' in E:\phpstudy\WWW\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\AdminModule.php(22): CActiveRecord->find('username=?', Array)
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(263): AdminModule->beforeControllerAction(Object(UploadDocsController), Object(CInlineAction))
+#5 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('export')
+#6 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/UploadDoc...')
+#7 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#8 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/admin/UploadDocs/export
+---

@@ -15,6 +15,6 @@ $this->menu = array(
 );
 ?>
 
-<h1>Update UploadDocs <?php echo $model->id; ?></h1>
+<h1>上传更新 <?=$model->area;?> 备注：<?=$model->comments;?> </h1>
 
 <?php $this->renderPartial('_form', array('model' => $model)); ?>
