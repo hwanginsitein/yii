@@ -112,9 +112,46 @@ class ContactUsersController extends Controller {
         // $this->performAjaxValidation($model);
         
         if (isset($_POST['ContactUsers'])) {
+            $p = $_POST['ContactUsers'];
+            if($model->proceed){
+                $proceed = str_replace("</table>","",$model->proceed);
+            }else{
+                $proceed = "<table border=1><tr><th>日期</th><th>内容</th></tr>";
+            }
+            $postArr = array(
+                    '第一联系电话'=>'phone1','第二联系电话'=>'phone2','第一联系电话状态'=>'phone1_status',
+                    '第二联系电话状态'=>'phone2_status','是否发送律师函'=>'sendLetter','是否收到律师函'=>'receiveLetter',
+                    '缴费金额'=>'repay_money','用户态度'=>'attitude','异议理由'=>'objection_reason'
+                );
+            $postArr1 = array(
+                    'phone1','phone2','phone1_status','phone2_status','sendLetter',
+                    'receiveLetter','repay_money','attitude','objection_reason'
+                );
+            $array = array('第一联系电话状态','第二联系电话状态','是否发送律师函','是否收到律师函','用户态度');
+            $array1 = array(
+                    2=>array(1=>'能连上欠费用户',2=>'机主不是欠费用户',3=>'无法联系'),
+                    3=>array(1=>'能连上欠费用户',2=>'机主不是欠费用户',3=>'无法联系'),
+                    4=>array('否','是'),5=>array('否','是'),
+                    7=>array('不愿意缴费','愿意缴费')
+                );
+            $content = '更新内容：<br>';
+            $i=0;
+            foreach($postArr as $k=>$v){
+                if($model->$v != $p[$v]){
+                    if(!in_array($k,$array)){
+                        $content.= $k." ".$p[$v]."<br>";
+                    }else{
+                        $content.= $k." ".$array1[$i][$p[$v]]."<br>";
+                    }
+                }
+                $i++;
+            }
             $model->attributes = $_POST['ContactUsers'];
+            $proceed.= "<tr><td>".date("Y-m-d")."</td><td>".$content."</td><td></td></tr><table>";
+            $proceed.="</table>";
+            $model->proceed = $proceed;
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('update', 'id' => $model->id));
         }
 
         $this->render('update', array(

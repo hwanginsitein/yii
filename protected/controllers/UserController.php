@@ -137,6 +137,7 @@ class UserController extends Controller {
 			$user = new User;
 			$user->attributes = $_POST;
 			$user->password = md5($_POST['password']);
+      $user->region = $p['region'];
 			if($user->save()){
 				echo json_encode(array('status'=>1));
 			}else{

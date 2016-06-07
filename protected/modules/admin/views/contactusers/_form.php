@@ -169,34 +169,77 @@
 	<table border="0">
 		<tr>
 			<td>
-				<div>电话联系用户</div>
+				<!--<div>电话联系用户</div>-->
 				<div>
-					<span class="notcontact">无法接通</span>
-					<span class="contact">可以接通</span>
+					<span class="notcontact size1">无法接通</span>
+					<span class="contact size1">可以接通</span>
 				</div>
 			</td>
 			<td>
 				<div class="row blue">
 					<label for="ContactUsers_phone1">第一联系电话</label>
-					<input size="30" maxlength="30" name="ContactUsers[phone1]" id="ContactUsers_phone1" type="text" 
+					<input size="20" maxlength="30" name="ContactUsers[phone1]" id="ContactUsers_phone1" type="text" 
 					value="<?=$model->phone1?>">
 				</div>
 				<div class="row blue">
 					<label for="ContactUsers_phone2">第二联系电话</label>
-					<input size="30" maxlength="30" name="ContactUsers[phone2]" id="ContactUsers_phone2" type="text" 
+					<input size="20" maxlength="30" name="ContactUsers[phone2]" id="ContactUsers_phone2" type="text" 
 					value="<?=$model->phone2?>">
 				</div>
 			</td>
 		</tr>
-		<tr></tr>
-		<tr></tr>
+		<tr>
+			<td>
+				<span class="notcontact size2">已收到律师函</span>
+				<span class="contact size2">未收到律师函</span>
+			</td>
+			<td>
+				<div>新的联系方式</div>
+				<div><input type="text" name="phone3"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span class="notcontact size1">愿意缴费</span>
+				<span class="contact size3">不愿意缴费</span>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="objection size1">用户提出异议</div>
+			</td>
+			<td>
+				<div class="blue size1">异议理由</div>
+				<div style="margin-top:11px">
+					<span class="objection size1">手机被盗</span>
+					<span class="notcontact size2">欠费没那么多</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+
+			</td>
+			<td>
+				<div class="row blue">
+					<label for="ContactUsers_phone2">其他理由</label>
+					<input size="20" maxlength="255" name="ContactUsers[otherObjection]" id="ContactUsers_otherObjection" 
+					type="text" value="<?=$model->otherObjection?>">
+				</div>
+			</td>
+		</tr>
 	</table>
 </div>
     <div class="clear"></div>
 	<div class="row">
+		<?=$model->proceed;?>
+		<!--
 		<?php echo $form->labelEx($model,'proceed'); ?>
                 <script id="editor1" type="text/plain" style="width:700px;height:400px;" name="ContactUsers[proceed]"></script>
 		<?php echo $form->error($model,'proceed'); ?>
+		-->
 	</div>
 
 	<div class="row buttons">

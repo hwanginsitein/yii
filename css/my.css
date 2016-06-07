@@ -17,8 +17,23 @@
 	border:1px solid black;
 }
 .notcontact{
-	background: #C63300;
+	background: #CC6600;
 }
 .contact{
-	background: #00ff00;
+	background: #00AA00;
+}
+.size1{
+	color: black;
+	padding:10px 20px;
+}
+.size2{
+	color: black;
+	padding:10px 7px;
+}
+.size3{
+	color: black;
+	padding:10px 14px;
+}
+.objection{
+	background: #EEEE00
 }

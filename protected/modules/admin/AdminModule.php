@@ -17,9 +17,6 @@ class AdminModule extends CWebModule
 	public function beforeControllerAction($controller, $action)
 	{
 		Yii::app()->clientScript->registerCoreScript('jquery');
-		$username = Yii::app()->user->id;
-		$user = User::model()->find('username=?',array($username));
-		$role = $user->role;
 		//array('admin','电信工作人员','律师','欠款用户');
 		if(parent::beforeControllerAction($controller, $action))
 		{

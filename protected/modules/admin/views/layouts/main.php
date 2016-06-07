@@ -45,6 +45,7 @@
                         array('label' => '欠款数据', 'url' => array('/admin/debts')),
                         array('label' => '缴费管理', 'url' => array('/admin/repay')),
                         array('label' => '电话录入信息', 'url' => array('/admin/contactusers')),
+                        array('label' => '活动管理', 'url' => array('/admin/activity')),
                         array('label' => '登录', 'url' => array('/admin/user/login'), 'visible' => Yii::app()->user->isGuest),
                         array('label' => '退出 (' . Yii::app()->user->name . ')', 'url' => array('/admin/user/logout'), 'visible' => !Yii::app()->user->isGuest)
                     ),
