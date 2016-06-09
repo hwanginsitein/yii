@@ -28,7 +28,7 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password', 'required','message'=>'{attribute}不能为空'),
+			array('username,password,realname', 'required','message'=>'{attribute}不能为空'),
 			array('role', 'required','message'=>'请选择用户身份'),
 			//array('repassword', 'compare', 'compareAttribute'=>'password', 'message'=>'请再输入确认密码'),
 			array('username','unique','message'=>'用户名已占用'),

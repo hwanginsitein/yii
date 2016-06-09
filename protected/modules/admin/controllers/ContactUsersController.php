@@ -113,6 +113,9 @@ class ContactUsersController extends Controller {
         
         if (isset($_POST['ContactUsers'])) {
             $p = $_POST['ContactUsers'];
+
+            var_dump($p);exit;
+            
             if($model->proceed){
                 $proceed = str_replace("</table>","",$model->proceed);
             }else{

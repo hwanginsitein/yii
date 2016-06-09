@@ -24,6 +24,10 @@
 							<input type="text" name="username" placeholder="用户名" />
 						</div>
 						<div class="text">
+							<img src="/resources/images/username.png" alt="真实姓名" />
+							<input type="text" name="realname" placeholder="真实姓名" />
+						</div>
+						<div class="text">
 							<img src="/resources/images/password.png" alt="密码" />
 							<input type="password" name="password" placeholder="密码" />
 						</div>	
@@ -77,7 +81,7 @@
 </html>
 <script>
 var role = false;
-var region = '<select name="region" id="region"><option value="0">请选择</option><option value="新干县">新干县</option><option value="安福县">安福县</option><option value="峡江县">峡江县</option><option value="永丰县">永丰县</option><option value="吉水县">吉水县</option><option value="吉州区">吉州区</option><option value="青原区">青原区</option><option value="吉安县">吉安县</option><option value="永新县">永新县</option><option value="泰和县">泰和县</option><option value="井冈山市">井冈山市</option><option value="遂川县">遂川县</option><option value="万安县">万安县</option></select>';
+var region = '<select name="region" id="region"><option value="0">请选择地区</option><option value="新干县">新干县</option><option value="安福县">安福县</option><option value="峡江县">峡江县</option><option value="永丰县">永丰县</option><option value="吉水县">吉水县</option><option value="吉州区">吉州区</option><option value="青原区">青原区</option><option value="吉安县">吉安县</option><option value="永新县">永新县</option><option value="泰和县">泰和县</option><option value="井冈山市">井冈山市</option><option value="遂川县">遂川县</option><option value="万安县">万安县</option></select>';
 var region = '<div class="text"><img src="/resources/images/region.jpg" width=16 height=16 alt="手机号" />'+region+'</div>'
 $('.he').click(function(){
 	role = $(this).attr('role');
@@ -95,6 +99,9 @@ $('form').submit(function(){
 	}
 	if($('[name=username]').val() == ''){
 		layer.msg('请输入用户名',{icon:2});return false;
+	}
+	if($('[name=realname]').val() == ''){
+		layer.msg('请输入真实姓名',{icon:2});return false;
 	}
 	if($('[name=password]').val()==''){
 		layer.msg('请输入密码',{icon:2});return false;

@@ -13437,3 +13437,24 @@ Stack trace:
 REQUEST_URI=/images/icon01.png
 HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
 ---
+2016/06/09 22:26:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin/UploadDocs/export
+---
+2016/06/09 22:54:00 [warning] [application] Failed to set unsafe attribute "repassword" of "User".
+in E:\phpstudy\WWW\yii\lawfirm\protected\controllers\UserController.php (138)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/09 23:58:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/selected.jpg".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/sele...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/selected.jpg
+HTTP_REFERER=http://gz_lawfirm.com/css/my.css
+---

@@ -34,6 +34,22 @@
 	color: black;
 	padding:10px 14px;
 }
+.size4{
+	color: black;
+	padding:14px 75px;
+}
 .objection{
 	background: #EEEE00
+}
+.selected{
+	background-image: url(./images/selected.png); 
+	background-size:30px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.height1{
+	height: 50px;
+}
+.width1{
+	width: 200px;
 }
