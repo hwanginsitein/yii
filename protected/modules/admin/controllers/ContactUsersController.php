@@ -113,9 +113,6 @@ class ContactUsersController extends Controller {
         
         if (isset($_POST['ContactUsers'])) {
             $p = $_POST['ContactUsers'];
-
-            var_dump($p);exit;
-            
             if($model->proceed){
                 $proceed = str_replace("</table>","",$model->proceed);
             }else{
@@ -124,7 +121,7 @@ class ContactUsersController extends Controller {
             $postArr = array(
                     '第一联系电话'=>'phone1','第二联系电话'=>'phone2','第一联系电话状态'=>'phone1_status',
                     '第二联系电话状态'=>'phone2_status','是否发送律师函'=>'sendLetter','是否收到律师函'=>'receiveLetter',
-                    '缴费金额'=>'repay_money','用户态度'=>'attitude','异议理由'=>'objection_reason'
+                    '缴费金额'=>'repay_money','用户态度'=>'attitude','异议理由'=>'objection_reason','新的联系方式'=>'phone3',
                 );
             $postArr1 = array(
                     'phone1','phone2','phone1_status','phone2_status','sendLetter',
@@ -140,6 +137,7 @@ class ContactUsersController extends Controller {
             $content = '更新内容：<br>';
             $i=0;
             foreach($postArr as $k=>$v){
+                if($v == 'phone2_status'){continue;}
                 if($model->$v != $p[$v]){
                     if(!in_array($k,$array)){
                         $content.= $k." ".$p[$v]."<br>";
@@ -150,13 +148,14 @@ class ContactUsersController extends Controller {
                 $i++;
             }
             $model->attributes = $_POST['ContactUsers'];
-            $proceed.= "<tr><td>".date("Y-m-d")."</td><td>".$content."</td><td></td></tr><table>";
+            $proceed.= "<tr><td>".date("Y-m-d H:i:s")."</td><td>".$content."</td><td></td></tr><table>";
             $proceed.="</table>";
-            $model->proceed = $proceed;
+            if($content != '更新内容：<br>'){
+                $model->proceed = $proceed;
+            }
             if ($model->save())
                 $this->redirect(array('update', 'id' => $model->id));
         }
-
         $this->render('update', array(
             'model' => $model,
         ));

@@ -85,7 +85,7 @@ $('form').submit(function(){
 			console.log(d);
 			obj = JSON.parse(d);
 			if(obj.status == 1){
-				window.location.href = '/';
+				window.location.href = '/admin';
 			}else{
 				var errors = obj.error;
 				var errorInfo = '';

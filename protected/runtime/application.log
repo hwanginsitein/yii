@@ -13458,3 +13458,45 @@ Stack trace:
 REQUEST_URI=/css/images/selected.jpg
 HTTP_REFERER=http://gz_lawfirm.com/css/my.css
 ---
+2016/06/10 08:40:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin/UploadDocs/export
+---
+2016/06/10 08:42:43 [warning] [application] Failed to set unsafe attribute "repassword" of "User".
+in E:\phpstudy\WWW\yii\lawfirm\protected\controllers\UserController.php (138)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/10 08:42:43 [warning] [application] Failed to set unsafe attribute "region" of "User".
+in E:\phpstudy\WWW\yii\lawfirm\protected\controllers\UserController.php (138)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/11 07:15:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin/UploadDocs/export
+---
+2016/06/11 18:38:36 [warning] [application] Failed to set unsafe attribute "pay_nums" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (368)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/11 18:38:36 [warning] [application] Failed to set unsafe attribute "pay_totalmoney" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (368)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/11 18:38:36 [warning] [application] Failed to set unsafe attribute "progress" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (368)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/11 18:38:40 [warning] [application] Failed to set unsafe attribute "pay_nums" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (368)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/11 18:38:40 [warning] [application] Failed to set unsafe attribute "pay_totalmoney" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (368)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/11 18:38:40 [warning] [application] Failed to set unsafe attribute "progress" of "UploadDocs".
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (368)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)

@@ -15,8 +15,6 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note"><span class="required">*</span> 表示必填。</p>
-
 	<?php echo $form->errorSummary($model); ?>
 <div class="span1">
 	<div class="row">
@@ -58,6 +56,7 @@
 		<?php echo $form->error($model,'account_number'); ?>
 	</div>
 </div>
+<!--
 <div class="span1">
 	<div class="row">
 		<?php echo $form->labelEx($model,'sendLetter'); ?>
@@ -97,14 +96,15 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 </div>
+-->
 <div class="span2">
 	<table border="0">
 		<tr>
 			<td>
 				<!--<div>电话联系用户</div>-->
 				<div>
-					<span class="notcontact size1 phone1_status" value=0>无法接通</span>
-					<span class="contact size1 phone1_status" value=1>可以接通</span>
+					<span class="notcontact size1 phone1_status <?php if($model->phone1_status==0){echo 'selected';}?>" value=0>无法接通</span>
+					<span class="contact size1 phone1_status <?php if($model->phone1_status==1){echo 'selected';}?>" value=1>可以接通</span>
 				</div>
 			</td>
 			<td>
@@ -122,18 +122,18 @@
 		</tr>
 		<tr>
 			<td>
-				<span class="contact size2 receiveLetter" value=1>已收到律师函</span>
-				<span class="notcontact size2 receiveLetter" value=0>未收到律师函</span>
+				<span class="contact size2 receiveLetter <?php if($model->receiveLetter==1){echo 'selected';}?>" value=1>已收到律师函</span>
+				<span class="notcontact size2 receiveLetter <?php if($model->receiveLetter==0){echo 'selected';}?>" value=0>未收到律师函</span>
 			</td>
 			<td>
 				<div>新的联系方式</div>
-				<div><input type="text" name="phone3"></div>
+				<div><input type="text" name="ContactUsers[phone3]" value="<?=$model->phone3;?>"></div>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<span class="contact size1 attitude" value=1>愿意缴费</span>
-				<span class="notcontact size3 attitude" value=0>不愿意缴费</span>
+				<span class="contact size1 attitude <?php if($model->attitude==1){echo 'selected';}?>" value=1>愿意缴费</span>
+				<span class="notcontact size3 attitude <?php if($model->attitude==0){echo 'selected';}?>" value=0>不愿意缴费</span>
 			</td>
 			<td>
 			</td>
@@ -145,14 +145,14 @@
 			<td>
 				<div class="blue size1">异议理由</div>
 				<div style="margin-top:10px">
-					<span class="objection size1 objection_reason" value="手机被盗">手机被盗</span>
-					<span class="notcontact size2 objection_reason" value="欠费没那么多">欠费没那么多</span>
+					<span class="objection size1 objection_reason <?php if($model->objection_reason=="手机被盗"){echo 'selected';}?>" value="手机被盗">手机被盗</span>
+					<span class="notcontact size2 objection_reason <?php if($model->objection_reason=="欠费没那么多"){echo 'selected';}?>" value="欠费没那么多">欠费没那么多</span>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<div class="notcontact size1 attitude" value="拒不缴费态度恶劣">拒不缴费态度恶劣</div>
+				<div class="notcontact size1 attitude <?php if($model->attitude=="-1"){echo 'selected';}?>" value="-1">拒不缴费态度恶劣</div>
 			</td>
 			<td>
 				<div class="row blue">
@@ -164,16 +164,16 @@
 		</tr>
 		<tr>
 			<td>
-				<span class="contact ifrepay size4" value=1>已缴费</span>
+				<span class="contact ifrepay size4 <?php if($model->ifrepay=="1"){echo 'selected';}?>" value=1>已缴费</span>
 			</td>
 			<td>
 				<div><label for="ContactUsers_repay_money">缴费金额</label></div>
 				<div class="">
-					<input name="ContactUsers[repay_money]" id="ContactUsers_repay_money" type="text">
+					<input name="ContactUsers[repay_money]" id="ContactUsers_repay_money" type="text" value="<?=$model->repay_money?>">
 				</div>
 				<div><label for="ContactUsers_repay_date">缴费日期</label></div>
 				<div class="">
-					<input name="ContactUsers[repay_date]" id="ContactUsers_repay_date" type="text" value="">
+					<input name="ContactUsers[repay_date]" id="ContactUsers_repay_date" type="text" value="<?=$model->repay_date?>">
 				</div>
 			</td>
 		</tr>
@@ -192,11 +192,11 @@
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
-<input type="hidden" name="ContactUsers[phone1_status]" id="phone1_status">
-<input type="hidden" name="ContactUsers[receiveLetter]" id="receiveLetter">
-<input type="hidden" name="ContactUsers[ifrepay]" id="ifrepay">
-<input type="hidden" name="ContactUsers[objection_reason]" id="objection_reason">
-<input type="hidden" name="ContactUsers[attitude]" id="attitude">
+<input type="hidden" name="ContactUsers[phone1_status]" id="phone1_status" value="<?=$model->phone1_status?>">
+<input type="hidden" name="ContactUsers[receiveLetter]" id="receiveLetter" value="<?=$model->receiveLetter?>">
+<input type="hidden" name="ContactUsers[ifrepay]" id="ifrepay" value="<?=$model->ifrepay?>">
+<input type="hidden" name="ContactUsers[objection_reason]" id="objection_reason" value="<?=$model->objection_reason?>">
+<input type="hidden" name="ContactUsers[attitude]" id="attitude" value="<?=$model->attitude?>">
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
