@@ -49,9 +49,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'permission'); ?>
-		<?php echo $form->textField($model,'permission',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'permission'); ?>
+		<?php
+			echo "身份：".User::getRole($model->role);
+		?>
 	</div>
 
 	<div class="row buttons">

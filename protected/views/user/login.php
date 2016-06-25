@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Wort - An HTML5 Registration Template</title>
+		<title>赣中律师事务所 登录页面</title>
 		<script src="/resources/jquery.js"></script>
 		<script src="/resources/modernizr.js"></script>
 		<script src="/js/layer/layer.js"></script>
 		<link href="/resources/style.css" rel="stylesheet" type="text/css" />
 		<link href="/resources/pnf.css" rel="stylesheet" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	</head>
 	<body>
 		<div class="content">
@@ -34,30 +35,8 @@
 						</div>
 					</form>
 					<div class="right_box">
-						<div id="benefits">
-							<h1>Reasons to register</h1><br />
-							
-							<ul>
-								<li>
-									<div class="he">Fast Support</div>
-									<span>Get instant access to our support ticket system.</span>
-								</li>
-								<li>
-									<div class="he">Community</div>
-									<span>An entry ticket to our community forums!</span>
-								</li>
-								<li>
-									<div class="he">No Adverts</div>
-									<span>No more cumbersome advertisements! </span>
-								</li>
-							</ul>
-						</div>
-						<br /><br /><br />
-						<div id="facebook-con">
-							<h1>easy way out</h1>
-							<br />
-						</div>
-						<div class="fbl">
+						<div style="text-align:center">
+							<h4>赣中律师事务所</h4>
 						</div>
 					</div>
 				</div>

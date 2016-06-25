@@ -55,11 +55,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
         'area',
         'comments',
         'type',
-        'pay_nums',
-        'pay_totalmoney',
-        'progress',
         array(
             'class' => 'CButtonColumn',
+            'template' => '{view}'
         ),
     ),
 ));

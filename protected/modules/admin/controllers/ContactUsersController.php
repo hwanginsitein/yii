@@ -107,10 +107,6 @@ class ContactUsersController extends Controller {
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.all.min.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
         $model = $this->loadModel($id);
-
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-        
         if (isset($_POST['ContactUsers'])) {
             $p = $_POST['ContactUsers'];
             if($model->proceed){
@@ -119,25 +115,26 @@ class ContactUsersController extends Controller {
                 $proceed = "<table border=1><tr><th>日期</th><th>内容</th></tr>";
             }
             $postArr = array(
-                    '第一联系电话'=>'phone1','第二联系电话'=>'phone2','第一联系电话状态'=>'phone1_status',
-                    '第二联系电话状态'=>'phone2_status','是否发送律师函'=>'sendLetter','是否收到律师函'=>'receiveLetter',
-                    '缴费金额'=>'repay_money','用户态度'=>'attitude','异议理由'=>'objection_reason','新的联系方式'=>'phone3',
+                    '联系电话'=>'phone1','新的联系方式'=>'phone2','联系电话状态'=>'phone1_status',
+                    '新的联系方式的状态'=>'phone2_status','是否发送律师函'=>'sendLetter','是否收到律师函'=>'receiveLetter',
+                    '缴费金额'=>'repay_money','用户态度'=>'attitude','异议理由'=>'objection_reason','其他理由'=>'otherObjection','缴费金额'=>'repay_money','缴费日期'=>'repay_date','其他信息'=>'otherComments'
                 );
             $postArr1 = array(
                     'phone1','phone2','phone1_status','phone2_status','sendLetter',
                     'receiveLetter','repay_money','attitude','objection_reason'
                 );
-            $array = array('第一联系电话状态','第二联系电话状态','是否发送律师函','是否收到律师函','用户态度');
+            $array = array('联系电话状态','新的联系方式','是否发送律师函','是否收到律师函','用户态度');
             $array1 = array(
-                    2=>array(1=>'能连上欠费用户',2=>'机主不是欠费用户',3=>'无法联系'),
-                    3=>array(1=>'能连上欠费用户',2=>'机主不是欠费用户',3=>'无法联系'),
+                    2=>array(0=>'无法接通',1=>'可以接通'),
+                    3=>array(0=>'无法接通',1=>'可以接通'),
                     4=>array('否','是'),5=>array('否','是'),
-                    7=>array('不愿意缴费','愿意缴费')
+                    7=>array('不愿意缴费','愿意缴费',"-1"=>"拒不缴费态度恶劣")
                 );
             $content = '更新内容：<br>';
-            $i=0;
+            $i=-1;
             foreach($postArr as $k=>$v){
-                if($v == 'phone2_status'){continue;}
+                $i++;
+                if($v == 'sendLetter'){continue;}
                 if($model->$v != $p[$v]){
                     if(!in_array($k,$array)){
                         $content.= $k." ".$p[$v]."<br>";
@@ -145,16 +142,19 @@ class ContactUsersController extends Controller {
                         $content.= $k." ".$array1[$i][$p[$v]]."<br>";
                     }
                 }
-                $i++;
             }
-            $model->attributes = $_POST['ContactUsers'];
+            $model->attributes = $p;
             $proceed.= "<tr><td>".date("Y-m-d H:i:s")."</td><td>".$content."</td><td></td></tr><table>";
             $proceed.="</table>";
             if($content != '更新内容：<br>'){
                 $model->proceed = $proceed;
             }
-            if ($model->save())
-                $this->redirect(array('update', 'id' => $model->id));
+            if ($model->save()){
+                $criteria = new CDbCriteria;
+                $criteria->condition = "id>{$model->id}";
+                $next = ContactUsers::model()->find($criteria);
+                $this->redirect(array('update', 'id' => $next->id));
+            }
         }
         $this->render('update', array(
             'model' => $model,
@@ -193,6 +193,7 @@ class ContactUsersController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
         $model = new ContactUsers('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['ContactUsers']))

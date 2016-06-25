@@ -14,46 +14,68 @@
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); ?>
-
+<?php
+	$id = $_GET['id'];
+	$debtor = Debts::model()->findByPk($id);
+?>
 	<?php echo $form->errorSummary($model); ?>
 <div class="span1">
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>12,'maxlength'=>12,'disabled'=>'disabled')); ?>
-		<?php echo $form->error($model,'name'); ?>
+		<span class="label1">名字：</span><?php echo $form->textField($model,'name',array('size'=>12,'maxlength'=>12,'disabled'=>'disabled')); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'debt_money'); ?>
-		<?php echo $form->textField($model,'debt_money',array('disabled'=>'disabled')); ?>
-		<?php echo $form->error($model,'debt_money'); ?>
+		<span class="label1">欠费金额：</span><?php echo $form->textField($model,'debt_money',array('disabled'=>'disabled')); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'ID_number'); ?>
-		<?php echo $form->textField($model,'ID_number',array('size'=>18,'maxlength'=>18,'disabled'=>'disabled')); ?>
-		<?php echo $form->error($model,'ID_number'); ?>
+		<span class="label1">身份证：</span>
+		<?=substr_replace($model->ID_number,"********",-12,8)?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'region'); ?>
-		<?php echo $form->dropDownList($model,'region',array(
-                    "新干县"=>"新干县","安福县"=>"安福县","峡江县"=>"峡江县","永丰县"=>"永丰县","吉水县"=>"吉水县","吉州区"=>"吉州区","青原区"=>"青原区",
-                    "吉安县"=>"吉安县","永新县"=>"永新县","泰和县"=>"泰和县","井冈山市"=>"井冈山市","遂川县"=>"遂川县","万安县"=>"万安县"),
-                    array('prompt' => '请选择')); ?>
-		<?php echo $form->error($model,'region'); ?>
+		<span class="label1">地区：</span><?=$model->region;?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'address'); ?>
-		<?php echo $form->textField($model,'address',array('size'=>30,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'address'); ?>
+		<span class="label1">地址：</span><?php echo $form->textField($model,'address',array('size'=>30,'disabled'=>'disabled')); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'account_number'); ?>
+		<span class="label1">缴费编号：</span>
 		<?php echo $form->textField($model,'account_number',array('size'=>15,'maxlength'=>15,'disabled'=>'disabled')); ?>
-		<?php echo $form->error($model,'account_number'); ?>
+	</div>
+	<div class="row">
+		<span class="label1">欠费号码：</span>
+		<?php
+		echo $debtor->telephone;
+		?>
+	</div>
+	<div class="row">
+		<span class="label1">停机日期：</span>
+		<?=$model->overdue_time;?>
+	</div>
+	<div class="row">
+		<span class="label1">委托人：</span>
+		<?=$debtor->clientele;?>
+	</div>
+	<div class="row">
+		<span class="label1">律师函编号：</span>
+		<?=$model->letterNumber;?>
+	</div>
+	<div class="row">
+		<span class="label1">营业厅：</span>
+		<?=$debtor->office;?>
+	</div>
+	<div class="row">
+		<span class="label1">营业厅经理：</span>
+		<?=$debtor->manager;?>
+	</div>
+	<div class="row">
+		<span class="label1">当前状态：</span>
+		<?php echo $form->dropDownList($model,'status',array("0"=>"待审核","1"=>"通过"),
+                    array('prompt' => '请选择')); ?>
+		<?php echo $form->error($model,'status'); ?>
 	</div>
 </div>
 <!--
@@ -100,66 +122,95 @@
 <div class="span2">
 	<table border="0">
 		<tr>
+			<td><label><font size="4">联系用户</font></label></td>
+			<td></td>
+		</tr>
+		<tr>
 			<td>
-				<!--<div>电话联系用户</div>-->
-				<div>
-					<span class="notcontact size1 phone1_status <?php if($model->phone1_status==0){echo 'selected';}?>" value=0>无法接通</span>
-					<span class="contact size1 phone1_status <?php if($model->phone1_status==1){echo 'selected';}?>" value=1>可以接通</span>
-				</div>
-			</td>
-			<td>
-				<div class="row blue">
-					<label for="ContactUsers_phone1">第一联系电话</label>
+				<div class="row">
+					<label for="ContactUsers_phone1">联系电话</label>
 					<input size="20" maxlength="30" name="ContactUsers[phone1]" id="ContactUsers_phone1" type="text" 
 					value="<?=$model->phone1?>">
 				</div>
-				<div class="row blue">
-					<label for="ContactUsers_phone2">第二联系电话</label>
+				<div class="row">
+					<label for="ContactUsers_phone2">新的联系方式</label>
 					<input size="20" maxlength="30" name="ContactUsers[phone2]" id="ContactUsers_phone2" type="text" 
 					value="<?=$model->phone2?>">
 				</div>
 			</td>
+			<td>
+				<div style="margin-top:-10px;">
+					<div style="float:left;width:70px;" class="contact size1 phone1_status <?php if($model->phone1_status==1){echo 'selected';}?>" value=1>可以接通</div>
+					<div style="float:left" class="notcontact size1 phone1_status <?php if($model->phone1_status==0 && isset($model->phone1_status)){echo 'selected';}?>" value=0>无法接通</div>
+				</div>
+				<div style="height:10px;"></div>
+				<div style="margin-top:40px;">
+					<div style="float:left;width:70px;" class="contact size1 phone2_status <?php if($model->phone2_status==1){echo 'selected';}?>" value=1>可以接通</div>
+					<div style="float:left" class="notcontact size1 phone2_status <?php if($model->phone2_status==0 && isset($model->phone2_status)){echo 'selected';}?>" value=0>无法接通</div>
+				</div>
+			</td>
 		</tr>
 		<tr>
+			<td><label><font size="4">用户反馈</font></label></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><label>是否收到律师函：</label></td>
 			<td>
 				<span class="contact size2 receiveLetter <?php if($model->receiveLetter==1){echo 'selected';}?>" value=1>已收到律师函</span>
-				<span class="notcontact size2 receiveLetter <?php if($model->receiveLetter==0){echo 'selected';}?>" value=0>未收到律师函</span>
-			</td>
-			<td>
-				<div>新的联系方式</div>
-				<div><input type="text" name="ContactUsers[phone3]" value="<?=$model->phone3;?>"></div>
+				<span class="notcontact size2 receiveLetter <?php if($model->receiveLetter==0 && isset($model->receiveLetter)){echo 'selected';}?>" value=0>未收到律师函</span>
 			</td>
 		</tr>
 		<tr>
+			<td></td><td></td>
+		</tr>
+		<tr>
+			<td></td><td></td>
+		</tr>
+		<tr>
+			<td><label>是否愿意缴费：</label></td>
 			<td>
 				<span class="contact size1 attitude <?php if($model->attitude==1){echo 'selected';}?>" value=1>愿意缴费</span>
-				<span class="notcontact size3 attitude <?php if($model->attitude==0){echo 'selected';}?>" value=0>不愿意缴费</span>
-			</td>
-			<td>
+				<span class="notcontact size3 attitude <?php if($model->attitude===0 && isset($model->attitude)){echo 'selected';}?>" value=0>不愿意缴费</span>
+				<span class="red size1 attitude <?php if($model->attitude=="-1"){echo 'selected';}?>" value="-1">拒不缴费态度恶劣</span>
 			</td>
 		</tr>
 		<tr>
-			<td style="padding-top:14px;">
-				<div class="objection size1 height1">用户提出异议</div>
-			</td>
+			<td></td><td></td>
+		</tr>
+		<tr>
+			<td><label>用户提出异议，异议理由：</label></td>
 			<td>
-				<div class="blue size1">异议理由</div>
 				<div style="margin-top:10px">
 					<span class="objection size1 objection_reason <?php if($model->objection_reason=="手机被盗"){echo 'selected';}?>" value="手机被盗">手机被盗</span>
 					<span class="notcontact size2 objection_reason <?php if($model->objection_reason=="欠费没那么多"){echo 'selected';}?>" value="欠费没那么多">欠费没那么多</span>
+					<span class="">
+						<span>其他理由</span>
+						<input size="20" maxlength="255" name="ContactUsers[otherObjection]" id="ContactUsers_otherObjection" 
+						type="text" value="<?=$model->otherObjection?>">
+					</span>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<div class="notcontact size1 attitude <?php if($model->attitude=="-1"){echo 'selected';}?>" value="-1">拒不缴费态度恶劣</div>
 			</td>
 			<td>
-				<div class="row blue">
-					<label for="ContactUsers_otherObjection">其他理由</label>
-					<input size="20" maxlength="255" name="ContactUsers[otherObjection]" id="ContactUsers_otherObjection" 
-					type="text" value="<?=$model->otherObjection?>">
-				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>异议处理</label>
+			</td>
+			<td>
+				<span class="contact size1 ifvalid <?php if($model->ifvalid==1){echo 'selected';}?>" value=1>成立</span>
+				<span class="notcontact size3 ifvalid <?php if($model->ifvalid==0 && isset($model->ifvalid)){echo 'selected';}?>" value=0>不成立</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
 			</td>
 		</tr>
 		<tr>
@@ -167,13 +218,25 @@
 				<span class="contact ifrepay size4 <?php if($model->ifrepay=="1"){echo 'selected';}?>" value=1>已缴费</span>
 			</td>
 			<td>
-				<div><label for="ContactUsers_repay_money">缴费金额</label></div>
-				<div class="">
-					<input name="ContactUsers[repay_money]" id="ContactUsers_repay_money" type="text" value="<?=$model->repay_money?>">
+				<div style="float:left">
+					<div><label for="ContactUsers_repay_money">缴费金额</label></div>
+					<div class="">
+						<input name="ContactUsers[repay_money]" id="ContactUsers_repay_money" type="text" value="<?=$model->repay_money?>" size="6">
+					</div>
 				</div>
-				<div><label for="ContactUsers_repay_date">缴费日期</label></div>
-				<div class="">
-					<input name="ContactUsers[repay_date]" id="ContactUsers_repay_date" type="text" value="<?=$model->repay_date?>">
+				<div style="float:left;margin-left:10px;">
+					<div><label for="ContactUsers_repay_date">缴费日期</label></div>
+					<div>
+						<input name="ContactUsers[repay_date]" id="ContactUsers_repay_date" type="text" value="<?=$model->repay_date?>">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><label>其他信息：</label></td>
+			<td>
+				<div>
+					<input name="ContactUsers[otherComments]" id="ContactUsers_otherComments" type="text" value="<?=$model->otherComments?>">
 				</div>
 			</td>
 		</tr>
@@ -190,11 +253,13 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : '保存，下一个'); ?>
 	</div>
 <input type="hidden" name="ContactUsers[phone1_status]" id="phone1_status" value="<?=$model->phone1_status?>">
+<input type="hidden" name="ContactUsers[phone2_status]" id="phone2_status" value="<?=$model->phone2_status?>">
 <input type="hidden" name="ContactUsers[receiveLetter]" id="receiveLetter" value="<?=$model->receiveLetter?>">
 <input type="hidden" name="ContactUsers[ifrepay]" id="ifrepay" value="<?=$model->ifrepay?>">
+<input type="hidden" name="ContactUsers[ifvalid]" id="ifvalid" value="<?=$model->ifvalid?>">
 <input type="hidden" name="ContactUsers[objection_reason]" id="objection_reason" value="<?=$model->objection_reason?>">
 <input type="hidden" name="ContactUsers[attitude]" id="attitude" value="<?=$model->attitude?>">
 <?php $this->endWidget(); ?>
@@ -211,6 +276,17 @@
     		}else{
     			$(this).addClass('selected');
     			$("#phone1_status").val($(this).attr('value'));
+    		}
+    	})
+    	$(".phone2_status").click(function(){
+    		var hasclass = $(this).hasClass('selected');
+    		$(".phone2_status").removeClass('selected');
+    		if(hasclass){
+    			$(this).removeClass('selected');
+    			$("#phone2_status").val("");
+    		}else{
+    			$(this).addClass('selected');
+    			$("#phone2_status").val($(this).attr('value'));
     		}
     	})
     	$(".receiveLetter").click(function(){
@@ -233,6 +309,17 @@
     		}else{
     			$(this).addClass('selected');
     			$("#ifrepay").val($(this).attr('value'));
+    		}
+    	})
+    	$(".ifvalid").click(function(){
+    		var hasclass = $(this).hasClass('selected');
+    		$(".ifvalid").removeClass('selected');
+    		if(hasclass){
+    			$(this).removeClass('selected');
+    			$("#ifvalid").val("");
+    		}else{
+    			$(this).addClass('selected');
+    			$("#ifvalid").val($(this).attr('value'));
     		}
     	})
     	$(".objection_reason").click(function(){
@@ -266,6 +353,13 @@
         $('#ContactUsers_objection_date').datepicker({
             showButtonPanel: true
         });
+		$('form').submit(function(){
+			if($('#ContactUsers_repay_money').val() != '' || $('#ContactUsers_repay_date').val() != ''){
+				if($('#ifrepay').val() == ''){
+					layer.msg('请点击已缴费');return false;
+				}
+			}
+		})
         /*
         var ue = UE.getEditor('editor1');
         <?php

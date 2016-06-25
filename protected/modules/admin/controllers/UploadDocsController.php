@@ -220,8 +220,14 @@ class UploadDocsController extends Controller {
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
         $model = new UploadDocs;
         if (isset($_POST['UploadDocs'])) {
-            //var_dump($_POST['UploadDocs']);exit;
-            $model->attributes = $_POST['UploadDocs'];
+            $p = $_POST['UploadDocs'];
+            $model->time = $p['time'];
+            $model->clientele = $p['clientele'];
+            $model->type = $p['type'];
+            $model->starttime = $p['starttime'];
+            $model->endtime = $p['endtime'];
+            $model->area = $p['area'];
+            $model->comments = $p['comments'];
             if(count($_POST['UploadDocs']['label'])){
                 $model->label = implode(',',$_POST['UploadDocs']['label']);
             }
@@ -232,8 +238,6 @@ class UploadDocsController extends Controller {
                 $fileNameArr = pathinfo($detail->getName());
                 $fileName = $fileNameArr['filename'];
                 $model->upload_name = $fileName;
-                //$filePath = Yii::app()->basePath."/../uploads/files/".time().rand(0,999).".xls";
-                //$detail->saveAs($filePath);getTempName()
                 $filePath = $detail->getTempName();
                 Yii::import('application.extensions.PHPExcel.Classes.PHPExcel', 1);
                 $ExcelReader = $this->getExcelReader($filePath);
@@ -246,42 +250,33 @@ class UploadDocsController extends Controller {
                         $detail[$row][$column] = trim($sheet->getCell($column . $row)->getValue());
                     }
                 }
-                $model->detail = json_encode($detail);
+                //$model->detail = json_encode($detail);
             }
             if ($model->save()) {
                 $docsId = Yii::app()->db->getLastInsertID();
                 foreach($detail as $k=>$row){
-                    /*
-                        'debt_number' => '催缴序号',
-                        'docsId' => '文档id',
-                        'clientele' => '委托人',
-                        'debtor' => '欠债人',
-                        'ID_number' => '身份证号码',
-                        'telephone' => '电话号码',
-                        'account_number' => '账号编号',
-                        'debt_money' => '欠费金额',
-                        'overdue_time' => '停机时间',
-                        'ifpay' => '是否缴费完整',
-                        'status' => '状态',
-                    */
                     $debts = new Debts;
                     if($k==1){
                         $key_debt_number = array_search("缴费编号", $row);
-                        $key_clientele = array_search("委托人", $row);
-                        $key_debtor = array_search("欠债人", $row);
-                        $key_ID_number = array_search("身份证号码", $row);
+                        //$key_clientele = array_search("委托人", $row);
+                        $key_debtor = array_search("客户名称", $row);
+                        $key_ID_number = array_search("证件号码", $row);
                         $key_telephone = array_search("电话号码", $row);
-                        $key_account_number = array_search("账号编号", $row);
-                        $key_debt_money = array_search("欠费金额", $row);
-                        $key_overdue_time = array_search("停机时间", $row);
-                        $key_address = array_search("地址", $row);
+                        $key_account_number = array_search("缴费编号", $row);
+                        $key_debt_money = array_search("欠费本金", $row);
+                        $key_overdue_time = array_search("停机日期", $row);
+                        $key_address = array_search("安装地址", $row);
+                        $key_phone1 = array_search("联系号码", $row);
+                        $key_office = array_search("YYB_NAME", $row);
+                        $key_manager = array_search("MANAGER_NAME", $row);
+                        $key_letterNumber = array_search("律师函编号", $row);
                         continue;
                     }
                     $debts->debt_number = $row[$key_debt_number];
-                    $debts->clientele = $row[$key_clientele];
+                    $debts->clientele = $_POST['UploadDocs']['clientele'];
                     $debts->debtor = $row[$key_debtor];
                     $debts->ID_number = $row[$key_ID_number];
-                    $debts->telephone = $row[$key_telephone];
+                    $debts->telephone = $row[$key_telephone];//用户的欠费号码
                     $debts->account_number = $row[$key_account_number];
                     $debts->debt_money = $row[$key_debt_money];
                     $debts->overdue_time = $row[$key_overdue_time];
@@ -290,28 +285,47 @@ class UploadDocsController extends Controller {
                     $debts->region = $_POST['UploadDocs']['area'];
                     $debts->status = 0;
                     $debts->ifpay = 0;
+                    $debts->office = $row[$key_office];
+                    $debts->manager = $row[$key_manager];
+
                     $contact_users = new ContactUsers;
-                    
                     $contact_users->name = $row[$key_debtor];
                     $contact_users->debt_money = $row[$key_debt_money];
                     $contact_users->ID_number = $row[$key_ID_number];
-                    $contact_users->phone1 = $row[$key_telephone];
-                    $contact_users->region = $_POST['UploadDocs']['area'];
+                    $contact_users->phone1 = $row[$key_phone1];//用户的联系号码
+                    $contact_users->region = $_POST['UploadDocs']['area']?$_POST['UploadDocs']['area']:0;
                     $contact_users->account_number = $row[$key_account_number];
                     $contact_users->overdue_time = $row[$key_overdue_time];
                     $contact_users->address = $row[$key_address];
                     $contact_users->status = 0;
+                    $contact_users->office = $row[$key_office];
+                    $contact_users->manager = $row[$key_manager];
+                    $contact_users->letterNumber = $row[$key_letterNumber];
                     $contact_users->docsId = $docsId;
-                    
+                    $contact_users->save();
+                    if(trim($row[$key_debtor])==""){
+                        continue;
+                    }
+                    if(trim($row[$key_debt_money])==""){
+                        continue;
+                    }
                     if(!$contact_users->save()){
+                        echo "第".$k."行数据有问题";exit;
                         var_dump($contact_users->errors);
+                        echo __LINE__;
+                        exit;
                     }
                     
                     if(!$debts->save()){
+                        echo "第".$k."行数据有问题";exit;
                         var_dump($debts->errors);
+                        echo __LINE__;
+                        exit;
                     }
                 }
-                $this->redirect(array('preview', 'id' => $model->id));
+                $this->redirect(array('view', 'id' => $model->id));
+            }else{
+                echo 1;exit;
             }
         }
 

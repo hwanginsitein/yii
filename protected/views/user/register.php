@@ -7,6 +7,7 @@
 		<script src="/js/layer/layer.js"></script>
 		<link href="/resources/style.css" rel="stylesheet" type="text/css" />
 		<link href="/resources/pnf.css" rel="stylesheet" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	</head>
 	<body>
 		<div class="content">
@@ -59,8 +60,16 @@
 									<div>电信工作人员</div>
 								</li>
 								<li>
-									<div class="he" role=3><img src='/resources/images/debtor.png' /></div>
+									<div class="he" role=3><img src='/resources/images/assistant.jpg' /></div>
+									<div>律师助手</div>
+								</li>
+								<li>
+									<div class="he" role=4><img src='/resources/images/debtor.png' /></div>
 									<div>欠款用户</div>
+								</li>
+								<li>
+									<div class="he" role=5><img src='/resources/images/worker.jpg' /></div>
+									<div>催缴人员</div>
 								</li>
 							</ul>
 						</div>

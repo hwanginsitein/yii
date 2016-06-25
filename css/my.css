@@ -1,3 +1,7 @@
+
+.red{
+	background: red;
+}
 .span1{
     float:left;
     margin-right: 30px;
@@ -52,4 +56,8 @@
 }
 .width1{
 	width: 200px;
+}
+.label1{    
+	font-weight: bold;
+    font-size: 0.9em;
 }

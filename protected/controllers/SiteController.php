@@ -2,6 +2,7 @@
 
 class SiteController extends Controller
 {
+	public $layout = "gz_layout";
 	/**
 	 * Declares class-based actions.
 	 */
@@ -27,11 +28,18 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		header("Content-type:text/html;charset=utf-8");
+		$contactusers = ContactUsers::model()->findAll("ifrepay = 1 limit 0,10");
+		$this->render("index",array("contactusers"=>$contactusers));
 	}
 
+	public function actionSearch(){
+		header("Content-type:text/html;charset=utf-8");
+		$search = $_GET['q'];
+		$contactUsers = ContactUsers::model()->findAll("account_number=? or ID_number=? or name=? or phone1=?",
+			array($search,$search,$search,$search));
+		$this->render('search',array('contactUsers'=>$contactUsers));
+	}
 	/**
 	 * This is the action to handle external exceptions.
 	 */

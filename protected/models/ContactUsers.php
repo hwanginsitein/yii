@@ -47,7 +47,7 @@ class ContactUsers extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, debt_money, status,overdue_time,docsId', 'required'),
+			array('name, debt_money, status,docsId', 'required'),
 			array('phone1_status, phone2_status, status, sendLetter, receiveLetter, ifrepay, repay_money, attitude, ifvalid', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>12),
 			array('ID_number', 'length', 'max'=>18),
@@ -82,9 +82,9 @@ class ContactUsers extends CActiveRecord
 			'name' => '名字',
 			'debt_money' => '欠款金额',
 			'ID_number' => '身份证',
-			'phone1' => '第一联系电话',
+			'phone1' => '联系号码',
 			'phone1_status' => '状态',
-			'phone2' => '第二联系电话',
+			'phone2' => '新的联系方式',
 			'phone2_status' => '状态',
 			'phone3' => '其他电话',
 			'region' => '地区',
@@ -125,7 +125,7 @@ class ContactUsers extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('debt_money',$this->debt_money);
@@ -151,6 +151,17 @@ class ContactUsers extends CActiveRecord
 		$criteria->compare('otherComments',$this->otherComments,true);
 		$criteria->compare('proceed',$this->proceed,true);
 
+		if(Yii::app()->session['role']==5){
+			$user = User::model()->find('username=?',array(Yii::app()->user->name));
+			$duns = Dun::model()->findAll('uid=?',array($user->id));
+			$conditions = '';
+			foreach($duns as $dun){
+				$conditions.= "docsId=".$dun->docId." or ";
+			}
+			$conditions = substr($conditions,0,-4);
+			var_dump($conditions);exit;
+			$criteria->addCondition($conditions);
+		}
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

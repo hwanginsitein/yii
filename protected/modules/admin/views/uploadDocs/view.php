@@ -27,17 +27,23 @@ $debts = Debts::model()->findAll("docsId=?",array($model->id));
 		<th>催缴编号</th>
 		<th>账户编号</th>
 		<th>欠费号码</th>
+		<th>安装地址</th>
 	</thead>
 	<tbody>
 	<?php foreach($debts as $debt){?>
 		<tr>
 			<td><?=$debt->debtor?></td>
-			<td><?=$debt->ID_number?></td>
+			<td> 
+				<?php 
+					echo substr_replace($debt->ID_number,"********",-12,8);
+				?>	
+			</td>
 			<td><?=$debt->debt_money?></td>
 			<td><?=$debt->overdue_time?></td>
 			<td><?=$debt->debt_number?></td>
 			<td><?=$debt->account_number?></td>
 			<td><?=$debt->telephone?></td>
+			<td><?=$debt->address?></td>
 		</tr>
 	<?php }?>
 	</tbody>

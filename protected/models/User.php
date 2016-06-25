@@ -68,7 +68,7 @@ class User extends CActiveRecord
 		);
 	}
 	static function getRole($id){
-		$roleArr = array("1"=>'律师',"2"=>'电信工作人员',"3"=>'欠款用户');	
+		$roleArr = array("1"=>'律师',"2"=>'电信工作人员',"3"=>'律师助手',"4"=>"欠款用户","5"=>"催缴人员");	
 		return $roleArr[$id];
 	}
 	

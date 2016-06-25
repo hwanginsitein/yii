@@ -50,12 +50,12 @@ $('.search-form form').submit(function(){
 		'phone1',
 		//'phone1_status',
 		'phone2',
+		'account_number',
 		/*
 		'phone2_status',
 		'phone3',
 		'region',
 		'address',
-		'account_number',
 		'status',
 		'sendLetter',
 		'sent_date',
@@ -71,6 +71,7 @@ $('.search-form form').submit(function(){
 		*/
 		array(
 			'class'=>'CButtonColumn',
+			'template'=>'{update}'
 		),
 	),
 )); ?>

@@ -239,11 +239,15 @@ body {
 }
 
 #benefits .he {
-	font-weight: 500;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	text-align: center;
 	margin-bottom: 12px;
+	width: 110px;
+}
+#benefits .he img{
+	width: 100px;
+	height: 80px;
 }
 
 #benefits li span {

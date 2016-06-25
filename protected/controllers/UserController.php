@@ -112,7 +112,7 @@ class UserController extends Controller {
     private function _innerLogin($username, $password) {
          
         $user = User::model()->find('username=?', array($username));
-        if ($user == null) {
+        if (($user == null) || ($user->approvement == 0)) {
             return false;
         }
         if (md5($password) != $user->password) {
@@ -125,6 +125,7 @@ class UserController extends Controller {
     private function _login($user) {
         $identity = new UserIdentity($user->username,$user->password);
         $duration = 86400*30;
+        Yii::app()->session['role'] = $user->role;
         if (1) {
             Yii::app()->user->login($identity, $duration);
         } else {
@@ -148,4 +149,65 @@ class UserController extends Controller {
 		}
 		$this->renderPartial('register',array('errors'=>$errors));
 	}
+  public function actionParse(){
+      $content = file('1.txt');
+      $newContent = "";
+      foreach($content as $k=>$row){
+          $row = trim($row);
+          if($k==0){continue;}
+          $phones = explode(",",$row);
+          $phones = array_unique($phones);
+          $newrow = implode(',',$phones);
+          $newContent.= $newrow."\n";
+      }
+      file_put_contents('2.txt',$newContent);
+  }
+  public function actionTest(){
+    Yii::import('application.extensions.PHPExcel.Classes.PHPExcel',1);
+    $filePath = "./1.xls";
+    $ExcelReader = $this->getExcelReader($filePath);
+    $ExcelReader1 = $this->getExcelReader($filePath);
+    $ExcelReaderA = new PHPExcel();
+    $ExcelReaderB = new PHPExcel();
+    $sheet = $ExcelReader->load($filePath)->getSheet(0);
+    $total_line = $sheet->getHighestRow(); //12
+    $total_column = $sheet->getHighestColumn(); //AA
+    $detail1 = array();
+    $detail2 = array();
+    $i = 0;
+    for ($row = 2; $row <= $total_line; $row++) {
+      $contactPhone = $sheet->getCell("K" . $row)->getValue();
+      $debtPhones = $sheet->getCell("L" . $row)->getValue();
+      if(strstr($debtPhones,$contactPhone)){
+        $i++;
+        for ($column = 'A'; $column <= $total_column; $column++) {
+          $value = (string)trim($sheet->getCell($column . $row)->getValue());
+          $ExcelReaderA->setActiveSheetIndex(0)->setCellValueExplicit($column.$i,$value,PHPExcel_Cell_DataType::TYPE_STRING);
+        }
+      }else{
+        //$i++;
+        for ($column = 'A'; $column <= $total_column; $column++) {
+          $value = (string)trim($sheet->getCell($column . $row)->getValue());
+          $ExcelReaderB->setActiveSheetIndex(0)->setCellValueExplicit($column.$i,$value,PHPExcel_Cell_DataType::TYPE_STRING);
+        }
+      }
+    }
+    header('Content-Type: application/vnd.ms-excel');
+    header('Content-Disposition: attachment;filename="a.xls"');
+    header('Cache-Control: max-age=0');
+    $objWriter = PHPExcel_IOFactory::createWriter($ExcelReaderA, 'Excel5');
+    $objWriter->save('php://output');
+    $ExcelReaderB->save("a.xls");
+  }
+  private function getExcelReader($filePath){
+      $ExcelReader = PHPExcel_IOFactory::createReader('Excel5');
+      if(!$ExcelReader->canRead($filePath)){
+          $ExcelReader = PHPExcel_IOFactory::createReader('Excel2007');
+          if(!$ExcelReader->canRead($filePath)){ 
+              echo '文档格式有误'; 
+              exit;
+          } 
+      }
+      return $ExcelReader;
+  }
 }
