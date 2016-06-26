@@ -26,14 +26,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>追缴话费管理</h1>
+<h1>已上传欠费文档</h1>
 
 <p>
     请用 (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
     or <b>=</b>) 对字段进行数据搜索.
 </p>
 
-<?php echo CHtml::link('高级搜索', '#', array('class' => 'search-button')); ?>
+<?php //echo CHtml::link('高级搜索', '#', array('class' => 'search-button')); ?>
 <div class="search-form" style="display:none">
     <?php
     $this->renderPartial('_search', array(
@@ -62,3 +62,4 @@ $this->widget('zii.widgets.grid.CGridView', array(
     ),
 ));
 ?>
+<a href="/admin/uploadDocs/create"><button>上传新文档</button></a>

@@ -18,11 +18,17 @@
     ));
     ?>
     <div class="row">
+        欠费区域：<input type="text" value="" name="UploadDocs[area]">
+    </div>
+    <div class="row">
+        委 托 人：<input type="text" value="" name="UploadDocs[clientele]">
+    </div>
+    <div class="row">
         <input type="file" value="缴费文档" name="UploadDocs[pay]">
     </div>
 
     <div class="row buttons">
-    <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+    <?php echo CHtml::submitButton($model->isNewRecord ? '上传' : '上传'); ?>
     </div>
 
 <?php $this->endWidget(); ?>

@@ -32,7 +32,7 @@ $('.search-form form').submit(function(){
 请用 (<, <=, >, >=, <> or =) 对字段进行数据搜索.
 </p>
 
-<?php echo CHtml::link('高级管理','#',array('class'=>'search-button')); ?>
+<?php //echo CHtml::link('高级管理','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -44,13 +44,16 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
 		'paid_ID',
 		'payId',
 		'paid_money',
-		'docsId',
+        array(
+    		'name'=>'docsId',
+            'value'=>'UploadDocs::getName($data->docsId)',
+        ),
 		array(
 			'class'=>'CButtonColumn',
+            'template' => '{view}'
 		),
 	),
 )); ?>

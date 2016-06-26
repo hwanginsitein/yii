@@ -54,9 +54,24 @@ class UploadDocsController extends Controller {
     
     public function actionCreatePayDoc(){
         if ($_FILES) {
+            $p = $_POST['UploadDocs'];
             $model = new UploadDocs;
             $pay = CUploadedFile::getInstance($model, 'pay');
             if ($pay) {
+                $fileNameArr = pathinfo($pay->getName());
+                $fileName = $fileNameArr['filename'];
+                $model->upload_name = $fileName;
+                $model->uploader = Yii::app()->user->name;
+                $model->time = date("Y-m-d");
+                $model->type = 0;
+                $model->starttime = 0;
+                $model->endtime = 0;
+                $model->area = $p['area'];
+                $model->clientele = $p['clientele'];
+                $model->comments = 0;
+                $model->debt_repay = 1;
+                $model->save();
+                $docsId1 = Yii::app()->db->getLastInsertID();
                 $filePath = $pay->getTempName();
                 Yii::import('application.extensions.PHPExcel.Classes.PHPExcel', 1);
                 $ExcelReader = $this->getExcelReader($filePath);
@@ -85,42 +100,21 @@ class UploadDocsController extends Controller {
                     }else{
                         $paid_date = $pay[$i][$paid_date_key];
                     }
-                    //$sql = "select * from gz_upload_docs where showDetail like '%\"$payNO\"%' and showDetail like '%\"$ID\"%'";
-                    //$detail = $model->findBySql($sql);
-                    //搜索原欠费文档里面的人的缴费的记录
+
                     $repay = new Repay;
-                    $pay_totalmoney = "";
-                    //if($detail){
-                    $pay_nums_money['id'][] = $detail->id;
-                    $pay_nums_money['paid_money'][] = $paid_money;
-                    $rows[] = $detail;//搜索出来之后
+                    //搜索上传欠费文档
+                    $debt = Debts::model()->find("debt_number=?",array($payNO));
+                    $docsId = $debt->docsId;
                     $repay->paid_ID = $ID;
                     $repay->payId = $payNO;
                     $repay->pay_date = $paid_date;
                     $repay->paid_money = $paid_money;
-                    $repay->docsId = $detail->id;
-                    $pay_totalmoney += $paid_money;
+                    $repay->docsId = $docsId;
+                    $repay->docsId1 = $docsId1;
                     if($repay->save()){
                     }else{
-                        var_dump($repay->errors);exit;
+                        var_dump($repay->errors);
                     }
-                    //}
-                }
-            }
-            $doc_id_money = array();
-            foreach($pay_nums_money['id'] as $k=>$upload_doc_id){
-                $doc_id_money[$upload_doc_id]["money"] += $pay_nums_money['paid_money'][$k];
-                $doc_id_money[$upload_doc_id]["nums"] += 1;
-            }
-            foreach($doc_id_money as $id=>$totalmoney){
-                $upload_doc = $this->loadModel($id);
-                $upload_doc->pay_nums = $doc_id_money[$id]['nums'];
-                $upload_doc->pay_totalmoney = $doc_id_money[$id]['money'];
-                $showDetail = $upload_doc->showDetail;
-                $total_debt_nums = count(json_decode($showDetail,1))-1;
-                $upload_doc->progress = $this->topercent(round(($upload_doc->pay_nums/$total_debt_nums),2));
-                if(!$upload_doc->save()){
-                    var_dump($upload_doc->errors);
                 }
             }
             $this->redirect("/admin/repay/admin");
@@ -228,6 +222,7 @@ class UploadDocsController extends Controller {
             $model->endtime = $p['endtime'];
             $model->area = $p['area'];
             $model->comments = $p['comments'];
+            $model->debt_repay = 0;
             if(count($_POST['UploadDocs']['label'])){
                 $model->label = implode(',',$_POST['UploadDocs']['label']);
             }
@@ -496,5 +491,8 @@ ifrepay repay_date repay_money attitude objection_reason ifvalid otherObjection 
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
         $uploadDocs = UploadDocs::model()->findAll();
         $this->render('export',array('uploadDocs'=>$uploadDocs));
+    }
+    function actionExample(){
+        
     }
 }

@@ -91,6 +91,7 @@ class UploadDocs extends CActiveRecord {
         $criteria->compare('starttime', $this->starttime);
         $criteria->compare('endtime', $this->endtime);
         $criteria->compare('detail', $this->detail, true);
+        $criteria->compare('debt_repay', 0);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -107,4 +108,8 @@ class UploadDocs extends CActiveRecord {
         return parent::model($className);
     }
 
+    public static function getName($id){
+        $model = self::model()->findByPk($id);
+        return $model->upload_name;
+    }
 }

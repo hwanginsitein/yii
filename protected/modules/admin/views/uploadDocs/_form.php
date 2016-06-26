@@ -38,7 +38,12 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'label'); ?>
 		<?php echo $form->dropDownList($model,'label',array(
-                    "地址详细"=>"地址详细","地址不详细"=>"地址不详细","已寄送律师函"=>"已寄送律师函"),array("multiple"=>"multiple",'size'=>3)
+                    "地址详细"=>"地址详细",
+                    "地址不详细"=>"地址不详细",
+                    "已寄送律师函"=>"已寄送律师函",
+                    "没有寄送律师函"=>"没有寄送律师函",
+                    "联系号码和欠费号码相同"=>"联系号码和欠费号码相同",
+                    "联系号码和欠费号码不同"=>"联系号码和欠费号码不同"),array("multiple"=>"multiple",'size'=>6)
                     ); ?>
 		<?php echo $form->error($model,'label'); ?>
 	</div>
@@ -67,7 +72,10 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? '上传' : '修改'); ?>
+	</div>
+	<div class="row buttons">
+		<a href="/example.xls" target="_blank">上传格式文本范例</a>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -127,7 +127,7 @@ class ContactUsersController extends Controller {
             $array1 = array(
                     2=>array(0=>'无法接通',1=>'可以接通'),
                     3=>array(0=>'无法接通',1=>'可以接通'),
-                    4=>array('否','是'),5=>array('否','是'),
+                    4=>array('否','是'),5=>array(1=>'是',2=>'地址不详，没有寄送律师函',3=>'用户拒收律师函',4=>'律师函被退回'),
                     7=>array('不愿意缴费','愿意缴费',"-1"=>"拒不缴费态度恶劣")
                 );
             $content = '更新内容：<br>';

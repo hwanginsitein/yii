@@ -20,18 +20,36 @@
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui.js"></script>
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         <style>
-            <?php //if(Yii::app()->controller->id == "uploadDocs"){ ?>
-                .span-19{width:1000px;margin-top:60px;}
-                .container{width:99%}
-                #ui-datepicker-div {z-index:2500 !important;}
-            <?php //} ?>
+            .span-19{width:auto;margin-top:60px;}
+            .container{width:99%;}
+            #ui-datepicker-div {z-index:2500 !important;}
+            #hfcjdiv{z-index:2500 !important;display: none;float: left;left: 180px;margin-top:5px;position: absolute;background-color: blue}
+            #hfcjdiv div{margin-top: 5px;}
         </style>
         <script type="text/javascript">
             $(function(){
-                $( "#hfcj" ).selectmenu();
                 $(".menu").click(function(){
                     $(this).css({"visible":"none"});
                 });
+                $("#hfcja").mouseover(function(){
+                    if($("#hfcjdiv").is(":hidden")){
+                        $("#hfcjdiv").show();
+                    }
+                })
+                $("#hfcjdiv").mouseout(function(){
+                    $(this).hide();
+                })
+                $("#hfcja").mouseout(function(){
+                    $("#hfcjdiv").hide();
+                })
+                $("#hfcjdiv a").mouseover(function(){
+                    $(this).css({"color":"#6399cd"})
+                    $(this).css({"background-color":"blue"})
+                })
+                $("#hfcjdiv a").mouseout(function(){
+                    $(this).css({"color":""})
+                    $(this).css({"background-color":"blue"})
+                })
             })
         </script>
     </head>
@@ -42,28 +60,21 @@
                 <div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
             </div><!-- header -->
             <div id="mainmenu">
-                <?php
-                    //$this->widget('application.modules.admin.components.JQuerySlideTopMenu.JQuerySlideTopMenu');
-                ?>
                 <ul>
                     <li><a href="/admin">起始页</a></li>
                     <li><a href="/admin/user">用户</a></li>
                     <li><a href="/admin/LawyerLetter">律师函</a></li>
-                    <li>
-                        <div tabindex="1" class="selectDark" id="" style="position: relative; width: 203px;">
-                            <ul style="position: absolute; z-index: 100; top: 26px; left: 0px; display: block;">
-                                <li id="" class="first"><span style="display: block;" class="selected">Animals</span></li>
-                                <li id="hippopotamus"><span style="display: block;">Hippopotamus</span></li>
-                            </ul>
-                            <span id="" class="passiveSelect">Animals</span>
+                    <li id="hfcja">
+                        <a>话费催缴</a>
+                        <div id="hfcjdiv" style="overflow:hidden">
+                            <div><a href="/admin/UploadDocs">上传欠费文档</a></div>
+                            <div><a href="/admin/repay/admin">缴费管理</a></div>
+                            <div><a href="/admin/ContactUsers">电话录入信息</a></div>
+                            <div><a href="/admin/activity">活动管理</a></div>
+                            <div><a href="/admin/dun">分配任务</a></div>
+                            <div><a href="/admin/task">我的任务</a></div>
                         </div>
                     </li>
-                    <li><a href="/admin/UploadDocs">文档管理</a></li>
-                    <li><a href="/admin/repay">缴费管理</a></li>
-                    <li><a href="/admin/ContactUsers">电话录入信息</a></li>
-                    <li><a href="/admin/activity">活动管理</a></li>
-                    <li><a href="/admin/dun">分配任务</a></li>
-                    <li><a href="/admin/task">我的任务</a></li>
                     <li><a href="/user/logout">退出 (hwanginsitein)</a></li>
                 </ul>
             </div>

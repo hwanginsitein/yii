@@ -1,24 +1,22 @@
 <?php
 
 /**
- * This is the model class for table "gz_repay".
+ * This is the model class for table "gz_dun".
  *
- * The followings are the available columns in table 'gz_repay':
+ * The followings are the available columns in table 'gz_dun':
  * @property integer $id
- * @property integer $paid_ID
- * @property string $payId
- * @property integer $debt
- * @property integer $paid_money
- * @property integer $docsId
+ * @property integer $uid
+ * @property integer $docId
+ * @property string $cdate
  */
-class Repay extends CActiveRecord
+class Dun extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'gz_repay';
+		return 'gz_dun';
 	}
 
 	/**
@@ -29,12 +27,11 @@ class Repay extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('paid_ID, payId, paid_money, docsId', 'required'),
-			array('docsId', 'numerical', 'integerOnly'=>true),
-			array('payId,paid_ID', 'length', 'max'=>30),
+			array('uid, docId, cdate', 'required'),
+			array('uid, docId', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, paid_ID, payId, paid_money, docsId', 'safe', 'on'=>'search'),
+			array('id, uid, docId, cdate', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,11 +52,10 @@ class Repay extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => '编号',
-			'paid_ID' => '还款人身份证号码',
-			'payId' => '缴费编号',
-			'paid_money' => '缴费金额',
-			'docsId' => '欠费文档',
+			'id' => '自增id',
+			'uid' => '催缴人员id',
+			'docId' => '文档id',
+			'cdate' => '日期',
 		);
 	}
 
@@ -82,10 +78,9 @@ class Repay extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('paid_ID',$this->paid_ID,true);
-		$criteria->compare('payId',$this->payId,true);
-		$criteria->compare('paid_money',$this->paid_money,true);
-		$criteria->compare('docsId',$this->docsId,true);
+		$criteria->compare('uid',$this->uid);
+		$criteria->compare('docId',$this->docId);
+		$criteria->compare('cdate',$this->cdate,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -96,7 +91,7 @@ class Repay extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Repay the static model class
+	 * @return Dun the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

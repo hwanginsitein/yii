@@ -37,12 +37,6 @@
 		<?php echo $form->error($model,'paid_money'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'docsId'); ?>
-		<?php echo $form->textField($model,'docsId'); ?>
-		<?php echo $form->error($model,'docsId'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
