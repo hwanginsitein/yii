@@ -20,11 +20,18 @@
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui.js"></script>
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         <style>
-            .span-19{width:auto;margin-top:60px;}
+            .span-19{width:1200px;margin-top:60px;}
             .container{width:99%;}
             #ui-datepicker-div {z-index:2500 !important;}
             #hfcjdiv{z-index:2500 !important;display: none;float: left;left: 180px;margin-top:5px;position: absolute;background-color: blue}
             #hfcjdiv div{margin-top: 5px;}
+            <?php
+                if(Yii::app()->getController()->id=='contactUsers' && $this->getAction()->getId()=='repaystatistics'){
+            ?>
+            #content{
+                margin-top: 0px;
+            }
+            <?php }?>
         </style>
         <script type="text/javascript">
             $(function(){
@@ -70,12 +77,14 @@
                             <div><a href="/admin/UploadDocs">上传欠费文档</a></div>
                             <div><a href="/admin/repay/admin">缴费管理</a></div>
                             <div><a href="/admin/ContactUsers">电话录入信息</a></div>
+                            <div><a href="/admin/contactUsers/objectionview">异议处理</a></div>
                             <div><a href="/admin/activity">活动管理</a></div>
                             <div><a href="/admin/dun">分配任务</a></div>
+                            <div><a href="/admin/contactUsers/repaystatistics">统计数据</a></div>
                             <div><a href="/admin/task">我的任务</a></div>
                         </div>
                     </li>
-                    <li><a href="/user/logout">退出 (hwanginsitein)</a></li>
+                    <li><a href="/user/logout">退出 (<?=Yii::app()->user->name?>)</a></li>
                 </ul>
             </div>
             <?php

@@ -24,10 +24,13 @@ $this->widget('zii.widgets.CDetailView', array(
         'id',
         'username',
         "phone",
-        "email",
         array(
             'name'=>'approvement',
             'value'=>$model->approvement?"是":"否"
+        ),
+        array(
+            'name'=>'role',
+            'value'=>User::getRole($model->role)
         )
     ),
 ));

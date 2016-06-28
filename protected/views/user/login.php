@@ -16,7 +16,7 @@
 					<h1>登录账号</h1>
 				</div>
 				<div id="main_box">
-					<form class="register" method='POST'>
+					<form class="register" method='POST' action="/user/login">
 						<h1>登录</h1>
 						<br />
 						

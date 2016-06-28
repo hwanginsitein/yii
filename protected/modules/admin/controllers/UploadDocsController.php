@@ -287,6 +287,7 @@ class UploadDocsController extends Controller {
                     $contact_users->name = $row[$key_debtor];
                     $contact_users->debt_money = $row[$key_debt_money];
                     $contact_users->ID_number = $row[$key_ID_number];
+					$contact_users->telephone = $row[$key_telephone];//用户的欠费号码
                     $contact_users->phone1 = $row[$key_phone1];//用户的联系号码
                     $contact_users->region = $_POST['UploadDocs']['area']?$_POST['UploadDocs']['area']:0;
                     $contact_users->account_number = $row[$key_account_number];
@@ -297,6 +298,7 @@ class UploadDocsController extends Controller {
                     $contact_users->manager = $row[$key_manager];
                     $contact_users->letterNumber = $row[$key_letterNumber];
                     $contact_users->docsId = $docsId;
+                    $contact_users->clientele = $_POST['UploadDocs']['clientele'];
                     $contact_users->save();
                     if(trim($row[$key_debtor])==""){
                         continue;

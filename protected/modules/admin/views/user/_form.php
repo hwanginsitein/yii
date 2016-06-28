@@ -26,23 +26,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-                <?php $model->password = "";?>
-		<?php echo $form->passwordField($model,'password',array('size'=>30,'maxlength'=>30)); ?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
-	<div class="row">
-		<?php echo $form->labelEx($model,'phone'); ?>
-		<?php echo $form->textField($model,'phone',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'phone'); ?>
-	</div>
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>32,'maxlength'=>32)); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'approvement'); ?>
 		<?php echo $form->checkbox($model,'approvement'); ?>
 		<?php echo $form->error($model,'approvement'); ?>

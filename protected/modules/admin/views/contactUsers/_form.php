@@ -207,6 +207,7 @@
 			<td>
 				<span class="contact size1 ifvalid <?php if($model->ifvalid==1){echo 'selected';}?>" value=1>成立</span>
 				<span class="notcontact size3 ifvalid <?php if($model->ifvalid==0 && isset($model->ifvalid)){echo 'selected';}?>" value=0>不成立</span>
+				<span>处理内容：<input type="text" name="ContactUsers[objection_handle]"></span>
 			</td>
 		</tr>
 		<tr>
@@ -238,7 +239,7 @@
 			<td><label>其他信息：</label></td>
 			<td>
 				<div>
-					<input name="ContactUsers[otherComments]" id="ContactUsers_otherComments" type="text" value="<?=$model->otherComments?>">
+					<input name="ContactUsers[otherComments]" id="ContactUsers_otherComments" type="text" value="<?=$model->otherComments?>" size=65>
 				</div>
 			</td>
 		</tr>

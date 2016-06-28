@@ -93,14 +93,9 @@ class UserController extends Controller {
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['User'])) {
-            if (strlen($_POST['User']['password']) > 16 || strlen($_POST['User']['password']) < 6) {
-                $model->addError('password', '密码长度必须在6-16以内');
-            } else {
-                $_POST['User']['password'] = md5($_POST['User']['password']);
-                $model->attributes = $_POST['User'];
-                if ($model->save())
-                    $this->redirect(array('view', 'id' => $model->id));
-            }
+            $model->attributes = $_POST['User'];
+            if ($model->save())
+                $this->redirect(array('view', 'id' => $model->id));
         }
 
         $this->render('update', array(
@@ -164,7 +159,7 @@ class UserController extends Controller {
         $model = new User;
         if (isset($_POST['User'])) {
             if($this->_innerLogin($_POST['User']['username'], $_POST['User']['password'])){
-                $this->redirect(Yii::app()->homeUrl);exit;
+                $this->redirect("/");exit;
             }
         }
         // display the login form
@@ -173,7 +168,7 @@ class UserController extends Controller {
 
     public function actionLogout() {
         Yii::app()->user->logout();
-        $this->redirect(Yii::app()->homeUrl);
+        $this->redirect("/");
     }
 
     private function _innerLogin($username, $password) {

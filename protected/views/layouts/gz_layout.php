@@ -11,6 +11,11 @@
         <link type="text/css" href="/resources/base.css" rel="stylesheet">
         <link type="text/css" href="/resources/index.css" rel="stylesheet">
         <link type="text/css" href="/resources/list.css" rel="stylesheet">
+        <?php
+            if($this->getAction()->id=='detail'){
+                echo '<link type="text/css" href="/resources/detail.css" rel="stylesheet">';
+            }
+        ?>
         <script type="text/javascript" src="/resources/jquery.js" async="true"></script>
         <script type="text/javascript" src="/resources/component.index.dynamic.js" async="true"></script>
         <script type="text/javascript" src="/resources/json2.js" async="true"></script>
@@ -136,7 +141,7 @@
                         <li class="fore1">
                             <a href="http://gz-lawfirm.com/" target="_blank">赣中首页</a>
                         </li>
-                        <li class="fore2 <?php if(Yii::app()->getController()->id=='site' && $this->getAction()->id=='search'){echo 'curr';}?>" id="nav-home">
+                        <li class="fore2 <?php if(Yii::app()->getController()->id=='site' && ($this->getAction()->id=='search' || $this->getAction()->id=='detail')){echo 'curr';}?>" id="nav-home">
                             <a href="/">催欠中心</a>
                         </li>
                         <!--<li class="fore10 " id="nav-fore3"><a href="/item.aspx">催欠项目</a></li>-->
@@ -170,9 +175,6 @@
             $("#navitems li").Jdropdown();
         });
     </script>
-    <div class="layout">
-        <div class="bread J_bread">
-        </div>
         <?=$content;?>
         <div class="layout">
             <div id="footer">

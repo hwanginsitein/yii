@@ -93,12 +93,12 @@ class UserController extends Controller {
 
     public function actionLogin() {
         if (isset($_POST['username'])){
-            if($this->_innerLogin($_POST['username'], $_POST['password'])){
-                echo json_encode(array('status'=>1));
-            }else{
-				echo json_encode(array('status'=>0,'error'=>array('账号密码错误')));
-			}
-			exit;
+          if($this->_innerLogin($_POST['username'], $_POST['password'])){
+              echo json_encode(array('status'=>1));
+          }else{
+    				echo json_encode(array('status'=>0,'error'=>array('登录失败')));
+    			}
+		      exit;
         }
         // display the login form
         $this->renderPartial('login', array('model' => $model));
@@ -106,7 +106,7 @@ class UserController extends Controller {
 
     public function actionLogout() {
         Yii::app()->user->logout();
-        $this->redirect(Yii::app()->homeUrl);
+        $this->redirect("/");
     }
 
     private function _innerLogin($username, $password) {
@@ -123,14 +123,14 @@ class UserController extends Controller {
     }
     
     private function _login($user) {
-        $identity = new UserIdentity($user->username,$user->password);
-        $duration = 86400*30;
-        Yii::app()->session['role'] = $user->role;
-        if (1) {
-            Yii::app()->user->login($identity, $duration);
-        } else {
-            Yii::app()->user->login($identity);
-        }
+      $identity = new UserIdentity($user->username,$user->password);
+      $duration = 86400*30;
+      Yii::app()->session['role'] = $user->role;
+      if (1) {
+          Yii::app()->user->login($identity, $duration);
+      } else {
+          Yii::app()->user->login($identity);
+      }
     }
 	public function actionRegister(){
 		if($_POST){
@@ -140,6 +140,13 @@ class UserController extends Controller {
 			$user->password = md5($_POST['password']);
       $user->region = $p['region'];
       $user->realname = $p['realname'];
+      $user->role = $p['role'];
+      if($p['role']==4){
+        $count = ContactUsers::model()->count('ID_number=?',array($p['ID_number']));
+        if($count){
+          $user->approvement = 1;
+        }
+      }
 			if($user->save()){
 				echo json_encode(array('status'=>1));
 			}else{

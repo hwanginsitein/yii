@@ -21,9 +21,4 @@
 	<?php echo CHtml::encode($data->approvement); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('permission')); ?>:</b>
-	<?php echo CHtml::encode($data->permission); ?>
-	<br />
-
-
 </div>

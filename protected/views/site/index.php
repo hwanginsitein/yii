@@ -14,6 +14,7 @@
         </ul>
     </div>
 </div>
+<div class="layout">
 <div class="box">
     <div class="box-main clearall">
         <div class="main">

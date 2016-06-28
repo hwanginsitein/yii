@@ -65,33 +65,39 @@ class ContactUsersController extends Controller {
     }
 
     public function actionSearch() {
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/jquery-ui.js");
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/datepicker_cn.js");
-        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/jquery-ui.css");
-        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/my.css");
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.config.js");
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/baiduEditor/ueditor.all.min.js");
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/js/layer/layer.js");
-        $model = new ContactUsers;
-
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
-        if (isset($_POST['ContactUsers'])) {
-            $model->attributes = $_POST['ContactUsers'];
-            if ($model->save()){
-                $this->redirect(array('view', 'id' => $model->id));
-            }else{
-                var_dump($model->errors);
-                exit;
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
+        if($_POST){
+            //print_r($_POST);exit;
+            $p = $_POST;
+            $condition = "";
+            foreach($p as $k=>$v){
+                if(is_string($v)){
+                    if(trim($v)){
+                        if($k != 'objection'){
+                            $condition.= $k."='".$v."' and ";
+                        }else{
+                            $condition.= "(objection_reason is not null or otherObjection is not null) and ";
+                        }
+                    }
+                }elseif(is_array($v)){
+                    $condition = "(";
+                    foreach($v as $k1=>$v1){
+                        $condition.= "{$k}='$v1' or ";
+                    }
+                    $condition = substr($condition,0,-4);
+                    $condition.= ") and ";
+                }
             }
+            $condition = substr($condition,0,-5);
+            //echo $condition;exit;
+            $contactUsers = ContactUsers::model()->findAll($condition);
+            $this->renderPartial('search1',array('contactUsers'=>$contactUsers));
+            exit;
         }
-
-        $this->render('create', array(
-            'model' => $model,
-        ));
+        $this->render('search',array());
     }
-
     /**
      * Updates a particular model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -123,7 +129,7 @@ class ContactUsersController extends Controller {
                     'phone1','phone2','phone1_status','phone2_status','sendLetter',
                     'receiveLetter','repay_money','attitude','objection_reason'
                 );
-            $array = array('联系电话状态','新的联系方式','是否发送律师函','是否收到律师函','用户态度');
+            $array = array('联系电话状态','是否发送律师函','是否收到律师函','用户态度');
             $array1 = array(
                     2=>array(0=>'无法接通',1=>'可以接通'),
                     3=>array(0=>'无法接通',1=>'可以接通'),
@@ -144,16 +150,27 @@ class ContactUsersController extends Controller {
                 }
             }
             $model->attributes = $p;
+            $model->editor = Yii::app()->user->name;
+            if($p['objection_reason'] || $p['otherObjection']){
+                $model->objection_date = date("Y-m-d");
+            }
             $proceed.= "<tr><td>".date("Y-m-d H:i:s")."</td><td>".$content."</td><td></td></tr><table>";
             $proceed.="</table>";
             if($content != '更新内容：<br>'){
                 $model->proceed = $proceed;
             }
             if ($model->save()){
-                $criteria = new CDbCriteria;
-                $criteria->condition = "id>{$model->id}";
-                $next = ContactUsers::model()->find($criteria);
-                $this->redirect(array('update', 'id' => $next->id));
+                if(isset($_GET['next'])){
+                    if($_GET['next']){
+                        $this->redirect(array('admin'));
+                    }
+                    $this->redirect(array('update', 'id' => $_GET['next']));
+                }else{
+                    $criteria = new CDbCriteria;
+                    $criteria->condition = "id>{$model->id}";
+                    $next = ContactUsers::model()->find($criteria);
+                    $this->redirect(array('update', 'id' => $next->id));
+                }
             }
         }
         $this->render('update', array(
@@ -268,7 +285,8 @@ class ContactUsersController extends Controller {
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
         Yii::import('application.components.functions',1);
-        $region = "新干县";//
+        $user = User::model()->find('username=?',array(Yii::app()->user->name));
+        $region = $user->region;//
         $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
         $repays = Repay::model()->findAllBySql($sql,array($region));
         $repayCount = count($repays);
@@ -282,7 +300,7 @@ class ContactUsersController extends Controller {
             if($_POST["region"]){
                 $region = $_POST['region'];
             }else{
-                $region = "新干县";//
+                $region = "峡江县";//
             }
             $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
             if($startdate){
@@ -316,5 +334,12 @@ class ContactUsersController extends Controller {
         $repayCount = count($repays);
         $debtsCount = Debts::model()->count("region=?",array($region));
         echo json_encode(array($repayCount,$debtsCount));exit;
+    }
+    function actionObjectionview(){
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
+        $contactUsers = ContactUsers::model()->findAll("objection_reason is not null or otherObjection is not null");
+        $this->render('objectionview',array('contactUsers'=>$contactUsers));
     }
 }

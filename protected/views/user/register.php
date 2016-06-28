@@ -16,7 +16,7 @@
 					<h1>注册账号</h1>
 				</div>
 				<div id="main_box">
-					<form class="register" method='POST'>
+					<form class="register" method='POST' action="/user/register">
 						<h1>注册</h1>
 						<br />
 						
@@ -90,13 +90,21 @@
 </html>
 <script>
 var role = false;
-var region = '<select name="region" id="region"><option value="0">请选择地区</option><option value="新干县">新干县</option><option value="安福县">安福县</option><option value="峡江县">峡江县</option><option value="永丰县">永丰县</option><option value="吉水县">吉水县</option><option value="吉州区">吉州区</option><option value="青原区">青原区</option><option value="吉安县">吉安县</option><option value="永新县">永新县</option><option value="泰和县">泰和县</option><option value="井冈山市">井冈山市</option><option value="遂川县">遂川县</option><option value="万安县">万安县</option></select>';
+var region = '<select name="region" id="region"><option value="0">请选择地区</option><option value="全市">全市</option><option value="新干县">新干县</option><option value="安福县">安福县</option><option value="峡江县">峡江县</option><option value="永丰县">永丰县</option><option value="吉水县">吉水县</option><option value="吉州区">吉州区</option><option value="青原区">青原区</option><option value="吉安县">吉安县</option><option value="永新县">永新县</option><option value="泰和县">泰和县</option><option value="井冈山市">井冈山市</option><option value="遂川县">遂川县</option><option value="万安县">万安县</option></select>';
 var region = '<div class="text"><img src="/resources/images/region.jpg" width=16 height=16 alt="手机号" />'+region+'</div>'
+var idNumber = '<div class="text" id="idNumber"><img src="/resources/images/username.png" width="16" height="16" alt="身份证号"><input type="text" name="ID_number" placeholder="身份证号"></div>';
 $('.he').click(function(){
 	role = $(this).attr('role');
-	if(role==2){
+	if(role==2 || role==5){
+		$("#region").parent().remove();
+		$("#idNumber").remove();
 		$("[type=submit]").before(region);
+	}else if(role==4){
+		$("#region").parent().remove();
+		$("#idNumber").remove();
+		$("[type=submit]").before(idNumber);
 	}else{
+		$("#idNumber").remove();
 		$("#region").parent().remove();
 	}
 	$('.he').removeClass('redborder');

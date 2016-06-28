@@ -114,4 +114,9 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+	public function actionDetail($id){
+		$contactUser = ContactUsers::model()->findByPk($id);
+		$this->render('detail',array('contactUser'=>$contactUser));
+	}
 }

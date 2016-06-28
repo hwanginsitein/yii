@@ -32,7 +32,7 @@
                                     <td><?=$contactUser->region?></td>
                                     <td><?=$contactUser->debt_money?></td>
                                     <td><?=($contactUser->status)?"通过":"待审核"?></td>
-                                    <td></td>
+                                    <td><a href="/site/detail/id/<?=$contactUser->id?>" target='_blank'>详情>></a></td>
                                 </tr>
                             <?php }?>
                         </tbody>

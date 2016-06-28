@@ -31,7 +31,7 @@
                     window.location.href="/admin/contactusers/update/id/"+id;
                     return false;
                 }
-                $("#new").html(d);
+                //$("#new").html(d);
             }
         })
         
