@@ -54,7 +54,7 @@
             <ul class="fr lh">
                 <li class="fore1" id="loginbar">                
                     您好！欢迎来到江西赣中律师事务所！
-                    <a href="/user/login">[登录]</a>&nbsp;<a href="/user/register">[免费注册]</a>
+                    <?php if(Yii::app()->user->isGuest){?><a href="/user/login">[登录]</a><?php }else{echo Yii::app()->user->name."&nbsp;<a href='/user/logout'>[退出]</a>";}?>&nbsp;<a href="/user/register">[免费注册]</a>
                 </li>
                 <li class="fore2 ld menu" id="ttbar-my" data-widget="dropdown" style="display: none;">
                     <s></s><i></i><span class="outline"></span><span class="blank"></span>

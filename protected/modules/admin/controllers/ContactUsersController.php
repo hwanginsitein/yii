@@ -287,10 +287,17 @@ class ContactUsersController extends Controller {
         Yii::import('application.components.functions',1);
         $user = User::model()->find('username=?',array(Yii::app()->user->name));
         $region = $user->region;//
-        $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
-        $repays = Repay::model()->findAllBySql($sql,array($region));
-        $repayCount = count($repays);
-        $debtsCount = Debts::model()->count("region=?",array($region));
+        if($user->role != 5){
+            $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number";
+            $repays = Repay::model()->findAllBySql($sql);
+            $repayCount = count($repays);
+            $debtsCount = Debts::model()->count();
+        }else{
+            $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?";
+            $repays = Repay::model()->findAllBySql($sql,array($region));
+            $repayCount = count($repays);
+            $debtsCount = Debts::model()->count("region=?",array($region));
+        }
         $this->render('repaystatistics',array('repayCount'=>$repayCount,'debtsCount'=>$debtsCount));
     }
     function actionGetAllRepays(){

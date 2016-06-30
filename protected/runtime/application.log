@@ -16479,3 +16479,340 @@ Stack trace:
 REQUEST_URI=/images/icon01.png
 HTTP_REFERER=http://gz_lawfirm.com/
 ---
+2016/06/28 19:34:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/favor.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/favor.pn...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favor.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/28 19:34:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/icon01.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/icon01.p...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/icon01.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/28 20:11:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/favor.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/favor.pn...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favor.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/28 20:11:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/icon01.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/icon01.p...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/icon01.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/28 20:43:42 [error] [php] Division by zero (E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\uploadDocs\export.php:33)
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CController.php(869): UploadDocsController->renderFile()
+#1 E:\phpstudy\WWW\yii\framework\web\CController.php(782): UploadDocsController->renderPartial()
+#2 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php(495): UploadDocsController->render()
+#3 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): UploadDocsController->actionExport()
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): UploadDocsController->runAction()
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): UploadDocsController->filterAccessControl()
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(265): UploadDocsController->runActionWithFilters()
+#12 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): UploadDocsController->run()
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CWebApplication->run()
+REQUEST_URI=/admin/UploadDocs/export
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\uploadDocs\export.php (33)
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\UploadDocsController.php (495)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/28 20:59:58 [error] [exception.CException] exception 'CException' with message 'Property "CButtonColumn.button" is not defined.' in E:\phpstudy\WWW\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\YiiBase.php(220): CComponent->__set('button', Array)
+#1 E:\phpstudy\WWW\yii\framework\zii\widgets\grid\CGridView.php(388): YiiBase::createComponent(Array, Object(CGridView))
+#2 E:\phpstudy\WWW\yii\framework\zii\widgets\grid\CGridView.php(359): CGridView->initColumns()
+#3 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(147): CGridView->init()
+#4 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\views\repay\admin.php(64): CBaseController->widget('zii.widgets.gri...', Array)
+#6 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#7 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#9 E:\phpstudy\WWW\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#10 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\RepayController.php(121): CController->render('admin', Array)
+#11 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): RepayController->actionIndex()
+#12 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('')
+#21 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/repay')
+#22 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/admin/repay/6
+HTTP_REFERER=http://gz_lawfirm.com/admin/repay/admin
+---
+2016/06/28 21:02:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin/repay/6
+---
+2016/06/28 21:20:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/contactUser/update/id/1".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactUs...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/contactUser/update/id/1
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactUsers/objectionview
+---
+2016/06/28 21:20:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/contactUser/update/id/1".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactUs...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/contactUser/update/id/1
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactUsers/objectionview
+---
+2016/06/28 21:27:36 [warning] [application] Failed to set unsafe attribute "repassword" of "User".
+in E:\phpstudy\WWW\yii\lawfirm\protected\controllers\UserController.php (139)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/28 22:18:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/contactUser/update/id/1".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactUs...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/contactUser/update/id/1
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactUsers/objectionview
+---
+2016/06/28 22:24:24 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?.
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\ContactUsersController.php (291)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/28 22:24:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select * from gz_repay as r left join gz_debts as d on payId=debt_number where region=?' in E:\phpstudy\WWW\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1586): CDbCommand->queryAll()
+#2 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\ContactUsersController.php(291): CActiveRecord->findAllBySql('select * from g...', Array)
+#3 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): ContactUsersController->actionRepaystatistics()
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('repaystatistics')
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactUs...')
+#14 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/admin/contactUsers/repaystatistics
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactUsers/update/id/1
+---
+2016/06/28 22:26:47 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT COUNT(*) FROM `gz_debts` `t` WHERE region=?.
+in E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\ContactUsersController.php (298)
+in E:\phpstudy\WWW\yii\lawfirm\index.php (13)
+2016/06/28 22:26:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT COUNT(*) FROM `gz_debts` `t` WHERE region=?' in E:\phpstudy\WWW\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 E:\phpstudy\WWW\yii\framework\db\ar\CActiveRecord.php(1606): CDbCommand->queryScalar()
+#2 E:\phpstudy\WWW\yii\lawfirm\protected\modules\admin\controllers\ContactUsersController.php(298): CActiveRecord->count('region=?', Array)
+#3 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): ContactUsersController->actionRepaystatistics()
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 E:\phpstudy\WWW\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 E:\phpstudy\WWW\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 E:\phpstudy\WWW\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 E:\phpstudy\WWW\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 E:\phpstudy\WWW\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('repaystatistics')
+#13 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/contactUs...')
+#14 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/admin/contactUsers/repaystatistics
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactUsers/update/id/1
+---
+2016/06/29 19:56:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/favor.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/favor.pn...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favor.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/29 19:56:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/icon01.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/icon01.p...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/icon01.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/29 23:14:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin
+---
+2016/06/29 23:15:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "resources/logo.gif".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('resources/logo....')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/resources/logo.gif
+HTTP_REFERER=http://gz_lawfirm.com/admin
+---
+2016/06/29 23:16:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "resources/logo.gif".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('resources/logo....')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/resources/logo.gif
+---
+2016/06/29 23:16:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "resources/logo.gif".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('resources/logo....')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/resources/logo.gif
+---
+2016/06/29 23:19:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/icon01.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/icon01.p...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/icon01.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/29 23:19:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "resources/logo.gif".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('resources/logo....')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/resources/logo.gif
+---
+2016/06/30 06:52:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/favor.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/favor.pn...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favor.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/30 06:52:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/icon01.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/icon01.p...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/icon01.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/30 06:53:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/admin/contactUsers/update/id/1
+---
+2016/06/30 07:21:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/icon01.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/icon01.p...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/icon01.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/30 07:21:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/favor.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/favor.pn...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favor.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/30 19:57:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/favor.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/favor.pn...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favor.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/30 19:57:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/icon01.png".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/icon01.p...')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/icon01.png
+HTTP_REFERER=http://gz_lawfirm.com/resources/base.css
+---
+2016/06/30 19:58:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in E:\phpstudy\WWW\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://gz_lawfirm.com/user/login
+---
+2016/06/30 20:10:42 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.isGuese" is not defined.' in E:\phpstudy\WWW\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\phpstudy\WWW\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('isGuese')
+#1 E:\phpstudy\WWW\yii\lawfirm\protected\views\layouts\gz_layout.php(57): CWebUser->__get('isGuese')
+#2 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(126): require('E:\\phpstudy\\WWW...')
+#3 E:\phpstudy\WWW\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\phpstudy\\WWW...', Array, true)
+#4 E:\phpstudy\WWW\yii\framework\web\CController.php(784): CBaseController->renderFile('E:\\phpstudy\\WWW...', Array, true)
+#5 E:\phpstudy\WWW\yii\lawfirm\protected\controllers\SiteController.php(33): CController->render('index', Array)
+#6 E:\phpstudy\WWW\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#7 E:\phpstudy\WWW\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 E:\phpstudy\WWW\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 E:\phpstudy\WWW\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(282): CController->run('')
+#11 E:\phpstudy\WWW\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#12 E:\phpstudy\WWW\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 E:\phpstudy\WWW\yii\lawfirm\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/
+---

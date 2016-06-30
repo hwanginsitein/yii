@@ -6,6 +6,8 @@
 		<tr>
 			<td>异议提出时间</td>
 			<td>欠费用户姓名</td>
+			<td>地区</td>
+			<td>营业部</td>
 			<td>异议理由</td>
 			<td>异议处理内容</td>
 			<td>用户是否缴费</td>
@@ -18,6 +20,8 @@
 			<tr>
 				<td><?=$contactUser->objection_date?></td>
 				<td><?=$contactUser->name?></td>
+				<td><?=$contactUser->region?></td>
+				<td><?=$contactUser->office?></td>
 				<td><?=$contactUser->objection_reason?$contactUser->objection_reason:$contactUser->otherObjection?></td>
 				<td><?=$contactUser->objection_handle?></td>
 				<td>
@@ -33,7 +37,7 @@
 				</td>
 				<td><?=$contactUser->objection_handle?$contactUser->objection_handle:""?></td>
 				<td>
-					<a href='/admin/contactUser/update/id/<?=$contactUser->id?>' target='_blank'>
+					<a href='/admin/contactUsers/update/id/<?=$contactUser->id?>' target='_blank'>
 						<img src="/assets/436ba2b7/gridview/update.png">
 					</a>
 				</td>

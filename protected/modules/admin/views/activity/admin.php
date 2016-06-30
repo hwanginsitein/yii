@@ -43,6 +43,9 @@ $('.search-form form').submit(function(){
 		'title',
 		array(
 			'class'=>'CButtonColumn',
+            'viewButtonOptions'=>array('title'=>'查看'),  
+            'updateButtonOptions'=>array('title'=>'修改'),
+        	'deleteButtonOptions'=>array('title'=>'删除'),
 		),
 	),
 )); ?>

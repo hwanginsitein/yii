@@ -57,7 +57,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
         'type',
         array(
             'class' => 'CButtonColumn',
-            'template' => '{view}'
+            'template' => '{view}',
+            'viewButtonOptions'=>array('title'=>'查看'),  
+            'updateButtonOptions'=>array('title'=>'修改'),
+            'deleteButtonOptions'=>array('title'=>'删除'),
         ),
     ),
 ));

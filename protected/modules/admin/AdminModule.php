@@ -20,6 +20,9 @@ class AdminModule extends CWebModule
 		if(Yii::app()->user->isGuest){
 			exit;
 		}
+		return true;
+		$conName = $controller->id;
+		$actName = $action->id;
 		$role = array('1','2','3','5');//律师 电信工作人员 律师助手 催缴人员
 		$roleControllerAction = array(
 			1=>array(
@@ -39,6 +42,24 @@ class AdminModule extends CWebModule
 				'task'=>'index',
 			),
 		);
+		$allPower = array(
+			'contactUsers'=>'repaystatistics,index,objectionview','repay'=>'','activity'=>'',
+		);
+		$allPower = array(
+			'contactUsers,repaystatistics',
+			'contactUsers,index',
+			'contactUsers,objectionview',
+			'repay,index',
+			'activity,index',
+			'activity,create',
+			'activity,update',
+			'activity,view',
+			'activity,delete',
+			'task,index',
+		);
+		if(!in_array("{$conName},{$actName}",$allPower)){
+			return true;
+		}
 		$myRole = Yii::app()->session['role'];
 		$roleArr = $roleControllerAction[$myRole];
 		$actionAccess = $roleArr[$controller->id];

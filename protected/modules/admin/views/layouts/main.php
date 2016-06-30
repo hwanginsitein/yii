@@ -64,7 +64,7 @@
     <body>
         <div class="container" id="page">
             <div id="header">
-                <div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+                <div id="logo"><img src="/resources/logo.png" style="width:200px"></div>
             </div><!-- header -->
             <div id="mainmenu">
                 <ul>

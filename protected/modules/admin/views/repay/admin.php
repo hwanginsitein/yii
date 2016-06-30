@@ -53,7 +53,15 @@ $('.search-form form').submit(function(){
         ),
 		array(
 			'class'=>'CButtonColumn',
-            'template' => '{view}'
+            'template' => '{view}',
+            'viewButtonOptions'=>array('title'=>'查看'),  
+            'updateButtonOptions'=>array('title'=>'修改'),
+        	'deleteButtonOptions'=>array('title'=>'删除'),
+            'buttons' => array(
+        		'view' => array(
+        			'url'=> '"/admin/contactUsers/update/id/".Repay::getContactUser($data->payId,$data->docsId)'
+				)
+			)
 		),
 	),
 )); ?>

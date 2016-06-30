@@ -139,6 +139,7 @@ $('form').submit(function(){
 			console.log(d);
 			obj = JSON.parse(d);
 			if(obj.status == 1){
+				layer.msg('注册成功，请联系管理员开通该账户',{time:10000,icon:1});
 				window.location.href = '/user/login';
 			}else{
 				var errors = obj.error;

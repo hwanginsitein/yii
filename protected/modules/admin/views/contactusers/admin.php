@@ -51,6 +51,7 @@ $('.search-form form').submit(function(){
 		//'phone1_status',
 		'phone2',
 		'account_number',
+		'office',
 		/*
 		'phone2_status',
 		'phone3',
@@ -71,7 +72,10 @@ $('.search-form form').submit(function(){
 		*/
 		array(
 			'class'=>'CButtonColumn',
-			'template'=>'{update}'
+			'template'=>'{update}',
+            'viewButtonOptions'=>array('title'=>'查看'),  
+            'updateButtonOptions'=>array('title'=>'修改'),
+        	'deleteButtonOptions'=>array('title'=>'删除'),
 		),
 	),
 )); ?>

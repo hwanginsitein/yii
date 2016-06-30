@@ -51,6 +51,9 @@ $('.search-form form').submit(function(){
             ),
             array(
                 'class'=>'CButtonColumn',
+	            'viewButtonOptions'=>array('title'=>'查看'),  
+	            'updateButtonOptions'=>array('title'=>'修改'),
+	        	'deleteButtonOptions'=>array('title'=>'删除'),
             ),
 	),
 )); ?>

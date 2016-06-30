@@ -102,4 +102,8 @@ class Repay extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	public static function getContactUser($account_number,$docsId){
+		$contactUser = ContactUsers::model()->find('account_number=? and docsId=?',array($account_number,$docsId));
+		return $contactUser->id;
+	}
 }
