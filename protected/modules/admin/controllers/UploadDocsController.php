@@ -322,7 +322,8 @@ class UploadDocsController extends Controller {
                 }
                 $this->redirect(array('view', 'id' => $model->id));
             }else{
-                echo 1;exit;
+				var_dump($model->errors);
+                exit;
             }
         }
 

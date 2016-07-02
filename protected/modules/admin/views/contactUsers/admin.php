@@ -31,13 +31,6 @@ $('.search-form form').submit(function(){
 请用 (<, <=, >, >=, <> or =) 对字段进行数据搜索.
 </p>
 
-<?php echo CHtml::link('高级搜索','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'contact-users-grid',
 	'dataProvider'=>$model->search(),
@@ -48,28 +41,9 @@ $('.search-form form').submit(function(){
 		'debt_money',
 		'ID_number',
 		'phone1',
-		//'phone1_status',
 		'phone2',
 		'account_number',
 		'office',
-		/*
-		'phone2_status',
-		'phone3',
-		'region',
-		'address',
-		'status',
-		'sendLetter',
-		'sent_date',
-		'receiveLetter',
-		'ifrepay',
-		'repay_date',
-		'repay_money',
-		'attitude',
-		'objection_reason',
-		'ifvalid',
-		'otherComments',
-		'proceed',
-		*/
 		array(
 			'class'=>'CButtonColumn',
 			'template'=>'{update}',

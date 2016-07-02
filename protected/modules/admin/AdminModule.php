@@ -18,6 +18,7 @@ class AdminModule extends CWebModule
 	{
 		Yii::app()->clientScript->registerCoreScript('jquery');
 		if(Yii::app()->user->isGuest){
+			header("location:/user/login");
 			exit;
 		}
 		return true;

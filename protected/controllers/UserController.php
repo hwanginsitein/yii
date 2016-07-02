@@ -126,6 +126,7 @@ class UserController extends Controller {
       $identity = new UserIdentity($user->username,$user->password);
       $duration = 86400*30;
       Yii::app()->session['role'] = $user->role;
+      Yii::app()->session['region'] = $user->region;
       if (1) {
           Yii::app()->user->login($identity, $duration);
       } else {

@@ -13,13 +13,14 @@
 	</thead>
 	<?php 
 		if($uploadDocs){
-		foreach($uploadDocs as $uploadDoc){ 
+		foreach($uploadDocs as $uploadDoc){
+			if($uploadDoc->area != Yii::app()->session['region'] && Yii::app()->session['region'] != "全市"){continue;}
 	?>
 	<tr>
 		<td><?=$uploadDoc->area?></td>
 		<td><?=$uploadDoc->clientele?></td>
 		<td><?=$uploadDoc->upload_name?></td>
-		<td><?=ContactUser::model()->count("docsId=?",array($uploadDoc->id));?></td>
+		<td><?=ContactUsers::model()->count("docsId=?",array($uploadDoc->id));?></td>
 		<td><?=Repay::model()->count("docsId=?",array($uploadDoc->id));?></td>
 		<td><?=$uploadDoc->comments?></td>
 	</tr>
@@ -41,7 +42,8 @@
 	</thead>
 	<?php 
 		if($uploadDocs){
-		foreach($uploadDocs as $uploadDoc){ 
+		foreach($uploadDocs as $uploadDoc){
+			if($uploadDoc->area != Yii::app()->session['region'] && Yii::app()->session['region'] != "全市"){continue;}
 	?>
 	<tr>
 		<td><?=$uploadDoc->time?></td>

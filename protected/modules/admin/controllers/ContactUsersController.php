@@ -287,7 +287,7 @@ class ContactUsersController extends Controller {
         Yii::import('application.components.functions',1);
         $user = User::model()->find('username=?',array(Yii::app()->user->name));
         $region = $user->region;//
-        if($user->role != 5){
+        if($user->role != 5 || $region == '全市'){
             $sql = "select * from gz_repay as r left join gz_debts as d on payId=debt_number";
             $repays = Repay::model()->findAllBySql($sql);
             $repayCount = count($repays);
@@ -346,7 +346,13 @@ class ContactUsersController extends Controller {
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/jquery.dataTables.js");
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . "/../DataTables/media/js/dataTables.bootstrap.js");
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/../DataTables/media/css/jquery.dataTables.css");
-        $contactUsers = ContactUsers::model()->findAll("objection_reason is not null or otherObjection is not null");
+        $condition = "objection_reason is not null or otherObjection is not null and region=?";
+		$user = User::model()->find('username=?',array(Yii::app()->user->name));
+		$region = $user->region;
+        if($region == '全市' || Yii::app()->session['role'] == 1 || Yii::app()->session['role'] == 3){
+            $condition = "objection_reason is not null or otherObjection is not null";
+        }
+        $contactUsers = ContactUsers::model()->findAll($condition,array($region));
         $this->render('objectionview',array('contactUsers'=>$contactUsers));
     }
 }
